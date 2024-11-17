@@ -32,6 +32,7 @@ function updateCurrentSection() {
         currentSection = newCurrentSection;
         console.log(`La sección actual es: ${currentSection}`);
         updateStylesForSection(currentSection);
+        loadAssociatedScript(currentSection);
     }
 }
 
@@ -117,10 +118,29 @@ function navigateToComponent(section) {
             behavior: 'smooth'
         });
     }
+
+    // Cargar el script asociado, si existe
+    loadAssociatedScript(section);
+}
+
+function loadAssociatedScript(sectionId) {
+    const link = document.querySelector(`nav a[data-section="${sectionId}.html"]`);
+    if (link && link.hasAttribute('data-js')) {
+        const scriptPath = link.getAttribute('data-js');
+
+        if (!document.querySelector(`script[src="${scriptPath}"]`)) {
+            const script = document.createElement('script');
+            script.src = scriptPath;
+            script.type = 'text/javascript';
+            script.defer = true;
+
+            document.head.appendChild(script);
+            console.log(`Script cargado para la sección: ${sectionId}`);
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-
     loadComponent('header', 'components/header.html', false);
     loadComponent('footer', 'components/footer.html', false);
 
