@@ -465,7 +465,7 @@ header > h1 {
 
 #projects > header {
     background-image: 
-        linear-gradient(to top, rgba(12, 109, 255, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
+        linear-gradient(to top, rgba(113, 255, 12, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
         url('../assets/images/bg-projects4.png');
     background-size: cover;
     background-position: center;
