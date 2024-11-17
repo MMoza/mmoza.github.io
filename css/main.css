@@ -462,3 +462,16 @@ header > h1 {
         margin: 10px;
     }
 }
+
+#projects > header {
+    background-image: 
+        linear-gradient(to top, rgba(12, 109, 255, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
+        url('../assets/images/bg-projects4.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    background-clip: padding-box;
+    position: relative;
+    height: 500px;
+}
