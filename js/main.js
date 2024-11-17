@@ -97,6 +97,7 @@ function observeSections() {
 
         if (focusedSection) {
             console.log(`La sección en foco es: ${focusedSection}`);
+            loadAssociatedScript(focusedSection)
         }
     }, {
         threshold: 0.1
