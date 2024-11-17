@@ -153,23 +153,23 @@ document.addEventListener('DOMContentLoaded', () => {
         'components/contact.html',
     ];
 
-    let loadedSections = 0;
-
-    sections.forEach((path, index) => {
+    const loadSectionPromises = sections.map((path, index) => {
         const id = `section-${index}`;
-        loadComponent('main-content', path, true, () => {
-            loadedSections++;
-
-            if (loadedSections === sections.length) {
-                observeSections();
-                updateStylesForSection(currentSection);
-
-                const homeLink = document.querySelector('[data-section="home.html"]');
-                if (homeLink) {
-                    homeLink.click();
-                }
-            }
+        return new Promise((resolve) => {
+            loadComponent('main-content', path, true, () => {
+                resolve();
+            });
         });
+    });
+
+    Promise.all(loadSectionPromises).then(() => {
+        observeSections();
+        updateStylesForSection(currentSection);
+
+        const homeLink = document.querySelector('[data-section="home.html"]');
+        if (homeLink) {
+            homeLink.click();
+        }
     });
 
     document.addEventListener('click', (event) => {
