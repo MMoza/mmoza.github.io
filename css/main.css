@@ -598,8 +598,20 @@ header > h1 {
 
 #about {
     background-image: 
-        linear-gradient(to top, rgba(255, 20, 12, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
+        linear-gradient(to top, rgba(206, 255, 12, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
         url('../assets/images/bg-code.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-clip: padding-box;
+    position: relative;
+    height: 100px;
+}
+
+#contact {
+    background-image: 
+        linear-gradient(to top, rgba(64, 70, 73, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
+        url('../assets/images/contact_whit_me.png');
     background-size: cover;
     background-position: center;
     overflow: hidden;
