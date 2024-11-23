@@ -413,13 +413,20 @@ header > h1 {
 .card-work {
     background-color: var(--color-bg);
     border-radius: 10px;
-    margin: 5px;
+    height: 100%;
     opacity: 0.5;
-    transition: all 0.3 ease;
+    transition: all 0.3s ease;
+
+    & span {
+        opacity: 0.1;
+    }
+
+    & span > .dataRange {
+        opacity: 0;
+    }
 }
 
 .card-mplan {
-    height: 800px;
     width: 400px;
     opacity: 0.75;
     grid-area: mplan;
@@ -430,10 +437,17 @@ header > h1 {
 }
 
 .card-work:hover {
-    scale: 1.03;
+    transform: scale(1.03);
     opacity: 1;
     cursor: pointer;
-    transition: all 0.3 ease;
+
+    & span {
+        opacity: 1;
+    }
+
+    & span > .dataRange{
+        opacity: 1;
+    }
 }
 
 .card-mplan img {
