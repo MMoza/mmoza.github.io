@@ -595,3 +595,15 @@ header > h1 {
     position: relative;
     height: 100px;
 }
+
+#about {
+    background-image: 
+        linear-gradient(to top, rgba(255, 20, 12, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
+        url('../assets/images/bg-code.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-clip: padding-box;
+    position: relative;
+    height: 100px;
+}
