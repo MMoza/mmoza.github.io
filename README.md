@@ -31,13 +31,15 @@ Here are some of the technologies and tools I use to build modern, scalable appl
 - **JavaScript (ES6+)** 🧑‍💻
 - **Vue.js** 🌱
 - **Tailwind CSS** 🦄
-- **SASS** 🧶
+- **Bootstrap** 🚀
+- **Webpack** 🚧
 
 ### Backend 🌐:
 - **PHP** 🧰
 - **Laravel** 🏗️
 - **MySQL** 🗄️
 - **RESTful APIs** 🔌
+- **API Documentation** (using Swagger) 📚
 
 ### DevOps 🛠️:
 - **Git** ⛓️
@@ -50,6 +52,8 @@ Here are some of the technologies and tools I use to build modern, scalable appl
 - **Figma** 🎨
 - **Trello** 📝
 - **Slack** 💬
+- **Notion** 📚
+- **Google Drive** 📁
 
 
 I believe that **design is key** to an exceptional user experience. In my portfolio, you'll find projects where I focused on:
@@ -62,7 +66,7 @@ I believe that **design is key** to an exceptional user experience. In my portfo
 
 Check out my resume to get a detailed overview of my professional experience, education, and skills:
 
-- **[Download Resume](#)** 📄
+- **[Download Resume](./assets/files/CV_FS_EN_221124_2.pdf)** 📄
 
 ## 📢 Contact Me
 
