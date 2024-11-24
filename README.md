@@ -14,7 +14,7 @@ With a passion for both solving complex backend challenges and enhancing user in
 - **Frontend**: JavaScript, React, Vue (learning and improving!) ??
 - **Goal**: Continuously improve my skills and contribute to building innovative, full-stack solutions ??
 
-- **Name**: Miguel Ángel Moza Barquilla ?
+- **Name**: Miguel ï¿½ngel Moza Barquilla ?
 - **Role**: Full Stack Web Developer ??
 - **Email**: [miguelangelmozabarquilla@gmail.com] ??
 - **Location**: [Spain] ??
