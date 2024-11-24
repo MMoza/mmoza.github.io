@@ -66,7 +66,7 @@ I believe that **design is key** to an exceptional user experience. In my portfo
 
 Check out my resume to get a detailed overview of my professional experience, education, and skills:
 
-- **[Download Resume](./assets/files/CV_FS_EN_221124_2s.pdf)** 📄
+- **[Download Resume](./assets/files/CV_FS_EN_221124_2.pdf)** 📄
 
 ## 📢 Contact Me
 
