@@ -1,0 +1,206 @@
+[
+    {
+        "name": "Portafolio Web",
+        "short_description": "Este es un portafolio web que muestra mis habilidades y proyectos",
+        "url": "https://example.com/portafolio",
+        "github_link": "https://github.com/usuario/portafolio-web",
+        "image_path": "images/projects/portafolio.png",
+        "tags": ["portafolio", "web", "desarrollo"],
+        "tecnoligies": ["HTML", "CSS", "JavaScript"],
+        "pages": [
+            {
+                "title": "Objetivos Iniciales",
+                "description": "Documentar y mostrar mis proyectos profesionales y personales.",
+                "image_path": "images/pages/objetivos.png",
+                "markdown_path": "markdown/objetivos.md"
+            },
+            {
+                "title": "Tecnologías utilizadas",
+                "description": "Se utilizó una combinación de tecnologías frontend y diseño responsivo.",
+                "image_path": "images/pages/tecnologias.png",
+                "markdown_path": "markdown/tecnologias.md"
+            },
+            {
+                "title": "Diseño",
+                "description": "El diseño fue inspirado en portafolios modernos minimalistas.",
+                "image_path": "images/pages/diseno.png",
+                "markdown_path": "markdown/diseno.md"
+            }
+        ]
+    },
+    {
+        "name": "Gestor de Tareas",
+        "short_description": "Una aplicación para gestionar tareas de manera eficiente.",
+        "url": "https://example.com/gestor-tareas",
+        "github_link": "https://github.com/usuario/gestor-tareas",
+        "image_path": "images/projects/gestor-tareas.png",
+        "tags": ["gestión", "tareas", "productividad"],
+        "tecnoligies": ["Vue.js", "Laravel", "MySQL"],
+        "pages": [
+            {
+                "title": "Objetivos Iniciales",
+                "description": "Simplificar la gestión diaria de tareas para usuarios individuales.",
+                "image_path": "images/pages/objetivos-tareas.png",
+                "markdown_path": "markdown/objetivos-tareas.md"
+            },
+            {
+                "title": "Tecnologías utilizadas",
+                "description": "Se integraron frameworks modernos para mejorar la experiencia de usuario.",
+                "image_path": "images/pages/tecnologias-tareas.png",
+                "markdown_path": "markdown/tecnologias-tareas.md"
+            },
+            {
+                "title": "Diseño",
+                "description": "El diseño se centra en la simplicidad y la organización visual.",
+                "image_path": "images/pages/diseno-tareas.png",
+                "markdown_path": "markdown/diseno-tareas.md"
+            }
+        ]
+    },
+    {
+        "name": "E-commerce Simple",
+        "short_description": "Un prototipo de tienda en línea para productos digitales.",
+        "url": "https://example.com/ecommerce-simple",
+        "github_link": "https://github.com/usuario/ecommerce-simple",
+        "image_path": "images/projects/ecommerce-simple.png",
+        "tags": ["e-commerce", "tienda", "web"],
+        "tecnoligies": ["React", "Node.js", "MongoDB"],
+        "pages": [
+            {
+                "title": "Objetivos Iniciales",
+                "description": "Crear una plataforma para vender productos de manera sencilla.",
+                "image_path": "images/pages/objetivos-ecommerce.png",
+                "markdown_path": "markdown/objetivos-ecommerce.md"
+            },
+            {
+                "title": "Tecnologías utilizadas",
+                "description": "Se utilizó un stack MERN para el desarrollo de este proyecto.",
+                "image_path": "images/pages/tecnologias-ecommerce.png",
+                "markdown_path": "markdown/tecnologias-ecommerce.md"
+            },
+            {
+                "title": "Diseño",
+                "description": "El diseño fue inspirado en marketplaces modernos.",
+                "image_path": "images/pages/diseno-ecommerce.png",
+                "markdown_path": "markdown/diseno-ecommerce.md"
+            }
+        ]
+    },
+    {
+        "name": "Blog Personal",
+        "short_description": "Un espacio para compartir artículos sobre desarrollo web.",
+        "url": "https://example.com/blog-personal",
+        "github_link": "https://github.com/usuario/blog-personal",
+        "image_path": "images/projects/blog-personal.png",
+        "tags": ["blog", "personal", "contenido"],
+        "tecnoligies": ["WordPress", "PHP", "Bootstrap"],
+        "pages": [
+            {
+                "title": "Objetivos Iniciales",
+                "description": "Crear una plataforma para compartir conocimientos y experiencias.",
+                "image_path": "images/pages/objetivos-blog.png",
+                "markdown_path": "markdown/objetivos-blog.md"
+            },
+            {
+                "title": "Tecnologías utilizadas",
+                "description": "WordPress personalizado con PHP y Bootstrap para el diseño.",
+                "image_path": "images/pages/tecnologias-blog.png",
+                "markdown_path": "markdown/tecnologias-blog.md"
+            },
+            {
+                "title": "Diseño",
+                "description": "Un diseño limpio y centrado en la legibilidad de los artículos.",
+                "image_path": "images/pages/diseno-blog.png",
+                "markdown_path": "markdown/diseno-blog.md"
+            }
+        ]
+    },
+    {
+        "name": "Sistema de Reservas",
+        "short_description": "Sistema para gestionar reservas de espacios y eventos.",
+        "url": "https://example.com/sistema-reservas",
+        "github_link": "https://github.com/usuario/sistema-reservas",
+        "image_path": "images/projects/sistema-reservas.png",
+        "tags": ["reservas", "sistema", "eventos"],
+        "tecnoligies": ["Django", "PostgreSQL", "Bootstrap"],
+        "pages": [
+            {
+                "title": "Objetivos Iniciales",
+                "description": "Ofrecer una solución para administrar reservas de forma eficiente.",
+                "image_path": "images/pages/objetivos-reservas.png",
+                "markdown_path": "markdown/objetivos-reservas.md"
+            },
+            {
+                "title": "Tecnologías utilizadas",
+                "description": "Django para el backend y Bootstrap para el diseño responsivo.",
+                "image_path": "images/pages/tecnologias-reservas.png",
+                "markdown_path": "markdown/tecnologias-reservas.md"
+            },
+            {
+                "title": "Diseño",
+                "description": "Diseño enfocado en la funcionalidad y la facilidad de uso.",
+                "image_path": "images/pages/diseno-reservas.png",
+                "markdown_path": "markdown/diseno-reservas.md"
+            }
+        ]
+    },
+    {
+        "name": "Dashboard de Análisis",
+        "short_description": "Aplicación para visualizar datos de manera interactiva.",
+        "url": "https://example.com/dashboard-analisis",
+        "github_link": "https://github.com/usuario/dashboard-analisis",
+        "image_path": "images/projects/dashboard-analisis.png",
+        "tags": ["dashboard", "visualización", "análisis"],
+        "tecnoligies": ["Angular", "TypeScript", "Chart.js"],
+        "pages": [
+            {
+                "title": "Objetivos Iniciales",
+                "description": "Facilitar la comprensión de datos a través de gráficos interactivos.",
+                "image_path": "images/pages/objetivos-dashboard.png",
+                "markdown_path": "markdown/objetivos-dashboard.md"
+            },
+            {
+                "title": "Tecnologías utilizadas",
+                "description": "Frameworks modernos para la visualización y manipulación de datos.",
+                "image_path": "images/pages/tecnologias-dashboard.png",
+                "markdown_path": "markdown/tecnologias-dashboard.md"
+            },
+            {
+                "title": "Diseño",
+                "description": "Diseño enfocado en la claridad visual y el análisis de datos.",
+                "image_path": "images/pages/diseno-dashboard.png",
+                "markdown_path": "markdown/diseno-dashboard.md"
+            }
+        ]
+    },
+    {
+        "name": "Pedidos Online",
+        "short_description": "Aplicación Web de pedidos Online realizada como proyecto del CFGS DAW",
+        "url": "https://example.com/pedidos",
+        "github_link": "https://github.com/usuario/pedidos",
+        "image_path": "images/pedidos.jpg",
+        "tags": [
+            "pedidos",
+            "online",
+            "proyecto"
+        ],
+        "tecnoligies": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "PHP",
+            "MySQL"
+        ],
+        "images": [
+            "image1.jpg",
+            "image2.jpg",
+            "image3.jpg"
+        ],
+        "pages": [
+            "home",
+            "about",
+            "contact"    
+        ]
+    }
+]
+
