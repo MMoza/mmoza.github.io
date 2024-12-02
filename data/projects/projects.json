@@ -71,7 +71,7 @@
     },
     {
         "name": "SocialMadro",
-        "short_description": "Aplicación web creada un año después de entregar el proyecto final de DAW, como ejercicio para evaluar mi progreso y mejorar la versión original con un código más sólido y optimizado.",
+        "short_description": "Aplicación web creada un año después de entregar el proyecto final de DAW, como ejercicio para evaluar mi progreso y crear una aplicación web más robusta y completa con los conocimientos adquiridos durante este año.",
         "url": "https://example.com/pedidos",
         "github_link": "https://github.com/usuario/pedidos",
         "image_path": "assets/projects/09-SocialMadro/images/socialmadro.png",
