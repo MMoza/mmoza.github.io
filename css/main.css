@@ -602,10 +602,15 @@ header > h1 {
     align-items: center;
     margin-bottom: 0px;
     margin-top: 20px;
+    padding: 0 15px !important;
 
     & span {
         margin: 10px;
     }
+}
+
+.work-skills-list p {
+    margin-bottom: 15px; /* Añadir margen entre los párrafos */
 }
 
 #projects {
