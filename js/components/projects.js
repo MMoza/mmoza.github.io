@@ -38,7 +38,7 @@ fetch('data/projects/projects.json')
     })
     .catch((error) => {
         console.error('Error al cargar los proyectos:', error);
-        projects.innerHTML = '<p>No se pudieron cargar los proyectos. Inténtalo más tarde.</p>';
+        projects.innerHTML = '<p>No se pudieron cargar los proyectos. Intï¿½ntalo mï¿½s tarde.</p>';
     });
 
     loadMoreButton.addEventListener('click', () => {
@@ -49,9 +49,9 @@ fetch('data/projects/projects.json')
             projectsGrid.style.maxHeight = '650px'; // Establecer valor inicial fijo
             void projectsGrid.offsetHeight; // Forzar reflujo
 
-            projectsGrid.style.maxHeight = `${projectsGrid.scrollHeight}px`; // Ahora cambiar al valor dinámico
+            projectsGrid.style.maxHeight = `${projectsGrid.scrollHeight}px`; // Ahora cambiar al valor dinï¿½mico
         } else {
-            loadMoreButton.textContent = 'Ver más';
+            loadMoreButton.textContent = 'Ver mÃ¡s';
             projectsGrid.style.maxHeight = '650px';
             
             const yOffset = -80;
