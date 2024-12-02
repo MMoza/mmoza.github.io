@@ -594,17 +594,16 @@ header > h1 {
     }
 }
 
-#projects{
+#projects {
     background-image: 
         linear-gradient(to top, rgba(113, 255, 12, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
         url('../assets/images/bg-projects4.png');
     background-size: cover;
     background-position: center;
     border-radius: 20px 20px 20px 20px;
-    overflow: hidden;
+    overflow: visible;
     background-clip: padding-box;
     position: relative;
-    height: 500px;
 }
 
 #skills {
@@ -641,4 +640,205 @@ header > h1 {
     background-clip: padding-box;
     position: relative;
     height: 100px;
+}
+
+#load-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: var(--color-divider);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#load-more-btn:hover {
+    background-color: var(--color-accent-primary);
+    color: var(--color-bg);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    overflow: hidden;
+    max-height: 650px;
+    transition: max-height 0.8s ease-in-out;
+    position: relative;
+}
+
+.projects-grid.expanded {
+    max-height: none;
+    cursor: pointer;
+}
+
+.project-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background-color: var(--color-divider);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Transición suave para la imagen */
+}
+
+.project-card:hover img {
+    transform: scale(1.1); /* Hace un zoom a la imagen al pasar por encima de la tarjeta */
+}
+
+.project-card h3 {
+    margin: 15px 0 10px;
+    font-size: 1.2em;
+    color: var(--color-accent-secondary);
+}
+
+.project-card p {
+    padding: 0 10px 15px;
+    font-size: 0.9em;
+    color: var(--color-accent-primary);
+    flex-grow: 1;
+    margin-top: 30px;
+}
+
+.technologies {
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.project-links {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--color-bg);
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: max-content;
+    gap: 8px;
+    border-radius: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover .project-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+.project-links a {
+    text-decoration: none;
+    font-size: 24px;
+    color: inherit;
+}
+
+.project-links a:hover {
+    scale: 1.1;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+
+.technologies .tech-icon:hover {
+    color: #007bff;
+}
+
+.html {
+    color: #f1220f; /* Amarillo */
+}
+
+.css {
+    color: #6c5ce7; /* Púrpura */
+}
+
+.js {
+    color: #f7dc6f; /* Amarillo claro */
+}
+
+.php {
+    color: #4c78af; /* Verde */
+}
+
+.react {
+    color: #61dafb; /* Azul React */
+}
+
+.node {
+    color: #8CC84B; /* Verde Node.js */
+}
+
+.mysql {
+    color: #4479A1; /* Azul MySQL */
+}
+
+.mongodb {
+    color: #47A248; /* Verde MongoDB */
+}
+
+.git {
+    color: #F1502F; /* Naranja Git */
+}
+
+.laravel {
+    color: #f10f0f; /* Rojo Laravel */
+}
+
+.vue {
+    color: #42b883; /* Verde Vue.js */
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
 }

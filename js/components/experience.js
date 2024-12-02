@@ -1,16 +1,14 @@
 const section = document.querySelector("#experience");
 
-const observer = new MutationObserver((mutationsList) => {
-    mutationsList.forEach(mutation => {
-        if (mutation.type === "attributes" && mutation.attributeName === "class") {
-            if (section.classList.contains("highlight")) {
-                miFuncion();
-            }
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            miFuncion();
         }
     });
-});
+}, { threshold: 0.5 });
 
-observer.observe(section, { attributes: true });
+observer.observe(section);
 
 function miFuncion() {
     const devExperience = document.querySelector("#experiencie-years-dev .number-section");

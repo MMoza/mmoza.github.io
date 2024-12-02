@@ -1,12 +1,17 @@
 [
+    
     {
-        "name": "Portafolio Web",
-        "short_description": "Este es un portafolio web que muestra mis habilidades y proyectos",
-        "url": "https://example.com/portafolio",
-        "github_link": "https://github.com/usuario/portafolio-web",
-        "image_path": "images/projects/portafolio.png",
+        "name": "Prueba Técnica PHP & JS",
+        "short_description": "Prueba técnica realizada como parte del proceso de selección para acceder a mi primer empleo como desarrollador. En esta prueba, tuve la oportunidad de demostrar mis conocimientos y habilidades en desarrollo web, resolviendo desafíos técnicos que pusieron a prueba mi capacidad para aplicar soluciones eficientes y efectivas en un entorno profesional.",
+        "github_link": "https://github.com/MMoza/pruebaAjax",
+        "image_path": "assets/projects/02-PruebaTecnica/images/api-rest.png",
         "tags": ["portafolio", "web", "desarrollo"],
-        "tecnoligies": ["HTML", "CSS", "JavaScript"],
+        "tecnoligies": [
+            "<i class='fab fa-html5 html' title='HTML'></i>",
+            "<i class='fab fa-js js' title='JavaScript'></i>",
+            "<i class='fab fa-php php' title='PHP'></i>",
+            "<i class='fa-solid fa-database mysql' title='MySQL'></i>"
+        ],
         "pages": [
             {
                 "title": "Objetivos Iniciales",
@@ -29,13 +34,20 @@
         ]
     },
     {
-        "name": "Gestor de Tareas",
-        "short_description": "Una aplicación para gestionar tareas de manera eficiente.",
+        "name": "Pedidos Online",
+        "short_description": "Proyecto final realizado en el CFGS de Desarrollo de Aplicaciones Web, donde apliqué los conocimientos adquiridos para desarrollar una solución completa, desde el diseño del frontend hasta la implementación del backend",
         "url": "https://example.com/gestor-tareas",
-        "github_link": "https://github.com/usuario/gestor-tareas",
-        "image_path": "images/projects/gestor-tareas.png",
+        "github_link": "https://github.com/MMoza/pedidosOnline",
+        "image_path": "assets/projects/03-PedidosOnline/images/pedidosOnline.png",
+        "documentation_link": "https://drive.google.com/file/d/1xhUMiUhsBB5NfVW0tRe189idF16aKvWT/view?usp=drive_link",
         "tags": ["gestión", "tareas", "productividad"],
-        "tecnoligies": ["Vue.js", "Laravel", "MySQL"],
+        "tecnoligies": [
+            "<i class='fab fa-html5 html' title='HTML'></i>",
+            "<i class='fab fa-js js' title='JavaScript'></i>",
+            "<i class='fab fa-css3-alt css' title='CSS'></i>",
+            "<i class='fab fa-php php' title='PHP'></i>",
+            "<i class='fa-solid fa-database mysql' title='MySQL'></i>"
+        ],
         "pages": [
             {
                 "title": "Objetivos Iniciales",
@@ -58,13 +70,84 @@
         ]
     },
     {
-        "name": "E-commerce Simple",
-        "short_description": "Un prototipo de tienda en línea para productos digitales.",
+        "name": "SocialMadro",
+        "short_description": "Aplicación web creada un año después de entregar el proyecto final de DAW, como ejercicio para evaluar mi progreso y mejorar la versión original con un código más sólido y optimizado.",
+        "url": "https://example.com/pedidos",
+        "github_link": "https://github.com/usuario/pedidos",
+        "image_path": "assets/projects/09-SocialMadro/images/socialmadro.png",
+        "tags": [
+            "pedidos",
+            "online",
+            "proyecto"
+        ],
+        "tecnoligies": [
+            "<i class='fab fa-php php' title='PHP'></i>",
+            "<i class='fab fa-laravel laravel' title='Laravel'></i>",
+            "<i class='fa-solid fa-database mysql' title='MySQL'></i>",
+            "<i class='fab fa-vuejs vue' title='Vue.js'></i>",
+            "<i class='fab fa-js js' title='JavaScript'></i>",
+            "<i class='fab fa-html5 html' title='HTML'></i>",
+            "<i class='fab fa-css3-alt css' title='CSS'></i>",
+            "<i class='fa-brands fa-github github' title='Github'></i>"
+        ],
+        "images": [
+            "image1.jpg",
+            "image2.jpg",
+            "image3.jpg"
+        ],
+        "pages": [
+            "home",
+            "about",
+            "contact"    
+        ]
+    },
+    {
+        "name": "Portafolio Web",
+        "short_description": "Este portafolio refleja mis habilidades, experiencia y proyectos más destacados en desarrollo web. A través de él, comparto las tecnologías que manejo, los retos que he superado y las soluciones que he creado, mostrando mi capacidad para desarrollar experiencias digitales de calidad y adaptadas a las necesidades de los usuarios.",
+        "url": "https://mmoza.github.io",
+        "github_link": "https://github.com/MMoza/mmoza.github.io",
+        "image_path": "assets/projects/01-Portafolio/images/portafolio-img.png",
+        "tags": ["portafolio", "web", "desarrollo"],
+        "tecnoligies": [
+            "<div class='tooltip-container'><i class='fab fa-html5 html'></i><span class='tooltip'>HTML</span></div>",
+            "<div class='tooltip-container'><i class='fab fa-css3-alt css'></i><span class='tooltip'>CSS</span></div>",
+            "<div class='tooltip-container'><i class='fab fa-js js'></i><span class='tooltip'>JavaScript</span></div>",
+            "<div class='tooltip-container'><i class='fa-brands fa-github github'></i><span class='tooltip'>Github</span></div>"
+        ],
+        "pages": [
+            {
+                "title": "Objetivos Iniciales",
+                "description": "Documentar y mostrar mis proyectos profesionales y personales.",
+                "image_path": "images/pages/objetivos.png",
+                "markdown_path": "markdown/objetivos.md"
+            },
+            {
+                "title": "Tecnologías utilizadas",
+                "description": "Se utilizó una combinación de tecnologías frontend y diseño responsivo.",
+                "image_path": "images/pages/tecnologias.png",
+                "markdown_path": "markdown/tecnologias.md"
+            },
+            {
+                "title": "Diseño",
+                "description": "El diseño fue inspirado en portafolios modernos minimalistas.",
+                "image_path": "images/pages/diseno.png",
+                "markdown_path": "markdown/diseno.md"
+            }
+        ]
+    },
+    {
+        "name": "TinderSwipe",
+        "short_description": "Proyecto realizado siguiendo los tutoriales de @midudev, que recrea el popular efecto de deslizamiento (Swipe) de Tinder. A través de este proyecto, aprendí a implementar interacciones dinámicas y animaciones en la interfaz de usuario, mejorando mis habilidades en JavaScript y desarrollo frontend.",
         "url": "https://example.com/ecommerce-simple",
         "github_link": "https://github.com/usuario/ecommerce-simple",
-        "image_path": "images/projects/ecommerce-simple.png",
+        "image_path": "assets/projects/04-TinderSwipe/images/tinderSwipe.webp",
         "tags": ["e-commerce", "tienda", "web"],
-        "tecnoligies": ["React", "Node.js", "MongoDB"],
+        "tecnoligies": [
+            "<i class='fab fa-html5 html' title='HTML'></i>",
+            "<i class='fab fa-css3-alt css' title='CSS'></i>",
+            "<i class='fab fa-js js' title='JavaScript'></i>",
+            "<i class='fa-brands fa-github github' title='Github'></i>"
+        ],
         "pages": [
             {
                 "title": "Objetivos Iniciales",
@@ -87,13 +170,18 @@
         ]
     },
     {
-        "name": "Blog Personal",
-        "short_description": "Un espacio para compartir artículos sobre desarrollo web.",
+        "name": "Arkanoid",
+        "short_description": "Proyecto de un juego estilo Arkanoid realizado siguiendo los tutoriales de @midudev, utilizando el elemento canvas para dibujar y crear la dinámica del juego. A través de este proyecto, profundicé en el manejo de eventos, la manipulación del DOM y las animaciones en JavaScript, desarrollando una experiencia interactiva y divertida.",
         "url": "https://example.com/blog-personal",
         "github_link": "https://github.com/usuario/blog-personal",
-        "image_path": "images/projects/blog-personal.png",
+        "image_path": "assets/projects/05-Arkanoid/images/arkanoid.webp",
         "tags": ["blog", "personal", "contenido"],
-        "tecnoligies": ["WordPress", "PHP", "Bootstrap"],
+        "tecnoligies": [
+            "<i class='fab fa-html5 html' title='HTML'></i>",
+            "<i class='fab fa-css3-alt css' title='CSS'></i>",
+            "<i class='fab fa-js js' title='JavaScript'></i>",
+            "<i class='fa-brands fa-github github' title='Github'></i>"
+        ],
         "pages": [
             {
                 "title": "Objetivos Iniciales",
@@ -116,13 +204,18 @@
         ]
     },
     {
-        "name": "Sistema de Reservas",
-        "short_description": "Sistema para gestionar reservas de espacios y eventos.",
+        "name": "Monkey Type",
+        "short_description": "Un reto de mecanografía inspirado en los tutoriales de @midudev. Utiliza tecnologías como HTML, CSS y JavaScript para crear una experiencia interactiva y desafiante, enfocada en mejorar la velocidad y precisión al escribir. A través de este proyecto, profundicé en el manejo de eventos del teclado, el control dinámico del DOM y el diseño responsivo, desarrollando una interfaz atractiva y funcional.",
         "url": "https://example.com/sistema-reservas",
         "github_link": "https://github.com/usuario/sistema-reservas",
-        "image_path": "images/projects/sistema-reservas.png",
+        "image_path": "assets/projects/06-MonkeyType/images/monkeyType.webp",
         "tags": ["reservas", "sistema", "eventos"],
-        "tecnoligies": ["Django", "PostgreSQL", "Bootstrap"],
+        "tecnoligies": [
+            "<i class='fab fa-html5 html' title='HTML'></i>",
+            "<i class='fab fa-css3-alt css' title='CSS'></i>",
+            "<i class='fab fa-js js' title='JavaScript'></i>",
+            "<i class='fa-brands fa-github github' title='Github'></i>"
+        ],
         "pages": [
             {
                 "title": "Objetivos Iniciales",
@@ -145,13 +238,18 @@
         ]
     },
     {
-        "name": "Dashboard de Análisis",
+        "name": "Excel JS",
         "short_description": "Aplicación para visualizar datos de manera interactiva.",
         "url": "https://example.com/dashboard-analisis",
         "github_link": "https://github.com/usuario/dashboard-analisis",
-        "image_path": "images/projects/dashboard-analisis.png",
+        "image_path": "assets/projects/07-ExcelJs/images/excel-js.webp",
         "tags": ["dashboard", "visualización", "análisis"],
-        "tecnoligies": ["Angular", "TypeScript", "Chart.js"],
+        "tecnoligies": [
+            "<i class='fab fa-html5 html' title='HTML'></i>",
+            "<i class='fab fa-css3-alt css' title='CSS'></i>",
+            "<i class='fab fa-js js' title='JavaScript'></i>",
+            "<i class='fa-brands fa-github github' title='Github'></i>"
+        ],
         "pages": [
             {
                 "title": "Objetivos Iniciales",
@@ -174,32 +272,37 @@
         ]
     },
     {
-        "name": "Pedidos Online",
-        "short_description": "Aplicación Web de pedidos Online realizada como proyecto del CFGS DAW",
-        "url": "https://example.com/pedidos",
-        "github_link": "https://github.com/usuario/pedidos",
-        "image_path": "images/pedidos.jpg",
-        "tags": [
-            "pedidos",
-            "online",
-            "proyecto"
-        ],
+        "name": "Paint JS",
+        "short_description": "Aplicación para visualizar datos de manera interactiva.",
+        "url": "https://example.com/dashboard-analisis",
+        "github_link": "https://github.com/usuario/dashboard-analisis",
+        "image_path": "assets/projects/08-PaintJs/images/paintJs.webp",
+        "tags": ["dashboard", "visualización", "análisis"],
         "tecnoligies": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "PHP",
-            "MySQL"
-        ],
-        "images": [
-            "image1.jpg",
-            "image2.jpg",
-            "image3.jpg"
+            "<i class='fab fa-html5 html' title='HTML'></i>",
+            "<i class='fab fa-css3-alt css' title='CSS'></i>",
+            "<i class='fab fa-js js' title='JavaScript'></i>",
+            "<i class='fa-brands fa-github github' title='Github'></i>"
         ],
         "pages": [
-            "home",
-            "about",
-            "contact"    
+            {
+                "title": "Objetivos Iniciales",
+                "description": "Facilitar la comprensión de datos a través de gráficos interactivos.",
+                "image_path": "images/pages/objetivos-dashboard.png",
+                "markdown_path": "markdown/objetivos-dashboard.md"
+            },
+            {
+                "title": "Tecnologías utilizadas",
+                "description": "Frameworks modernos para la visualización y manipulación de datos.",
+                "image_path": "images/pages/tecnologias-dashboard.png",
+                "markdown_path": "markdown/tecnologias-dashboard.md"
+            },
+            {
+                "title": "Diseño",
+                "description": "Diseño enfocado en la claridad visual y el análisis de datos.",
+                "image_path": "images/pages/diseno-dashboard.png",
+                "markdown_path": "markdown/diseno-dashboard.md"
+            }
         ]
     }
 ]

@@ -154,12 +154,17 @@ document.addEventListener('DOMContentLoaded', () => {
         'components/contact.html',
     ];
 
+    loadAssociatedScript('projects');
+
+    const mainContent = document.getElementById('main-content');
+
     const loadSectionPromises = sections.map((path, index) => {
         const id = `section-${index}`;
+        
+        mainContent.insertAdjacentHTML('beforeend', `<div id="${id}" class="section"></div>`);
+
         return new Promise((resolve) => {
-            loadComponent('main-content', path, true, () => {
-                resolve();
-            });
+            loadComponent(id, path, false, () => resolve());
         });
     });
 
