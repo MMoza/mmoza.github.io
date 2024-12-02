@@ -1,4 +1,6 @@
-const section = document.querySelector('#projects');
+const projects = document.querySelector('#projects');
+const loadMoreButton = document.querySelector('#load-more-btn');
+const projectsGrid = document.querySelector('#projects-grid');
 
 fetch('data/projects/projects.json')
     .then((response) => response.json())
@@ -32,9 +34,34 @@ fetch('data/projects/projects.json')
                 </div>
             `;
         }).join('');
-        section.innerHTML = projectCards;
+        projectsGrid.innerHTML = projectCards;
     })
     .catch((error) => {
         console.error('Error al cargar los proyectos:', error);
-        section.innerHTML = '<p>No se pudieron cargar los proyectos. Inténtalo más tarde.</p>';
+        projects.innerHTML = '<p>No se pudieron cargar los proyectos. Inténtalo más tarde.</p>';
     });
+
+    loadMoreButton.addEventListener('click', () => {
+        projectsGrid.classList.toggle('expanded');
+        
+        if (projectsGrid.classList.contains('expanded')) {
+            loadMoreButton.textContent = 'Ver menos';
+            projectsGrid.style.maxHeight = '650px'; // Establecer valor inicial fijo
+            void projectsGrid.offsetHeight; // Forzar reflujo
+
+            projectsGrid.style.maxHeight = `${projectsGrid.scrollHeight}px`; // Ahora cambiar al valor dinámico
+        } else {
+            loadMoreButton.textContent = 'Ver más';
+            projectsGrid.style.maxHeight = '650px';
+            
+            const yOffset = -80;
+            const yPosition = projects.getBoundingClientRect().top + window.scrollY + yOffset;
+
+        window.scrollTo({
+            top: yPosition,
+            behavior: 'smooth'
+        });
+
+        }
+    });
+    
