@@ -427,11 +427,26 @@ header > h1 {
         "mplan caf caf"
         "mplan taxi cruce"
         "mplan soterrana cruce";
-    grid-template-columns: 400px 1fr 1fr; /* Ajusta la primera columna al ancho de la mplan */
-    grid-template-rows: auto auto auto; /* Ajusta las filas automáticamente */
-    gap: 10px; /* Espaciado entre celdas */
+    grid-template-columns: 400px 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
 }
 
+@media (max-width: 1080px) {
+    #bento-grid {
+        display: block;
+    }
+
+    .card-work {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card-mplan img, .card-caf img, .card-soterrana img, .card-cruce img {
+        width: 100%;
+        height: auto;
+    }
+}
 
 .card-work {
     background-color: var(--color-bg);
@@ -450,7 +465,6 @@ header > h1 {
 }
 
 .card-mplan {
-    width: 400px;
     opacity: 0.75;
     grid-area: mplan;
 
@@ -524,6 +538,7 @@ header > h1 {
 
 .img-containner-cruce > img {
     height: 200px;
+    width: 200px;
 }
 
 .img-containner-cruce {
@@ -588,10 +603,15 @@ header > h1 {
     align-items: center;
     margin-bottom: 0px;
     margin-top: 20px;
+    padding: 0 15px !important;
 
     & span {
         margin: 10px;
     }
+}
+
+.work-skills-list p {
+    margin-bottom: 15px; /* Añadir margen entre los párrafos */
 }
 
 #projects {
