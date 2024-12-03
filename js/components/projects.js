@@ -11,8 +11,13 @@ fetch('data/projects/projects.json')
                     <img src="${project.image_path}" alt="${project.name}">
                     <h3>${project.name}</h3>
                     <p>${project.short_description}</p>
+                    ${project.show_tags ? `
+                        <div class="tags">
+                            ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
                     <div class="technologies">
-                        ${project.tecnoligies.join('')} <!-- Sin espacio ni coma entre los iconos -->
+                        ${project.tecnoligies.join('')}
                     </div>
                     <div class="project-links">
                         ${project.url ? `
@@ -46,13 +51,13 @@ fetch('data/projects/projects.json')
         
         if (projectsGrid.classList.contains('expanded')) {
             loadMoreButton.textContent = 'Ver menos';
-            projectsGrid.style.maxHeight = '650px'; // Establecer valor inicial fijo
-            void projectsGrid.offsetHeight; // Forzar reflujo
+            projectsGrid.style.maxHeight = '625px';
+            void projectsGrid.offsetHeight;
 
-            projectsGrid.style.maxHeight = `${projectsGrid.scrollHeight}px`; // Ahora cambiar al valor din�mico
+            projectsGrid.style.maxHeight = `${projectsGrid.scrollHeight}px`;
         } else {
             loadMoreButton.textContent = 'Ver más';
-            projectsGrid.style.maxHeight = '650px';
+            projectsGrid.style.maxHeight = '625px';
             
             const yOffset = -80;
             const yPosition = projects.getBoundingClientRect().top + window.scrollY + yOffset;

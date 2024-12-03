@@ -628,7 +628,7 @@ header > h1 {
 
 #skills {
     background-image: 
-        linear-gradient(to top, rgba(255, 20, 12, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
+        linear-gradient(to top, rgba(29, 29, 29, 0.200) 10%, rgba(50, 50, 50, 0.818) 35%, rgba(48, 48, 48, 0.818) 65%, rgba(29, 29, 29, 0.200) 90%), 
         url('../assets/images/soft-hard-skills.png');
     background-size: cover;
     background-position: center;
@@ -636,6 +636,9 @@ header > h1 {
     background-clip: padding-box;
     position: relative;
     height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #about {
@@ -690,7 +693,7 @@ header > h1 {
     gap: 20px;
     padding: 20px;
     overflow: hidden;
-    max-height: 650px;
+    max-height: 625px;
     transition: max-height 0.8s ease-in-out;
     position: relative;
 }
@@ -737,11 +740,10 @@ header > h1 {
 }
 
 .project-card p {
-    padding: 0 10px 15px;
+    padding: 10px 20px 0px;
     font-size: 0.9em;
     color: var(--color-accent-primary);
     flex-grow: 1;
-    margin-top: 30px;
 }
 
 .technologies {
@@ -780,6 +782,7 @@ header > h1 {
 
 .project-links a {
     text-decoration: none;
+    cursor: pointer;
     font-size: 24px;
     color: inherit;
 }
@@ -861,4 +864,22 @@ header > h1 {
     opacity: 0;
     transition: opacity 0.3s;
     font-size: 14px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 10px;
+}
+
+.tag {
+    background-color: var(--color-bg);
+    color: white;
+    border-radius: 15px;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 12px;
+    margin: 0; /* Evita el margen duplicado con gap */
+    flex: 1 1 auto; /* Permite que se ajusten dinámicamente */
 }
