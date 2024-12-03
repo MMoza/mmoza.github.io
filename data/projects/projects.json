@@ -1,5 +1,41 @@
 [
-    
+    {
+        "name": "SoapCurlClient",
+        "short_description": "SoapCurlClient es una clase PHP diseñada para realizar solicitudes SOAP utilizando cURL. Permite enviar y recibir solicitudes SOAP, convertir las respuestas a formato JSON, y gestionar logs tanto en formato XML como JSON, facilitando la integración con servicios SOAP.",
+        "github_link": "https://github.com/MMoza/SoapCurlClient",
+        "image_path": "assets/projects/10-SoapCurlClient/images/soap-img.jpeg",
+        "tags": ["SOAP", "PHP", "cURL", "Web Services", "Desarrollo"],
+        "tecnoligies": [
+            "<i class='fab fa-php php' title='PHP'></i>",
+            "<i class='fa-solid fa-code' title='cURL'></i>"
+        ],
+        "pages": [
+            {
+                "title": "Introducción",
+                "description": "SoapCurlClient es una clase PHP que facilita la interacción con servicios SOAP mediante cURL, proporcionando una forma sencilla de hacer peticiones y recibir respuestas en formato JSON.",
+                "image_path": "images/pages/introduccion.png",
+                "markdown_path": "markdown/introduccion.md"
+            },
+            {
+                "title": "Instalación",
+                "description": "Para comenzar a usar SoapCurlClient, clona el repositorio y sigue los pasos para la instalación y configuración del proyecto. Es necesario tener PHP 8.0 o superior y la extensión cURL habilitada.",
+                "image_path": "images/pages/instalacion.png",
+                "markdown_path": "markdown/instalacion.md"
+            },
+            {
+                "title": "Uso",
+                "description": "Aprende a utilizar la clase SoapCurlClient para realizar solicitudes SOAP, incluyendo la configuración y manejo de opciones cURL personalizadas.",
+                "image_path": "images/pages/uso.png",
+                "markdown_path": "markdown/uso.md"
+            },
+            {
+                "title": "Ejemplos",
+                "description": "Ejemplos prácticos de cómo realizar solicitudes SOAP y gestionar respuestas en formato JSON con SoapCurlClient.",
+                "image_path": "images/pages/ejemplos.png",
+                "markdown_path": "markdown/ejemplos.md"
+            }
+        ]
+    },
     {
         "name": "Prueba Técnica PHP & JS",
         "short_description": "Prueba técnica realizada como parte del proceso de selección para acceder a mi primer empleo como desarrollador. En esta prueba, tuve la oportunidad de demostrar mis conocimientos y habilidades en desarrollo web, resolviendo desafíos técnicos que pusieron a prueba mi capacidad para aplicar soluciones eficientes y efectivas en un entorno profesional.",
