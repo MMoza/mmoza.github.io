@@ -1,13 +1,14 @@
 [
     {
         "name": "SoapCurlClient",
-        "short_description": "SoapCurlClient es una clase PHP diseñada para realizar solicitudes SOAP utilizando cURL. Permite enviar y recibir solicitudes SOAP, convertir las respuestas a formato JSON, y gestionar logs tanto en formato XML como JSON, facilitando la integración con servicios SOAP.",
+        "short_description": "SoapCurlClient es una clase PHP para realizar solicitudes SOAP usando cURL. Permite enviar y recibir solicitudes SOAP, convertir respuestas a JSON y gestionar logs en XML y JSON, facilitando la integración con servicios SOAP.",
         "github_link": "https://github.com/MMoza/SoapCurlClient",
         "image_path": "assets/projects/10-SoapCurlClient/images/soap-img.jpeg",
         "tags": ["SOAP", "PHP", "cURL", "Web Services", "Desarrollo"],
+        "show_tags": false,
         "tecnoligies": [
             "<i class='fab fa-php php' title='PHP'></i>",
-            "<i class='fa-solid fa-code' title='cURL'></i>"
+            "<i class='fa-brands fa-github github' title='Github'></i>"
         ],
         "pages": [
             {
@@ -42,11 +43,13 @@
         "github_link": "https://github.com/MMoza/pruebaAjax",
         "image_path": "assets/projects/02-PruebaTecnica/images/api-rest.png",
         "tags": ["portafolio", "web", "desarrollo"],
+        "show_tags": false,
         "tecnoligies": [
             "<i class='fab fa-html5 html' title='HTML'></i>",
             "<i class='fab fa-js js' title='JavaScript'></i>",
             "<i class='fab fa-php php' title='PHP'></i>",
-            "<i class='fa-solid fa-database mysql' title='MySQL'></i>"
+            "<i class='fa-solid fa-database mysql' title='MySQL'></i>",
+            "<i class='fa-brands fa-github github' title='Github'></i>"
         ],
         "pages": [
             {
@@ -72,17 +75,18 @@
     {
         "name": "Pedidos Online",
         "short_description": "Proyecto final realizado en el CFGS de Desarrollo de Aplicaciones Web, donde apliqué los conocimientos adquiridos para desarrollar una solución completa, desde el diseño del frontend hasta la implementación del backend",
-        "url": "https://example.com/gestor-tareas",
         "github_link": "https://github.com/MMoza/pedidosOnline",
         "image_path": "assets/projects/03-PedidosOnline/images/pedidosOnline.png",
         "documentation_link": "https://drive.google.com/file/d/1xhUMiUhsBB5NfVW0tRe189idF16aKvWT/view?usp=drive_link",
         "tags": ["gestión", "tareas", "productividad"],
+        "show_tags": false,
         "tecnoligies": [
             "<i class='fab fa-html5 html' title='HTML'></i>",
             "<i class='fab fa-js js' title='JavaScript'></i>",
             "<i class='fab fa-css3-alt css' title='CSS'></i>",
             "<i class='fab fa-php php' title='PHP'></i>",
-            "<i class='fa-solid fa-database mysql' title='MySQL'></i>"
+            "<i class='fa-solid fa-database mysql' title='MySQL'></i>",
+            "<i class='fa-brands fa-github github' title='Github'></i>"
         ],
         "pages": [
             {
@@ -108,7 +112,6 @@
     {
         "name": "SocialMadro",
         "short_description": "Aplicación web creada un año después de entregar el proyecto final de DAW, como ejercicio para evaluar mi progreso y crear una aplicación web más robusta y completa con los conocimientos adquiridos durante este año.",
-        "url": "https://example.com/pedidos",
         "github_link": "https://github.com/usuario/pedidos",
         "image_path": "assets/projects/09-SocialMadro/images/socialmadro.png",
         "tags": [
@@ -116,6 +119,7 @@
             "online",
             "proyecto"
         ],
+        "show_tags": false,
         "tecnoligies": [
             "<i class='fab fa-php php' title='PHP'></i>",
             "<i class='fab fa-laravel laravel' title='Laravel'></i>",
@@ -144,6 +148,7 @@
         "github_link": "https://github.com/MMoza/mmoza.github.io",
         "image_path": "assets/projects/01-Portafolio/images/portafolio-img.png",
         "tags": ["portafolio", "web", "desarrollo"],
+        "show_tags": false,
         "tecnoligies": [
             "<div class='tooltip-container'><i class='fab fa-html5 html'></i><span class='tooltip'>HTML</span></div>",
             "<div class='tooltip-container'><i class='fab fa-css3-alt css'></i><span class='tooltip'>CSS</span></div>",
@@ -173,11 +178,12 @@
     },
     {
         "name": "TinderSwipe",
-        "short_description": "Proyecto realizado siguiendo los tutoriales de @midudev, que recrea el popular efecto de deslizamiento (Swipe) de Tinder. A través de este proyecto, aprendí a implementar interacciones dinámicas y animaciones en la interfaz de usuario, mejorando mis habilidades en JavaScript y desarrollo frontend.",
-        "url": "https://example.com/ecommerce-simple",
+        "short_description": "<p>Aunque me especializo en backend, disfruto aprovechando mi tiempo libre para explorar y aprender técnicas útiles de frontend.</p><p> Proyecto realizado siguiendo el tutorial de <a href='https://www.javascript100.dev/' target='_blank'>100-JS de @midudev</a>. Recrea el efecto de deslizamiento de Tinder. </p>",
+        "url": "https://www.javascript100.dev/",
         "github_link": "https://github.com/usuario/ecommerce-simple",
         "image_path": "assets/projects/04-TinderSwipe/images/tinderSwipe.webp",
-        "tags": ["e-commerce", "tienda", "web"],
+        "tags": ["DOM", "Animaciones", "Eventos", "Transitions CSS"],
+        "show_tags": true,
         "tecnoligies": [
             "<i class='fab fa-html5 html' title='HTML'></i>",
             "<i class='fab fa-css3-alt css' title='CSS'></i>",
@@ -207,11 +213,12 @@
     },
     {
         "name": "Arkanoid",
-        "short_description": "Proyecto de un juego estilo Arkanoid realizado siguiendo los tutoriales de @midudev, utilizando el elemento canvas para dibujar y crear la dinámica del juego. A través de este proyecto, profundicé en el manejo de eventos, la manipulación del DOM y las animaciones en JavaScript, desarrollando una experiencia interactiva y divertida.",
+        "short_description": "Proyecto realizado siguiendo el tutorial de <a href='https://www.javascript100.dev/' target='_blank'>100-JS de @midudev</a>. <p> Recreación del mítico juego de Arkanoid utilizando Vanilla JS sin dependencias. </p>",
         "url": "https://example.com/blog-personal",
         "github_link": "https://github.com/usuario/blog-personal",
         "image_path": "assets/projects/05-Arkanoid/images/arkanoid.webp",
-        "tags": ["blog", "personal", "contenido"],
+        "tags": ["Canvas", "RequestAnimationFrame", "Sprites", "Eventos"],
+        "show_tags": true,
         "tecnoligies": [
             "<i class='fab fa-html5 html' title='HTML'></i>",
             "<i class='fab fa-css3-alt css' title='CSS'></i>",
@@ -221,7 +228,7 @@
         "pages": [
             {
                 "title": "Objetivos Iniciales",
-                "description": "Crear una plataforma para compartir conocimientos y experiencias.",
+                "description": "<p> Recreación del mítico juego de Arkanoid utilizando Vanilla JS sin dependencias. </p>Crear una plataforma para compartir conocimientos y experiencias.",
                 "image_path": "images/pages/objetivos-blog.png",
                 "markdown_path": "markdown/objetivos-blog.md"
             },
@@ -241,11 +248,12 @@
     },
     {
         "name": "Monkey Type",
-        "short_description": "Un reto de mecanografía inspirado en los tutoriales de @midudev. Utiliza tecnologías como HTML, CSS y JavaScript para crear una experiencia interactiva y desafiante, enfocada en mejorar la velocidad y precisión al escribir. A través de este proyecto, profundicé en el manejo de eventos del teclado, el control dinámico del DOM y el diseño responsivo, desarrollando una interfaz atractiva y funcional.",
+        "short_description": "Excelente opción para aprender lógica de progaramación gracias a @midudev. Proyecto realizado siguiendo el tutorial de <a href='https://www.javascript100.dev/' target='_blank'>100-JS de @midudev</a>.",
         "url": "https://example.com/sistema-reservas",
         "github_link": "https://github.com/usuario/sistema-reservas",
         "image_path": "assets/projects/06-MonkeyType/images/monkeyType.webp",
-        "tags": ["reservas", "sistema", "eventos"],
+        "tags": ["DOM", "Clases CSS", "Selectores CSS", "Eventos de teclado"],
+        "show_tags": true,
         "tecnoligies": [
             "<i class='fab fa-html5 html' title='HTML'></i>",
             "<i class='fab fa-css3-alt css' title='CSS'></i>",
