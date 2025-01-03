@@ -213,7 +213,7 @@
     },
     {
         "name": "Arkanoid",
-        "short_description": "Proyecto realizado siguiendo el tutorial de <a href='https://www.javascript100.dev/' target='_blank'>100-JS de @midudev</a>. <p> Recreación del mítico juego de Arkanoid utilizando Vanilla JS sin dependencias. </p>",
+        "short_description": "Recreación del mítico juego de Arkanoid utilizando Vanilla JS sin dependencias.<p>Proyecto realizado siguiendo el tutorial de <a href='https://www.javascript100.dev/' target='_blank'>100-JS de @midudev</a>.</p>",
         "url": "https://example.com/blog-personal",
         "github_link": "https://github.com/usuario/blog-personal",
         "image_path": "assets/projects/05-Arkanoid/images/arkanoid.webp",
@@ -248,7 +248,7 @@
     },
     {
         "name": "Monkey Type",
-        "short_description": "Excelente opción para aprender lógica de progaramación gracias a @midudev. Proyecto realizado siguiendo el tutorial de <a href='https://www.javascript100.dev/' target='_blank'>100-JS de @midudev</a>.",
+        "short_description": "Excelente opción para aprender lógica de progaramación gracias a @midudev.<p>Proyecto realizado siguiendo el tutorial de <a href='https://www.javascript100.dev/' target='_blank'>100-JS de @midudev</a>.</p>",
         "url": "https://example.com/sistema-reservas",
         "github_link": "https://github.com/usuario/sistema-reservas",
         "image_path": "assets/projects/06-MonkeyType/images/monkeyType.webp",
@@ -283,11 +283,12 @@
     },
     {
         "name": "Excel JS",
-        "short_description": "Aplicación para visualizar datos de manera interactiva.",
+        "short_description": "Simulación de una Hoja de cálculo utilizando JS sin dependencias.<p>Proyecto realizado siguiendo el tutorial de <a href='https://www.javascript100.dev/' target='_blank'>100-JS de @midudev</a>.</p>",
         "url": "https://example.com/dashboard-analisis",
         "github_link": "https://github.com/usuario/dashboard-analisis",
         "image_path": "assets/projects/07-ExcelJs/images/excel-js.webp",
-        "tags": ["dashboard", "visualización", "análisis"],
+        "tags": ["Tablas", "Eval", "Eventos de Input: focus y blur"],
+        "show_tags": true,
         "tecnoligies": [
             "<i class='fab fa-html5 html' title='HTML'></i>",
             "<i class='fab fa-css3-alt css' title='CSS'></i>",
@@ -317,11 +318,12 @@
     },
     {
         "name": "Paint JS",
-        "short_description": "Aplicación para visualizar datos de manera interactiva.",
+        "short_description": "Recreación de la aplicación Paint de Windows utilizando JS.<p>Proyecto realizado siguiendo el tutorial de <a href='https://www.javascript100.dev/' target='_blank'>100-JS de @midudev</a>.</p>",
         "url": "https://example.com/dashboard-analisis",
         "github_link": "https://github.com/usuario/dashboard-analisis",
         "image_path": "assets/projects/08-PaintJs/images/paintJs.webp",
-        "tags": ["dashboard", "visualización", "análisis"],
+        "tags": ["Grid Area", "Canvas", "EyeDropper API"],
+        "show_tags": true,
         "tecnoligies": [
             "<i class='fab fa-html5 html' title='HTML'></i>",
             "<i class='fab fa-css3-alt css' title='CSS'></i>",
