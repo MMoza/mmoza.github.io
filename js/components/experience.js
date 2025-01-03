@@ -17,7 +17,7 @@ function miFuncion() {
 
     animateNumber(devExperience, 2, 500);
     animateNumber(apisIntegrated, 10, 500);
-    animateNumber(totalExperience, 10, 500);
+    animateNumber(totalExperience, 1600, 500);
 }
 
 function animateNumber(element, targetNumber, duration = 1000) {
