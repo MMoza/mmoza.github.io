@@ -154,8 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'components/contact.html',
     ];
 
-    loadAssociatedScript('projects');
-
     const mainContent = document.getElementById('main-content');
 
     const loadSectionPromises = sections.map((path, index) => {
@@ -176,6 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (homeLink) {
             homeLink.click();
         }
+        
+        loadAssociatedScript('projects');
     });
 
     document.addEventListener('click', (event) => {
