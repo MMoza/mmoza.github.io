@@ -642,15 +642,49 @@ header > h1 {
 }
 
 #about {
-    background-image: 
-        linear-gradient(to top, rgba(206, 255, 12, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
-        url('../assets/images/bg-code.png');
     background-size: cover;
     background-position: center;
     overflow: hidden;
     background-clip: padding-box;
     position: relative;
-    height: 100px;
+    padding: 40px;
+    color: var(--color-accent-primary);
+    background-color: var(--color-divider);
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+    
+    & p {
+        margin-bottom: 20px;
+
+        & strong {
+            color: var(--color-accent-secondary)
+        }
+    }
+
+    & img {
+        height: 300px;
+    }
+
+    & .personal-description {
+        text-align: center;
+        
+        & h1 {
+            margin-top: 20px;
+            color: var(--color-accent-secondary);
+        }
+
+        & h4 {
+            font-weight: 300 !important;
+            margin: 0;
+            margin-bottom: 40px;
+        }
+    }
+
+    @media (max-width: 860px) {
+        flex-direction: column;
+    }
 }
 
 #contact {
