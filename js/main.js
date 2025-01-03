@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'components/home.html',
         'components/experience.html',
         'components/projects.html',
-        'components/skills.html',
         'components/about.html',
         'components/contact.html',
     ];
