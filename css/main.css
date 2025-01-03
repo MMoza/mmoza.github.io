@@ -691,7 +691,7 @@ header > h1 {
     }
 }
 
-#contact {
+#contact > header{
     background-image: 
         linear-gradient(to top, rgba(64, 70, 73, 0.207) 10%, rgba(0, 0, 0, 0.617) 100%), 
         url('../assets/images/contact_whit_me.png');
@@ -701,9 +701,21 @@ header > h1 {
     background-clip: padding-box;
     position: relative;
     height: 100px;
+    border-radius: 10px 10px 0 0;
+
+    
+    & h1 {
+        margin: 0 auto;
+        background-color: var(--color-divider);
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-size: 50px;
+        margin-top: 35px;
+        color: var(--color-accent-primary);
+    }
 }
 
-#load-more-btn {
+#load-more-btn, #btn-send {
     display: inline-block;
     padding: 10px 20px;
     color: var(--color-divider);
@@ -920,4 +932,52 @@ header > h1 {
     font-size: 12px;
     margin: 0; /* Evita el margen duplicado con gap */
     flex: 1 1 auto; /* Permite que se ajusten dinámicamente */
+}
+
+#contact-form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: var(--font-poppins-medium) !important;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-accent-secondary);
+}
+
+#contact-form input, 
+#contact-form textarea {
+    width: 100%;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-accent-primary);
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--color-accent-primary);
+    background-color: var(--color-divider);
+}
+
+#contact-form textarea {
+    resize: none;
+    margin-top: 0px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-row .form-group:first-child {
+    margin-right: 20px;
 }
