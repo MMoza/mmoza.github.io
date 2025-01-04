@@ -4,9 +4,11 @@ const carouselContainer = document.getElementById("skills-carousel");
 const skillsFile = "data/skills/skills.json";
 
 let currentIndex = 1;
-const slideInterval = 3000;
+let totalTranslateX = 0;
+const slideInterval = 1000;
 let totalSkills = 0;
 let interval;
+const cardWidth = 80;
 
 async function loadSkills() {
     try {
@@ -25,13 +27,17 @@ async function loadSkills() {
 
 function renderSkillsCarousel(skills) {
     carouselContainer.innerHTML = "";
-
-    // Duplicar elementos (último al inicio y primero al final)
     const duplicatedSkills = [
-        skills[skills.length - 1], // Último al principio
-        ...skills,                 // Elementos originales
-        skills[0]                  // Primero al final
-    ];
+        skills[skills.length - 1],
+        ...skills,
+        skills[0],
+        skills[1],
+        skills[2],
+        skills[3],
+        skills[4],
+        skills[5],
+        skills[6],
+    ]
 
     duplicatedSkills.forEach(skill => {
         const skillCard = document.createElement("div");
@@ -42,33 +48,39 @@ function renderSkillsCarousel(skills) {
         carouselContainer.appendChild(skillCard);
     });
 
-    // Establecer el ancho del contenedor para permitir el desplazamiento
-    const cardWidth = 120; // Ancho fijo (ajusta según diseño)
-    carouselContainer.style.width = `${duplicatedSkills.length * cardWidth}px`;
-
-    // Desplazar al primer elemento real
-    carouselContainer.style.transform = `translateX(-${cardWidth}px)`;
+    const cardWidth = 80;
+    const cardMargin = 25;
+    const totalWidth = (duplicatedSkills.length * (cardWidth + cardMargin * 2));
+    carouselContainer.style.width = `${totalWidth}px`;
+    
+    carouselContainer.style.transform = `translateX(-${cardWidth + cardMargin}px)`;
 }
 
 function startCarousel() {
-    const cardWidth = 100; // Ancho fijo (ajusta según diseño)
-
     interval = setInterval(() => {
-        currentIndex++;
-
-        // Mover el carrusel
-        carouselContainer.style.transition = "transform 0.5s ease";
-        carouselContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-
-        // Reiniciar sin pausa si llega al final
-        if (currentIndex === totalSkills + 1) {
-            setTimeout(() => {
-                carouselContainer.style.transition = "none"; // Eliminar transición
-                carouselContainer.style.transform = `translateX(-${cardWidth}px)`; // Volver al primer elemento real
-                currentIndex = 1; // Reiniciar índice
-            }, 500); // Igual al tiempo de transición
-        }
+        moveToNextSlide();
     }, slideInterval);
+}
+
+function moveToNextSlide() {
+    const cardWidth = 80;
+    const cardMargin = 25;
+    const slideWidth = cardWidth + cardMargin;
+
+    currentIndex++;
+    totalTranslateX = currentIndex * slideWidth;
+
+    carouselContainer.style.transition = "transform 0.3s ease";
+    carouselContainer.style.transform = `translateX(-${totalTranslateX}px)`;
+
+    if (currentIndex === totalSkills + 3) {
+        setTimeout(() => {
+            carouselContainer.style.transition = "none";
+            currentIndex = 1;
+            totalTranslateX = slideWidth;
+            carouselContainer.style.transform = `translateX(-${totalTranslateX}px)`;
+        }, 300);
+    }
 }
 
 loadSkills();

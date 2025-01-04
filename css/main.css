@@ -653,6 +653,7 @@ header > h1 {
     display: flex;
     flex-direction: column;
     gap: 40px; /* Espaciado entre las secciones */
+    box-shadow: inset 0px 1px 5px 20px var(--color-divider)
 }
 
 /* Contenedor de los dos div principales */
@@ -1012,24 +1013,31 @@ header > h1 {
 #skills-carousel {
     display: flex;
     flex-direction: row;
-    justify-content: start; /* No centramos aquí, se manejará por transform */
+    justify-content: start;
     align-items: center;
-    overflow: hidden; /* Ocultamos lo que no está en el viewport */
+    overflow: hidden;
     position: relative;
-    height: 120px; /* Ajusta según el tamaño de los íconos */
+    height: 80px;
 }
 
 .card-skill-icon {
-    flex-shrink: 0; /* Evita que los íconos se redimensionen */
-    width: 100px; /* Ancho fijo (coherente con JS) */
-    margin: 0 10px; /* Espaciado entre elementos */
+    flex-shrink: 0;
+    width: 80px;
+    margin: 0 25px;
     display: flex;
-    justify-content: center; /* Centrar el contenido */
+    justify-content: center;
     align-items: center;
 }
 
 .card-skill-icon img {
-    width: 50px; /* Ajusta el tamaño de los íconos */
-    height: auto; /* Mantén las proporciones */
+    width: 80px;
+    height: auto;
     display: block;
+}
+
+.carousel-container {
+    overflow: hidden; /* Ocultar elementos fuera del viewport */
+    display: flex;
+    position: relative;
+    width: 100%; /* Ajusta al diseño */
 }
