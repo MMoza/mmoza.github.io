@@ -1031,6 +1031,11 @@ header > h1 {
     padding: 5px;
     border-radius: 5px;
     background-color: var(--color-accent-primary);
+    transition: transform 0.3s ease;
+}
+
+.card-skill-icon:hover {
+    scale: 1.25;
 }
 
 .card-skill-icon img {

@@ -20,6 +20,7 @@ async function loadSkills() {
 
         renderSkillsCarousel(skills);
         startCarousel();
+        addPauseOnHover();
     } catch (error) {
         console.error("Error al cargar las habilidades:", error);
     }
@@ -66,6 +67,10 @@ function startCarousel() {
     }, slideInterval);
 }
 
+function stopCarousel() {
+    clearInterval(interval);
+}
+
 function moveToNextSlide() {
     const cardWidth = 50;
     const cardMargin = 25;
@@ -85,6 +90,11 @@ function moveToNextSlide() {
             carouselContainer.style.transform = `translateX(-${slideWidth - cardMargin}px)`;
         }, 300);
     }
+}
+
+function addPauseOnHover() {
+    carouselContainer.addEventListener("mouseenter", stopCarousel);
+    carouselContainer.addEventListener("mouseleave", startCarousel);
 }
 
 loadSkills();
