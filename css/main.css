@@ -1022,7 +1022,7 @@ header > h1 {
 
 .card-skill-icon {
     flex-shrink: 0;
-    width: 80px;
+    width: 50px;
     margin: 0 25px;
     display: flex;
     justify-content: center;
@@ -1030,7 +1030,7 @@ header > h1 {
 }
 
 .card-skill-icon img {
-    width: 80px;
+    width: 50px;
     height: auto;
     display: block;
 }

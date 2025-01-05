@@ -8,7 +8,7 @@ let totalTranslateX = 0;
 const slideInterval = 1000;
 let totalSkills = 0;
 let interval;
-const cardWidth = 80;
+const cardWidth = 50;
 
 async function loadSkills() {
     try {
@@ -28,6 +28,7 @@ async function loadSkills() {
 function renderSkillsCarousel(skills) {
     carouselContainer.innerHTML = "";
     const duplicatedSkills = [
+        skills[skills.length - 2],
         skills[skills.length - 1],
         ...skills,
         skills[0],
@@ -48,7 +49,7 @@ function renderSkillsCarousel(skills) {
         carouselContainer.appendChild(skillCard);
     });
 
-    const cardWidth = 80;
+    const cardWidth = 50;
     const cardMargin = 25;
     const totalWidth = (duplicatedSkills.length * (cardWidth + cardMargin * 2));
     carouselContainer.style.width = `${totalWidth}px`;
@@ -63,7 +64,7 @@ function startCarousel() {
 }
 
 function moveToNextSlide() {
-    const cardWidth = 80;
+    const cardWidth = 50;
     const cardMargin = 25;
     const slideWidth = cardWidth + cardMargin;
 
@@ -73,12 +74,12 @@ function moveToNextSlide() {
     carouselContainer.style.transition = "transform 0.3s ease";
     carouselContainer.style.transform = `translateX(-${totalTranslateX}px)`;
 
-    if (currentIndex === totalSkills + 3) {
+    if (currentIndex === totalSkills + 4) {
         setTimeout(() => {
             carouselContainer.style.transition = "none";
             currentIndex = 1;
             totalTranslateX = slideWidth;
-            carouselContainer.style.transform = `translateX(-${totalTranslateX}px)`;
+            carouselContainer.style.transform = `translateX(-${slideWidth - cardMargin}px)`;
         }, 300);
     }
 }
