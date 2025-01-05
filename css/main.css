@@ -1018,6 +1018,7 @@ header > h1 {
     overflow: hidden;
     position: relative;
     height: 80px;
+    background-color: var(--color-accent-secondary);
 }
 
 .card-skill-icon {
@@ -1027,6 +1028,9 @@ header > h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--color-accent-primary);
 }
 
 .card-skill-icon img {
