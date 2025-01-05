@@ -5,7 +5,7 @@ const skillsFile = "data/skills/skills.json";
 
 let currentIndex = 1;
 let totalTranslateX = 0;
-const slideInterval = 1000;
+const slideInterval = 1500;
 let totalSkills = 0;
 let interval;
 const cardWidth = 50;
@@ -28,6 +28,7 @@ async function loadSkills() {
 function renderSkillsCarousel(skills) {
     carouselContainer.innerHTML = "";
     const duplicatedSkills = [
+        skills[skills.length - 3],
         skills[skills.length - 2],
         skills[skills.length - 1],
         ...skills,
@@ -38,6 +39,8 @@ function renderSkillsCarousel(skills) {
         skills[4],
         skills[5],
         skills[6],
+        skills[7],
+        skills[8],
     ]
 
     duplicatedSkills.forEach(skill => {
@@ -74,7 +77,7 @@ function moveToNextSlide() {
     carouselContainer.style.transition = "transform 0.3s ease";
     carouselContainer.style.transform = `translateX(-${totalTranslateX}px)`;
 
-    if (currentIndex === totalSkills + 4) {
+    if (currentIndex === totalSkills + 5) {
         setTimeout(() => {
             carouselContainer.style.transition = "none";
             currentIndex = 1;
