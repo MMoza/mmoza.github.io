@@ -29,6 +29,7 @@ async function loadSkills() {
 function renderSkillsCarousel(skills) {
     carouselContainer.innerHTML = "";
     const duplicatedSkills = [
+        skills[skills.length - 4],
         skills[skills.length - 3],
         skills[skills.length - 2],
         skills[skills.length - 1],
