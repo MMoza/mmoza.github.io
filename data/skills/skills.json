@@ -1,50 +1,111 @@
 [
     {
         "name": "PHP",
-        "icon": "../portfolio_web/assets/skills/icons8-php-80.png"
+        "icon": "assets/skills/icons8-php-80.png"
     },
     {
         "name": "Laravel",
-        "icon": "../portfolio_web/assets/skills/icons8-laravel-50.png"
+        "icon": "assets/skills/icons8-laravel-50.png"
     },
     {
         "name": "MySQL",
-        "icon": "../portfolio_web/assets/skills/icons8-mysql-48.png"
+        "icon": "assets/skills/icons8-mysql-48.png"
     },
     {
         "name": "JavaScript",
-        "icon": "../portfolio_web/assets/skills/icons8-javascript-50.png"
+[
+    {
+        "name": "PHP",
+        "icon": "assets/skills/icons8-php-80.png",
+        "category": "Backend"
+    },
+    {
+        "name": "Laravel",
+        "icon": "assets/skills/icons8-laravel-50.png",
+        "category": "Backend"
+    },
+    {
+        "name": "MySQL",
+        "icon": "assets/skills/icons8-mysql-48.png",
+        "category": "Database"
+    },
+    {
+        "name": "JavaScript",
+        "icon": "assets/skills/icons8-javascript-50.png",
+        "category": "Frontend"
     },
     {
         "name": "HTML",
-        "icon": "../portfolio_web/assets/skills/icons8-html-50.png"
+        "icon": "assets/skills/icons8-html-50.png",
+        "category": "Frontend"
     },
     {
         "name": "CSS",
-        "icon": "../portfolio_web/assets/skills/icons8-css-50.png"
+        "icon": "assets/skills/icons8-css-50.png",
+        "category": "Frontend"
     },
     {
-        "name": "Boostrap",
-        "icon": "../portfolio_web/assets/skills/icons8-bootstrap-50.png"
+        "name": "Bootstrap",
+        "icon": "assets/skills/icons8-bootstrap-50.png",
+        "category": "Frontend"
     },
     {
         "name": "JQuery",
-        "icon": "../portfolio_web/assets/skills/icons8-jquery-50.png"
+        "icon": "assets/skills/icons8-jquery-50.png",
+        "category": "Frontend"
     },
     {
         "name": "Vue.js",
-        "icon": "../portfolio_web/assets/skills/icons8-vue-js-50.png"
+        "icon": "assets/skills/icons8-vue-js-50.png",
+        "category": "Frontend"
     },
     {
         "name": "Git",
-        "icon": "../portfolio_web/assets/skills/icons8-git-50.png"
+        "icon": "assets/skills/icons8-git-50.png",
+        "category": "Version Control"
     },
     {
         "name": "GitHub",
-        "icon": "../portfolio_web/assets/skills/icons8-github-50.png"
+        "icon": "assets/skills/icons8-github-50.png",
+        "category": "Version Control"
     },
     {
         "name": "AWS",
-        "icon": "../portfolio_web/assets/skills/icons8-aws-50.png"
+        "icon": "assets/skills/icons8-aws-50.png",
+        "category": "Cloud"
+    }
+]        "icon": "assets/skills/icons8-javascript-50.png"
+    },
+    {
+        "name": "HTML",
+        "icon": "assets/skills/icons8-html-50.png"
+    },
+    {
+        "name": "CSS",
+        "icon": "assets/skills/icons8-css-50.png"
+    },
+    {
+        "name": "Boostrap",
+        "icon": "assets/skills/icons8-bootstrap-50.png"
+    },
+    {
+        "name": "JQuery",
+        "icon": "assets/skills/icons8-jquery-50.png"
+    },
+    {
+        "name": "Vue.js",
+        "icon": "assets/skills/icons8-vue-js-50.png"
+    },
+    {
+        "name": "Git",
+        "icon": "assets/skills/icons8-git-50.png"
+    },
+    {
+        "name": "GitHub",
+        "icon": "assets/skills/icons8-github-50.png"
+    },
+    {
+        "name": "AWS",
+        "icon": "assets/skills/icons8-aws-50.png"
     }
 ]
