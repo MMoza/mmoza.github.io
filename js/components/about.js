@@ -1,5 +1,3 @@
-console.log("about.js loaded");
-
 const carouselContainer = document.getElementById("skills-carousel");
 const skillsFile = "data/skills/skills.json";
 
@@ -9,6 +7,7 @@ const slideInterval = 1500;
 let totalSkills = 0;
 let interval;
 const cardWidth = 50;
+const host = window.location.host === '127.0.0.1:3000' ? window.location.origin + '/portfolio_web' : window.location.origin;
 
 async function loadSkills() {
     try {
@@ -47,9 +46,11 @@ function renderSkillsCarousel(skills) {
 
     duplicatedSkills.forEach(skill => {
         const skillCard = document.createElement("div");
+        const iconUrl = `${host}/${skill.icon}`;
+
         skillCard.classList.add("card-skill-icon");
         skillCard.innerHTML = `
-            <img src="${skill.icon}" alt="${skill.name}" title="${skill.name}" />
+            <img src="${iconUrl}" alt="${skill.name}" title="${skill.name}" />
         `;
         carouselContainer.appendChild(skillCard);
     });
