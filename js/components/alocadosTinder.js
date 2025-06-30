@@ -1,7 +1,12 @@
 const DECISION_THRESHOLD = 75
 
 let isAnimating = false
-let pullDeltaX = 0 // --> distancia que la dard se est� arrastrando
+let pullDeltaX = 0
+let currentCard = null;
+
+
+const modal = document.getElementById('myModal');
+const closeModal = document.getElementById('closeModal');
 
 function startDrag (e) {
     if (isAnimating) return
@@ -37,6 +42,9 @@ function startDrag (e) {
         // apply transofrmation and styles to card
         actualCard.style.transform = `translateX(${pullDeltaX}px) rotate(${deg}deg)`
         actualCard.style.cursor = 'grabbing'
+
+        // currentCard
+        currentCard = actualCard
 
         // Change opacity of the choice info
         const opacity = Math.abs(pullDeltaX) / 100
@@ -132,3 +140,20 @@ async function loadCards() {
 document.addEventListener('mousedown', startDrag)
 document.addEventListener('touchstart', startDrag, { passive: true })
 document.addEventListener("DOMContentLoaded", loadCards);
+document.querySelector('.is-undo')?.addEventListener('click', () => {
+    location.reload();
+});
+document.querySelector('.is-remove.is-big')?.addEventListener('click', () => {
+  //modal.style.display = 'block';
+});
+document.querySelector('.is-fav.is-big')?.addEventListener('click', () => {
+  //modal.style.display = 'block';
+});
+closeModal.addEventListener('click', () => {
+    //modal.style.display = 'none';
+});
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        //modal.style.display = 'none';
+    }
+});
