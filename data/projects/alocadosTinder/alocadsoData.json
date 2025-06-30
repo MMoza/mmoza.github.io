@@ -1,42 +1,42 @@
 [
     {
         "name": "Goyo",
-        "age": 32,
-        "description": "Amante de los animales y la naturaleza.",
+        "age": 31,
+        "description": "En realidad soy cabrero",
         "long_description": "",
-        "like_message": "",
-        "unlike_message": "",
+        "like_message": "Goyo quiere hacerte la postura de la cabra borracha.",
+        "unlike_message": "Las cabras también tienen corazón.",
         "image": "assets/photos/goyo.webp",
-        "instagram": "https://instagram.com/alex"
+        "instagram": "instagram://user?username=goyo_27"
     },
     {
         "name": "El Erto",
         "age": 34,
-        "description": "Erto_boda.",
+        "description": "17 y medio",
         "long_description": "",
         "like_message": "",
         "unlike_message": "",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/erto.webp",
         "instagram": "https://instagram.com/erto_boda"
     },
     {
         "name": "Perito",
         "age": 35,
-        "description": "Runner y lector empedernido.",
-        "image": "assets/photos/1.webp",
+        "description": "Tengo un Golf Cazador",
+        "image": "assets/photos/perito.webp",
         "instagram": "https://instagram.com/marcos"
     },
     {
         "name": "Lucas",
         "age": 33,
-        "description": "Dise�adora gr�fica y gamer.",
-        "image": "assets/photos/1.webp",
-        "instagram": "https://instagram.com/lucia"
+        "description": "Soy hermano de goyo",
+        "image": "assets/photos/lucas.webp",
+        "instagram": "https://instagram.com/lucas"
     },
     {
         "name": "Jari",
         "age": 32,
-        "description": "Chef aficionado, amo cocinar para otros.",
+        "description": "",
         "image": "assets/photos/1.webp",
         "instagram": "https://instagram.com/javi"
     },
@@ -50,22 +50,22 @@
     {
         "name": "Manuel",
         "age": 35,
-        "description": "Me encanta la monta�a y escalar.",
-        "image": "assets/photos/1.webp",
+        "description": "Tengo una gasolinera, ¿Quieres gasolina?.",
+        "image": "assets/photos/manuel.webp",
         "instagram": "https://instagram.com/ivan"
     },
     {
         "name": "Trumpi",
         "age": 36,
-        "description": "Fan del arte y los museos.",
+        "description": "De pequeño me juntaba con Mega",
         "image": "assets/photos/1.webp",
         "instagram": "https://instagram.com/noa"
     },
     {
         "name": "Iñaki",
-        "age": 27,
-        "description": "Ingeniera y amante de los gatos.",
-        "image": "assets/photos/1.webp",
+        "age": 33,
+        "description": "Terrateniente y ganadero",
+        "image": "assets/photos/inaki.webp",
         "instagram": "https://instagram.com/elena"
     },
     {
@@ -92,14 +92,14 @@
     {
         "name": "Borja",
         "age": 3,
-        "description": "Futbolero y adicto a los memes.",
+        "description": "Soy primo de Perito",
         "image": "assets/photos/1.webp",
         "instagram": "https://instagram.com/carlos"
     },
     {
         "name": "Cano",
         "age": 34,
-        "description": "Futbolero y adicto a los memes.",
+        "description": "Capitán del Olimpia C.F",
         "image": "assets/photos/1.webp",
         "instagram": "https://instagram.com/carlos"
     },
@@ -109,6 +109,21 @@
         "description": "Futbolero y adicto a los memes.",
         "image": "assets/photos/1.webp",
         "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Osky",
+        "age": 33,
+        "description": "Revelde sin causa",
+        "image": "assets/photos/oscar.webp",
+        "instagram": "https://instagram.com/osky"
+    },
+    {
+        "name": "Dieguito",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
     }
+
 
 ]
