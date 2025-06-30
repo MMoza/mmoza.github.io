@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tinder Swipe</title>
+    <title>Tinder Swipe - Jóvenes Alocados</title>
+    
+    <!-- SEO Básico -->
+    <meta name="description" content="Explora perfiles de jóvenes alocados con un sistema tipo Tinder. Desliza, selecciona y conecta con personas cercanas.">
+    <meta name="keywords" content="Tinder, jóvenes, alocados, citas, diversión, swipe, conectar, perfiles, amor, fiesta">
+    <meta name="author" content="MMoza">
+
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Tinder Swipe - Jóvenes Alocados">
+    <meta property="og:description" content="Desliza y encuentra a los jóvenes más alocados cerca de ti. Una experiencia divertida tipo Tinder.">
+    <meta property="og:image" content="https://mmoza.github.io/data/projects/alocadosTinder/assets/image/tinder-logo.webp">
+    <meta property="og:url" content="https://mmoza.github.io/alocadosTinder.html">
+    <meta property="og:type" content="website">
+
+    <!-- Estilos y fuentes -->
     <link rel="stylesheet" href="../css/alocadosTinder.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,22 +26,19 @@
 <body>
     <main>
         <section>
-
-            <header style=>
+            <header>
                 <img src="../data/projects/alocadosTinder/assets/image/tinder-logo.webp" alt="Tinder Logo">
-                <span><span class="fist-letter">J</span>ÓVENES</span>
+                <span><span class="first-letter">J</span>ÓVENES</span>
                 <span> 🍸 </span>
-                <span><span class="fist-letter">A</span>LOCADOS</span>
+                <span><span class="first-letter">A</span>LOCADOS</span>
             </header>
 
             <div class="cards">
-
                 <!-- Mensaje fin -->
                 <span>
                     No hay más Alocados cerca de ti... <br />
                     Vuelve a intentarlo más tarde
                 </span>
-
             </div>
 
             <footer>
@@ -37,15 +48,16 @@
                 <button class="is-fav is-big" aria-label="fav"></button>
                 <button class="is-zap" aria-label="zap"></button>
             </footer>
-
         </section>
     </main>
+
+    <!-- Scripts -->
+    <script src="../js/components/alocadosTinder.js"></script>
+    <script>
+        history.pushState(null, "", location.href);
+        window.addEventListener("popstate", function () {
+            history.pushState(null, "", location.href);
+        });
+    </script>
 </body>
-<script src="../js/components/alocadosTinder.js"></script>
-<script>
-    history.pushState(null, "", location.href);
-    window.addEventListener("popstate", function () {
-      history.pushState(null, "", location.href);
-    });
-  </script>
 </html>
