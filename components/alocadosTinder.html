@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinder Swipe</title>
+    <link rel="stylesheet" href="../css/alocadosTinder.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section>
+
+            <header style=>
+                <img src="../data/projects/alocadosTinder/assets/image/tinder-logo.webp" alt="Tinder Logo">
+                <span><span class="fist-letter">J</span>ÓVENES</span>
+                <span> 🍸 </span>
+                <span><span class="fist-letter">A</span>LOCADOS</span>
+            </header>
+
+            <div class="cards">
+
+                <!-- Mensaje fin -->
+                <span>
+                    No hay más Alocados cerca de ti... <br />
+                    Vuelve a intentarlo más tarde
+                </span>
+
+            </div>
+
+            <footer>
+                <button class="is-undo" aria-label="undo"></button>
+                <button class="is-remove is-big" aria-label="close"></button>
+                <button class="is-start" aria-label="star"></button>
+                <button class="is-fav is-big" aria-label="fav"></button>
+                <button class="is-zap" aria-label="zap"></button>
+            </footer>
+
+        </section>
+    </main>
+</body>
+<script src="../js/components/alocadosTinder.js"></script>
+<script>
+    history.pushState(null, "", location.href);
+    window.addEventListener("popstate", function () {
+      history.pushState(null, "", location.href);
+    });
+  </script>
+</html>
