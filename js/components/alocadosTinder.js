@@ -107,6 +107,7 @@ async function loadCards() {
           <article>
             <img src="../../data/projects/alocadosTinder/${profile.image}" alt="${profile.name}, ${profile.age} a�os">
             <h2>${profile.name} <span>${profile.age}</span></h2>
+            <h3>${profile.description}</h3>
             <div class="choice nope">NOPE</div>
             <div class="choice like">LIKE</div>
           </article>

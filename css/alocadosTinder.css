@@ -50,7 +50,7 @@ header {
         margin-right: 10px;
     }
 
-    & .fist-letter {
+    & .first-letter {
         font-size: 28px;
         color: #ff7575
     }
@@ -145,6 +145,23 @@ footer {
             padding: 16px;
             z-index: 3;
             background: linear-gradient(0deg, #00000088 20%, transparent 40%);
+        }
+
+        & h3 {
+            color: white;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+            width: 100%;
+            z-index: 3;
+            background: linear-gradient(0deg, #00000088 20%, transparent 40%);
+            font-size: 11px;
+            font-weight: 300;
+            opacity: 0.6;
+            padding-left: 17px;
+            padding-bottom: 5px;  
         }
 
         & span {
