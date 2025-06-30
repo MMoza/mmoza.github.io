@@ -1,5 +1,6 @@
 const $ = (el) => document.querySelector(el);
 let currentSection = getInitialSection();
+const configButton = document.getElementById('config-button');
 
 function getInitialSection() {
     const sections = document.querySelectorAll('section');
@@ -190,11 +191,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('scroll', updateCurrentSection);
 
-document.getElementById('config-button').addEventListener('click', function (event) {
-    event.preventDefault();
-    const dropdown = this.nextElementSibling;
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-});
+if (configButton) {
+    document.getElementById('config-button').addEventListener('click', function (event) {
+        event.preventDefault();
+        const dropdown = this.nextElementSibling;
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+}
 
 document.addEventListener('click', function (event) {
     const config = document.querySelector('.config');
