@@ -14,8 +14,8 @@
         "age": 34,
         "description": "17 y medio",
         "long_description": "",
-        "like_message": "",
-        "unlike_message": "",
+        "like_message": "¿Quieres ser la Erta?",
+        "unlike_message": "erto_triste :",
         "image": "assets/photos/erto.webp",
         "instagram": "https://instagram.com/erto_boda"
     },
@@ -30,6 +30,8 @@
         "name": "Lucas",
         "age": 33,
         "description": "Soy hermano de goyo",
+        "like_message": "Has elegido bien. Yo era más guapo que Goyo.",
+        "unlike_message": "¿Vas a rechazar al capitán Salami?",
         "image": "assets/photos/lucas.webp",
         "instagram": "https://instagram.com/lucas"
     },
@@ -77,15 +79,15 @@
     },
     {
         "name": "Steven",
-        "age": 23,
-        "description": "Creadora de contenido de moda.",
+        "age": 33,
+        "description": "Soy de Fuenla, prima",
         "image": "assets/photos/1.webp",
         "instagram": "https://instagram.com/rosa"
     },
     {
         "name": "Agrario",
         "age": 28,
-        "description": "Futbolero y adicto a los memes.",
+        "description": ".",
         "image": "assets/photos/1.webp",
         "instagram": "https://instagram.com/carlos"
     },
@@ -99,13 +101,13 @@
     {
         "name": "Cano",
         "age": 34,
-        "description": "Capitán del Olimpia C.F",
+        "description": "Nucelar, la palabra es nucelar",
         "image": "assets/photos/1.webp",
         "instagram": "https://instagram.com/carlos"
     },
     {
         "name": "Borja",
-        "age": 3,
+        "age": 34,
         "description": "Futbolero y adicto a los memes.",
         "image": "assets/photos/1.webp",
         "instagram": "https://instagram.com/carlos"
@@ -113,7 +115,7 @@
     {
         "name": "Osky",
         "age": 33,
-        "description": "Revelde sin causa",
+        "description": "Potencia americana",
         "image": "assets/photos/oscar.webp",
         "instagram": "https://instagram.com/osky"
     },
@@ -121,6 +123,104 @@
         "name": "Dieguito",
         "age": 31,
         "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Kike",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Riki",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Richi",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Carreta",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Carletes",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Navarrino",
+        "age": 35,
+        "description": "Cabrón y chicuinino",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Daniel",
+        "age": 34,
+        "description": "¿Te pongo las 'rueas' patasarriba?",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Choza",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Lino",
+        "age": 32,
+        "description": "Rehalero",
+        "image": "assets/photos/lino.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Lino",
+        "age": 32,
+        "description": "Rehalero",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "M.A 🩷",
+        "age": 32,
+        "description": "Crazy Runner 🏃‍♂️🍺",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Pepirre",
+        "age": 33,
+        "description": "Tengo un trabajino de camarerino",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Valija",
+        "age": 33,
+        "description": "",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Rato",
+        "age": 32,
+        "description": "",
         "image": "assets/photos/diego.webp",
         "instagram": "https://instagram.com/carlos"
     }
