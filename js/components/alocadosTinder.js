@@ -1,8 +1,11 @@
 const DECISION_THRESHOLD = 75
+const MAX_IMAGES = 10;
 
 let isAnimating = false
 let pullDeltaX = 0
 let currentCard = null;
+let currentProfiles = [];
+let currentProfileIndex = MAX_IMAGES - 1 
 
 
 const modal = document.getElementById('myModal');
@@ -14,6 +17,12 @@ function startDrag (e) {
     const actualCard = e.target.closest('article')
 
     if(!actualCard) return
+
+    const profileIndex = Number(actualCard.dataset.index);
+    const currentProfile = currentProfiles[profileIndex];
+    currentCard = actualCard; // asignamos globalmente
+
+    console.log("Perfil actual:", currentProfile);
 
     const startX = e.pageX ?? e.touches[0].pageX
     
@@ -53,8 +62,6 @@ function startDrag (e) {
         const choiceEl = isRight ? actualCard.querySelector('.choice.like') : actualCard.querySelector('.choice.nope')
 
         choiceEl.style.opacity = opacity
-
-        console.log(opacity)
     }
     
     function onEnd(e) {
@@ -98,6 +105,8 @@ function startDrag (e) {
         actualCard
             .querySelectorAll(".choice")
             .forEach((el) => (el.style.opacity = 0));
+
+        console.log(currentCard)
     }
 }
 
@@ -107,19 +116,19 @@ async function loadCards() {
     try {
         const res = await fetch("../../data/projects/alocadosTinder/alocadsoData.json");
         const profiles = await res.json();
+        const shuffled = profiles.sort(() => 0.5 - Math.random()).slice(0, MAX_IMAGES);
+        currentProfiles = shuffled;
 
-        const shuffled = profiles.sort(() => 0.5 - Math.random()).slice(0, 10);
-
-        const cardsHTML = shuffled.map(profile => {
+        const cardsHTML = shuffled.map((profile, index) => {
             return `
-          <article>
-            <img src="../../data/projects/alocadosTinder/${profile.image}" alt="${profile.name}, ${profile.age} a�os">
-            <h2>${profile.name} <span>${profile.age}</span></h2>
-            <h3>${profile.description}</h3>
-            <div class="choice nope">NOPE</div>
-            <div class="choice like">LIKE</div>
-          </article>
-        `;
+              <article data-index="${index}">
+                <img src="../../data/projects/alocadosTinder/${profile.image}" alt="${profile.name}, ${profile.age} años">
+                <h2>${profile.name} <span>${profile.age}</span></h2>
+                <h3>${profile.description}</h3>
+                <div class="choice nope">NOPE</div>
+                <div class="choice like">LIKE</div>
+              </article>
+            `;
         }).join("");
 
         const endMessage = `
@@ -140,8 +149,19 @@ async function loadCards() {
 document.addEventListener('mousedown', startDrag)
 document.addEventListener('touchstart', startDrag, { passive: true })
 document.addEventListener("DOMContentLoaded", loadCards);
+
+document.querySelector('.is-start')?.addEventListener('click', () => {
+    const instagramUrl = currentProfiles[currentProfileIndex]?.instagram;
+    if (instagramUrl) {
+        window.open(instagramUrl, '_blank');
+    } else {
+        alert('No tiene enlace de Instagram');
+    }
+});
+
 document.querySelector('.is-undo')?.addEventListener('click', () => {
     location.reload();
+    currentProfileIndex = MAX_IMAGES - 1 
 });
 document.querySelector('.is-remove.is-big')?.addEventListener('click', () => {
   //modal.style.display = 'block';
