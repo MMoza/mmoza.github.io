@@ -1,0 +1,91 @@
+[
+    {
+        "name": "Steven",
+        "age": 33,
+        "description": "Soy de Fuenla, prima",
+        "image": "assets/photos/1.webp",
+        "instagram": "https://instagram.com/rosa"
+    },
+    {
+        "name": "Pepirre",
+        "age": 33,
+        "description": "Tengo un trabajino de camarerino",
+        "image": "assets/photos/diego.webp"
+    },
+    {
+        "name": "Valija",
+        "age": 33,
+        "description": "",
+        "image": "assets/photos/diego.webp"
+    },
+    {
+        "name": "Rato",
+        "age": 32,
+        "description": "",
+        "image": "assets/photos/diego.webp"
+    },
+    {
+        "name": "Milon",
+        "age": 33,
+        "description": "En realidad soy Kresta",
+        "like_message": "Kresta también quiere jugar contigo",
+        "unlike_message": "Dale una oportunidad a Kresta",
+        "image": "assets/photos/milon.webp"
+    },
+    {
+        "name": "Agrario",
+        "age": 28,
+        "description": ".",
+        "image": "assets/photos/1.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Borja",
+        "age": 3,
+        "description": "Soy primo de Perito",
+        "image": "assets/photos/1.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Cano",
+        "age": 34,
+        "description": "Nucelar, la palabra es nucelar",
+        "image": "assets/photos/1.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Borja",
+        "age": 34,
+        "description": "Futbolero y adicto a los memes.",
+        "image": "assets/photos/1.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Kike",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Riki",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Richi",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    },
+    {
+        "name": "Carreta",
+        "age": 31,
+        "description": "Me crié en Herguijuela",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/carlos"
+    }
+]

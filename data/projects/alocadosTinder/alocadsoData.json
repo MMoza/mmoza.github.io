@@ -7,7 +7,7 @@
         "like_message": "Goyo quiere hacerte la postura de la cabra borracha.",
         "unlike_message": "Las cabras también tienen corazón.",
         "image": "assets/photos/goyo.webp",
-        "instagram": "instagram://user?username=goyo_27"
+        "instagram": "https://instagram.com/goyo2411"
     },
     {
         "name": "El Erto",
@@ -15,53 +15,72 @@
         "description": "17 y medio",
         "long_description": "",
         "like_message": "¿Quieres ser la Erta?",
-        "unlike_message": "erto_triste :",
+        "unlike_message": "erto_triste ⚠️",
         "image": "assets/photos/erto.webp",
-        "instagram": "https://instagram.com/erto_boda"
+        "instagram": "https://instagram.com/erto_barrabaja"
     },
     {
         "name": "Perito",
         "age": 35,
         "description": "Tengo un Golf Cazador",
+        "long_description": "",
+        "like_message": "¿Te gustan morenitos?",
+        "unlike_message": "El negro de la cocnchi está descepcionado",
         "image": "assets/photos/perito.webp",
-        "instagram": "https://instagram.com/marcos"
+        "instagram": "https://instagram.com/victormns"
     },
     {
         "name": "Lucas",
         "age": 33,
         "description": "Soy hermano de goyo",
+        "long_description": "",
         "like_message": "Has elegido bien. Yo era más guapo que Goyo.",
         "unlike_message": "¿Vas a rechazar al capitán Salami?",
         "image": "assets/photos/lucas.webp",
         "instagram": "https://instagram.com/lucas"
     },
     {
+        "name": "Lino",
+        "age": 32,
+        "description": "Rehalero",
+        "image": "assets/photos/diego.webp",
+        "instagram": "https://instagram.com/juancarlosreciorodriguez"
+    },
+    {
+        "name": "M.A 🩷",
+        "age": 32,
+        "description": "Crazy Runner 🏃‍♂️🍺",
+        "image": "assets/photos/miguel-angel.webp",
+        "instagram": "https://instagram.com/miguelgb0408"
+    },
+    {
         "name": "Jari",
         "age": 32,
         "description": "",
-        "image": "assets/photos/1.webp",
-        "instagram": "https://instagram.com/javi"
+        "long_description": "",
+        "image": "assets/photos/jari.webp",
+        "instagram": "https://instagram.com/javihys33"
     },
     {
-        "name": "Milon",
+        "name": "Krusty",
         "age": 33,
-        "description": "Bailarina de salsa y bachata.",
-        "image": "assets/photos/1.webp",
-        "instagram": "https://instagram.com/camila"
+        "description": "En realidad soy Kresta",
+        "like_message": "Kresta también quiere jugar contigo",
+        "unlike_message": "Dale una oportunidad a Kresta",
+        "image": "assets/photos/milon.webp"
     },
     {
         "name": "Manuel",
         "age": 35,
         "description": "Tengo una gasolinera, ¿Quieres gasolina?.",
         "image": "assets/photos/manuel.webp",
-        "instagram": "https://instagram.com/ivan"
+        "instagram": "https://instagram.com/m4nety"
     },
     {
         "name": "Trumpi",
         "age": 36,
-        "description": "De pequeño me juntaba con Mega",
-        "image": "assets/photos/1.webp",
-        "instagram": "https://instagram.com/noa"
+        "description": "La mirada del lince",
+        "image": "assets/photos/trumpi.webp"
     },
     {
         "name": "Iñaki",
@@ -73,44 +92,16 @@
     {
         "name": "Charky",
         "age": 32,
-        "description": "Surfista y viajero incansable.",
-        "image": "assets/photos/1.webp",
-        "instagram": "https://instagram.com/tomas"
+        "description": "Te lo pongo a Huevo",
+        "image": "assets/photos/charky.webp",
+        "instagram": "https://instagram.com/mozacarlos"
     },
     {
-        "name": "Steven",
-        "age": 33,
-        "description": "Soy de Fuenla, prima",
-        "image": "assets/photos/1.webp",
-        "instagram": "https://instagram.com/rosa"
-    },
-    {
-        "name": "Agrario",
-        "age": 28,
-        "description": ".",
-        "image": "assets/photos/1.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Borja",
-        "age": 3,
-        "description": "Soy primo de Perito",
-        "image": "assets/photos/1.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Cano",
-        "age": 34,
-        "description": "Nucelar, la palabra es nucelar",
-        "image": "assets/photos/1.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Borja",
-        "age": 34,
-        "description": "Futbolero y adicto a los memes.",
-        "image": "assets/photos/1.webp",
-        "instagram": "https://instagram.com/carlos"
+        "name": "Miguelito",
+        "age": "¿?",
+        "description": "Soy amigo de Goyo",
+        "image": "assets/photos/miguelito.webp",
+        "instagram": "https://www.xvideos.com"
     },
     {
         "name": "Osky",
@@ -127,103 +118,17 @@
         "instagram": "https://instagram.com/carlos"
     },
     {
-        "name": "Kike",
-        "age": 31,
-        "description": "Me crié en Herguijuela",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Riki",
-        "age": 31,
-        "description": "Me crié en Herguijuela",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Richi",
-        "age": 31,
-        "description": "Me crié en Herguijuela",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Carreta",
-        "age": 31,
-        "description": "Me crié en Herguijuela",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
         "name": "Carletes",
         "age": 31,
-        "description": "Me crié en Herguijuela",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Navarrino",
-        "age": 35,
-        "description": "Cabrón y chicuinino",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Daniel",
-        "age": 34,
-        "description": "¿Te pongo las 'rueas' patasarriba?",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Choza",
-        "age": 31,
-        "description": "Me crié en Herguijuela",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
+        "description": "🌈👭🏳️‍🌈👨‍❤️‍👨",
+        "image": "assets/photos/carletes.webp",
+        "instagram": "https://instagram.com/carlinosrol"
     },
     {
         "name": "Lino",
         "age": 32,
         "description": "Rehalero",
         "image": "assets/photos/lino.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Lino",
-        "age": 32,
-        "description": "Rehalero",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "M.A 🩷",
-        "age": 32,
-        "description": "Crazy Runner 🏃‍♂️🍺",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Pepirre",
-        "age": 33,
-        "description": "Tengo un trabajino de camarerino",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Valija",
-        "age": 33,
-        "description": "",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
-    },
-    {
-        "name": "Rato",
-        "age": 32,
-        "description": "",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/carlos"
+        "instagram": "https://instagram.com/juancarlosreciorodriguez"
     }
-
-
 ]
