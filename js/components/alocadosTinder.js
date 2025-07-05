@@ -185,6 +185,15 @@ function closeModalFn() {
     modal.classList.remove('likeModal', 'dislikeModal');
 }
 
+function closeModalFn() {
+    modal.classList.remove('visible');
+
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('likeModal', 'dislikeModal');
+    }, 300);
+}
+
 function handleWindowClick(e) {
     if (e.target === modal) {
         closeModalFn();
@@ -193,16 +202,17 @@ function handleWindowClick(e) {
 
 function openModal(typeModal, name, message) {
     if (MODAL_TYPES.includes(typeModal)) {
-        modal.style.display = 'block';
+        modal.style.display = 'grid';
+        modal.classList.add('visible');
         modal.classList.add(typeModal);
 
         const $title = modal.querySelector('#modalTitle');
         const $name  = modal.querySelector('#modalMessage .name')
         const $message = modal.querySelector('#modalMessage .message')
 
-        $title.innerHTML = getModalTitle(typeModal)
-        $name.innerHTML = name
-        $message.innerHTML = message
+        $title.innerHTML = getModalTitle(typeModal);
+        $name.innerHTML = name;
+        $message.innerHTML = message;
     } else {
         console.warn(`Modal type "${typeModal}" no es válido.`);
     }
