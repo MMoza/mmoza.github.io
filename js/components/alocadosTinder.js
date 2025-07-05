@@ -1,5 +1,8 @@
 const DECISION_THRESHOLD = 75
 const MAX_IMAGES = 10;
+const DEFAULT_LIKE_MESSAGE = '¿Que tal si follamos?';
+const DEFAULT_UNLIKE_MESSAGE = 'Yo tampoco te toco ni con un palo'
+const MODAL_TYPES = ['likeModal', 'dislikeModal'];
 
 let isAnimating = false
 let pullDeltaX = 0
@@ -77,6 +80,9 @@ function startDrag (e) {
 
         if (decisionMade) {
             const goRight = pullDeltaX >= 0
+
+            // recalculate currentIndex
+            currentProfileIndex = currentProfileIndex - 1
     
             // add class according to the decision
             actualCard.classList.add(goRight ? 'go-right' : 'go-left')
@@ -146,34 +152,77 @@ async function loadCards() {
     }
 }
 
-document.addEventListener('mousedown', startDrag)
-document.addEventListener('touchstart', startDrag, { passive: true })
-document.addEventListener("DOMContentLoaded", loadCards);
-
-document.querySelector('.is-start')?.addEventListener('click', () => {
+function handleInstagramClick() {
     const instagramUrl = currentProfiles[currentProfileIndex]?.instagram;
     if (instagramUrl) {
         window.open(instagramUrl, '_blank');
     } else {
         alert('No tiene enlace de Instagram');
     }
-});
+}
 
-document.querySelector('.is-undo')?.addEventListener('click', () => {
+function handleUndoClick() {
     location.reload();
-    currentProfileIndex = MAX_IMAGES - 1 
-});
-document.querySelector('.is-remove.is-big')?.addEventListener('click', () => {
-  //modal.style.display = 'block';
-});
-document.querySelector('.is-fav.is-big')?.addEventListener('click', () => {
-  //modal.style.display = 'block';
-});
-closeModal.addEventListener('click', () => {
-    //modal.style.display = 'none';
-});
-window.addEventListener('click', (e) => {
+    currentProfileIndex = MAX_IMAGES - 1;
+}
+
+function handleDislikeClick() {
+    const message = currentProfiles[currentProfileIndex]?.unlike_message ?? DEFAULT_UNLIKE_MESSAGE;
+    const name = currentProfiles[currentProfileIndex]?.name
+
+    openModal('dislikeModal', name, message);
+}
+
+function handleLikeClick() {
+    const message = currentProfiles[currentProfileIndex]?.like_message ?? DEFAULT_LIKE_MESSAGE;
+    const name = currentProfiles[currentProfileIndex]?.name
+
+    openModal('likeModal', name, message);
+}
+
+function closeModalFn() {
+    modal.style.display = 'none';
+    modal.classList.remove('likeModal', 'dislikeModal');
+}
+
+function handleWindowClick(e) {
     if (e.target === modal) {
-        //modal.style.display = 'none';
+        closeModalFn();
     }
-});
+}
+
+function openModal(typeModal, name, message) {
+    if (MODAL_TYPES.includes(typeModal)) {
+        modal.style.display = 'block';
+        modal.classList.add(typeModal);
+
+        const $title = modal.querySelector('#modalTitle');
+        const $name  = modal.querySelector('#modalMessage .name')
+        const $message = modal.querySelector('#modalMessage .message')
+
+        $title.innerHTML = getModalTitle(typeModal)
+        $name.innerHTML = name
+        $message.innerHTML = message
+    } else {
+        console.warn(`Modal type "${typeModal}" no es válido.`);
+    }
+}
+
+function getModalTitle(typeModal) {
+    if (MODAL_TYPES.includes(typeModal)) {
+        return typeModal === 'likeModal' ? 'Me pones 🔥' : 'Siguiente 🤡'
+    } else {
+        console.warn(`Modal type "${typeModal}" no es válido.`);
+    }    
+}
+
+document.addEventListener('mousedown', startDrag)
+document.addEventListener('touchstart', startDrag, { passive: true })
+document.addEventListener("DOMContentLoaded", loadCards);
+
+document.querySelector('.is-start')?.addEventListener('click', handleInstagramClick);
+document.querySelector('.is-undo')?.addEventListener('click', handleUndoClick);
+document.querySelector('.is-remove.is-big')?.addEventListener('click', handleDislikeClick);
+document.querySelector('.is-fav.is-big')?.addEventListener('click', handleLikeClick);
+closeModal?.addEventListener('click', closeModalFn);
+window.addEventListener('click', handleWindowClick);

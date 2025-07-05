@@ -4,8 +4,8 @@
         "age": 31,
         "description": "En realidad soy cabrero",
         "long_description": "",
-        "like_message": "Goyo quiere hacerte la postura de la cabra borracha.",
-        "unlike_message": "Las cabras también tienen corazón.",
+        "like_message": "¿Quieres que te haga la postura de la cabra borracha?",
+        "unlike_message": "Las cabras también tienen sentimientos...",
         "image": "assets/photos/goyo.webp",
         "instagram": "https://instagram.com/goyo2411"
     },
@@ -14,7 +14,7 @@
         "age": 34,
         "description": "17 y medio",
         "long_description": "",
-        "like_message": "¿Quieres ser la Erta?",
+        "like_message": "erto_follarín",
         "unlike_message": "erto_triste ⚠️",
         "image": "assets/photos/erto.webp",
         "instagram": "https://instagram.com/erto_barrabaja"
@@ -50,6 +50,7 @@
         "name": "M.A 🩷",
         "age": 32,
         "description": "Crazy Runner 🏃‍♂️🍺",
+        "like_message": "¿Quieres correr conmigo?",
         "image": "assets/photos/miguel-angel.webp",
         "instagram": "https://instagram.com/miguelgb0408"
     },
@@ -57,6 +58,7 @@
         "name": "Jari",
         "age": 32,
         "description": "",
+        "like_message": "Yo ya.",
         "long_description": "",
         "image": "assets/photos/jari.webp",
         "instagram": "https://instagram.com/javihys33"
@@ -73,6 +75,8 @@
         "name": "Manuel",
         "age": 35,
         "description": "Tengo una gasolinera, ¿Quieres gasolina?.",
+        "like_message": "Te voy a llenar el deposito",
+        "unlike_message": "Tu también eres bien fea",
         "image": "assets/photos/manuel.webp",
         "instagram": "https://instagram.com/m4nety"
     },
