@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -108,20 +110,20 @@ footer {
     height: 100%;
     margin: 0 auto;
 
-    & > span {
+    &>span {
         display: grid;
         place-content: center;
         color: #777;
         font-size: 14px;
         text-align: center;
-        height:  100%;
+        height: 100%;
     }
 
     & article {
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, .3);
         overflow: hidden;
-        position:absolute;
+        position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
@@ -161,7 +163,7 @@ footer {
             font-weight: 300;
             opacity: 0.6;
             padding-left: 17px;
-            padding-bottom: 5px;  
+            padding-bottom: 5px;
         }
 
         & span {
@@ -174,11 +176,11 @@ footer {
         &.go-left {
             transform: translateX(-150%) rotate(-30deg) !important;
         }
-    
+
         &.go-right {
             transform: translateX(150%) rotate(30deg) !important;
         }
-    
+
         &.go-left,
         &.go-right {
             transition: transform .3s ease, rotate .3s ease;
@@ -186,7 +188,7 @@ footer {
 
         &.reset {
             transition: transform .3s ease;
-            transform:  translateX(0) !important;
+            transform: translateX(0) !important;
         }
 
         & .choice {
@@ -203,20 +205,20 @@ footer {
             font-weight: bold;
             text-shadow: 0 0 10px rgba(0, 0, 0, .3);
             width: fit-content;
-    
+
             &.nope {
-              border-color: #ff6e63;
-              color: #ff6e63;
-              transform: rotate(30deg);
+                border-color: #ff6e63;
+                color: #ff6e63;
+                transform: rotate(30deg);
             }
-    
+
             &.like {
-              border-color: #63ff68;
-              color: #63ff68;
-              left: 16px;
-              transform: rotate(-30deg);
+                border-color: #63ff68;
+                color: #63ff68;
+                left: 16px;
+                transform: rotate(-30deg);
             }
-          }
+        }
     }
 }
 
@@ -229,7 +231,7 @@ footer {
     display: none;
     place-content: center;
     justify-items: center;
-  }
+}
 
 .modal-header {
     padding: 5px;
@@ -276,6 +278,7 @@ footer {
     margin: 0 auto;
 
     &.likeModal {
+
         .modal-header,
         .modal-footer {
             background-color: #63ff68;
@@ -283,6 +286,7 @@ footer {
     }
 
     &.dislikeModal {
+
         .modal-header,
         .modal-footer {
             background-color: #ff7575;
@@ -298,15 +302,15 @@ footer {
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
     border-radius: 12px;
-  }
+}
 
 .modal.visible {
     display: grid;
-  }
+}
 
 .modal.visible .modal-box {
-  transform: translateY(0);
-  opacity: 1;
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .buttonModal {
@@ -339,4 +343,3 @@ footer {
         opacity: 0.8;
     }
 }
-  

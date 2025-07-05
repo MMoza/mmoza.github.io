@@ -13,6 +13,8 @@ let currentProfileIndex = MAX_IMAGES - 1
 
 const modal = document.getElementById('myModal');
 const closeModal = document.getElementById('closeModal');
+const cancelButton = document.querySelector('.cancelButton')
+const aceptButton = document.querySelector('.aceptButton')
 
 function startDrag (e) {
     if (isAnimating) return
@@ -226,6 +228,40 @@ function getModalTitle(typeModal) {
     }    
 }
 
+function removeCurrentCard(isLike = true) {
+    if (isAnimating) return;
+
+    const actualCard = document.querySelector('article[data-index="' + currentProfileIndex + '"]');
+    if (!actualCard) return;
+
+    const directionClass = isLike ? 'go-right' : 'go-left';
+    const choiceSelector = isLike ? '.choice.like' : '.choice.nope';
+
+    isAnimating = true;
+
+    const choiceEl = actualCard.querySelector(choiceSelector);
+    if (choiceEl) {
+        choiceEl.style.opacity = 1;
+    }
+
+    actualCard.classList.add(directionClass);
+    actualCard.addEventListener('transitionend', () => {
+        actualCard.remove();
+    }, { once: true });
+
+    currentProfileIndex = currentProfileIndex - 1;
+
+    // Resetear variables globales
+    setTimeout(() => {
+        isAnimating = false;
+        pullDeltaX = 0;
+    }, 400); // igual a tu duración de transición
+}
+
+function showMessage() {
+
+}
+
 document.addEventListener('mousedown', startDrag)
 document.addEventListener('touchstart', startDrag, { passive: true })
 document.addEventListener("DOMContentLoaded", loadCards);
@@ -236,3 +272,18 @@ document.querySelector('.is-remove.is-big')?.addEventListener('click', handleDis
 document.querySelector('.is-fav.is-big')?.addEventListener('click', handleLikeClick);
 closeModal?.addEventListener('click', closeModalFn);
 window.addEventListener('click', handleWindowClick);
+
+cancelButton?.addEventListener('click', () => {
+    closeModalFn()
+})
+
+aceptButton?.addEventListener('click', () => {
+    const isLike = modal.classList.contains('likeModal');
+
+    closeModalFn()
+    showMessage()
+    
+    setTimeout(() => {
+        removeCurrentCard(isLike);
+    }, 300);
+})
