@@ -22,6 +22,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <!-- Versión gratuita CDN de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
     <main>
@@ -34,18 +38,24 @@
             </header>
 
             <!-- Modal Like/Dislike -->
-            <div id="myModal" class="modal" style="display:none;">
-                <div class="modal-header">
-                    <span id="modalTitle">Título</span>
-                    <span id="closeModal" class="close">&times;</span>
+            <div id="myModal" class="modal">
+                <div class="modal-box">
+                    <div class="modal-header">
+                        <span id="modalTitle"></span>
+                        <span id="closeModal" class="close">&times;</span>
+                    </div>
+                    <div class="modal-content">
+                        <p id="modalMessage">
+                            <strong class="name"></strong>:
+                            <span class="message"></span> 
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="buttonModal cancelButton"><i class="fa-solid fa-xmark"></i></button>
+                        <button class="buttonModal aceptButton"><i class="fa-solid fa-check"></i></button>
+                    </div>
                 </div>
-                <div class="modal-content">
-                    <p id="modalMessage">¡Este es un modal!</p>
-                </div>
-                <div class="modal-footer">
-                    footer
-                </div>
-            </div>
+            </div>            
 
             <div class="cards">
 
@@ -59,7 +69,7 @@
             <footer>
                 <button class="is-undo" aria-label="undo"></button>
                 <button class="is-remove is-big" aria-label="close"></button>
-                <button class="is-start" aria-label="star"></button>
+                <button class="is-start instagram" aria-label="star"></button>
                 <button class="is-fav is-big" aria-label="fav"></button>
                 <button class="is-zap" aria-label="zap"></button>
             </footer>

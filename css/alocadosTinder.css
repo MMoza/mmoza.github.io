@@ -226,25 +226,117 @@ footer {
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    display: grid;
+    display: none;
     place-content: center;
     justify-items: center;
+  }
+
+.modal-header {
+    padding: 5px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+}
+
+.modal-footer {
+    padding: 5px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 0 0 12px 12px;
+    text-align: center;
 }
 
 .modal-content {
     background-color: white;
     padding: 20px;
-    border-radius: 12px;
     text-align: center;
     max-width: 400px;
-    width: 80%;
+    width: 100%;
 }
 
 .close {
     position: absolute;
-    top: 10px;
-    right: 16px;
-    font-size: 28px;
+    top: 5px;
+    right: 12px;
+    font-size: 22px;
     cursor: pointer;
+    opacity: 0.8;
+}
+
+.close:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#myModal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    &.likeModal {
+        .modal-header,
+        .modal-footer {
+            background-color: #63ff68;
+        }
+    }
+
+    &.dislikeModal {
+        .modal-header,
+        .modal-footer {
+            background-color: #ff7575;
+        }
+    }
+}
+
+.modal-box {
+    background-color: white;
+    max-width: 400px;
+    width: 90%;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 12px;
+  }
+
+.modal.visible {
+    display: grid;
+  }
+
+.modal.visible .modal-box {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.buttonModal {
+    border: none;
+    opacity: 0.8;
+    padding: 4px 5px;
+    color: rgb(99, 99, 99);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &.aceptButton {
+        color: green;
+    }
+
+    &.cancelButton {
+        color: red;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+#modalMessage {
+    font-size: 14px;
+
+    span {
+        opacity: 0.8;
+    }
 }
   
