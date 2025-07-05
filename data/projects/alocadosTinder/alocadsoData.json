@@ -40,13 +40,6 @@
         "instagram": "https://instagram.com/lucas"
     },
     {
-        "name": "Lino",
-        "age": 32,
-        "description": "Rehalero",
-        "image": "assets/photos/diego.webp",
-        "instagram": "https://instagram.com/juancarlosreciorodriguez"
-    },
-    {
         "name": "M.A 🩷",
         "age": 32,
         "description": "Crazy Runner 🏃‍♂️🍺",
@@ -134,5 +127,12 @@
         "description": "Rehalero",
         "image": "assets/photos/lino.webp",
         "instagram": "https://instagram.com/juancarlosreciorodriguez"
+    },
+    {
+        "name": "Cano",
+        "age": 34,
+        "description": "Nucelar, la palabra es nucelar",
+        "image": "assets/photos/cano.webp",
+        "instagram": "https://instagram.com/cano"
     }
 ]
