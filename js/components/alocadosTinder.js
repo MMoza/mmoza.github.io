@@ -114,7 +114,7 @@ function startDrag (e) {
             .querySelectorAll(".choice")
             .forEach((el) => (el.style.opacity = 0));
 
-        console.log(currentCard)
+        checkEmptyCards()
     }
 }
 
@@ -143,6 +143,19 @@ async function loadCards() {
             <span class="end-message">
                 No hay más Alocados cerca de ti... <br />
                 Vuelve a intentarlo más tarde
+            </span>
+            <span class="footer-creedits">
+                Desarrollado por 
+                <a href="https://mmoza.github.io/" target="_blank" rel="noopener">
+                    <strong>Miguel Ángel Moza Barquilla</strong>
+                </a>
+                a partir del proyecto 
+                <a href="https://www.javascript100.dev/01-tinder-swipe" target="_blank" rel="noopener">
+                    <strong>01-tinder-swipe</strong>
+                </a> de 
+                <a href="https://midu.dev/" target="_blank" rel="noopener">
+                    <strong>@midudev</strong>
+                </a>
             </span>
         `;
 
@@ -260,6 +273,32 @@ function removeCurrentCard(isLike = true) {
 
 function showMessage() {
 
+}
+
+function showCreditMessage() {
+    const footer = document.querySelector('.footer-creedits')
+    if (!footer) return
+
+    footer.classList.add('visible')
+
+    setTimeout(() => {
+        footer.classList.add('drop');
+    }, 500);
+
+    setTimeout(() => {
+        footer.classList.add('finish')
+    }, 5500)
+}
+
+function checkEmptyCards() {
+    let container = document.querySelector('.cards')
+    if (!container) return
+
+    let cards = container.querySelectorAll('article')
+
+    if (cards.length === 1) {  // <-- Cuando se ejecuta la función aún no ha deseparecido del todo la card
+        showCreditMessage()
+    }
 }
 
 document.addEventListener('mousedown', startDrag)

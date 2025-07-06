@@ -343,3 +343,79 @@ footer {
         opacity: 0.8;
     }
 }
+
+.footer-creedits{
+    position: relative;
+    bottom: 500px;
+    font-size: 12px !important;
+    padding: 4px;
+    height: max-content !important;
+    background: #ff9090;
+    color: black !important;
+    font-weight: 100;
+    border-radius: 26px;
+    opacity: 0;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.footer-creedits strong:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.footer-creedits.visible {
+    opacity: 0.8;
+}
+
+.footer-creedits.drop {
+    animation: dropBounce 0.7s ease-out forwards;
+}
+
+@keyframes dropBounce {
+    0% {
+        transform: translateY(0);
+    }
+    70% {
+        transform: translateY(425px);
+    }
+    85% {
+        transform: translateY(410px);
+    }
+    100% {
+        transform: translateY(425px);
+    }
+}
+
+@keyframes spinOut {
+    0% {
+        transform: translateY(425px) rotateY(0deg);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(425px) rotateY(360deg);
+        opacity: 0.5;
+    }
+}
+
+@keyframes flipOut {
+    0% {
+      transform: translate3d(0, 425px, 0) rotateY(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(0, 425px, -200px) rotateY(360deg);
+      opacity: 0;
+    }
+  }
+
+.footer-creedits.finish {
+    animation: flipOut 0.8s ease-in-out forwards;
+}
+
+.footer-creedits a {
+    text-decoration: none;
+    color: inherit;
+}

@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tinder - Jóvenes Alocados</title>
+    <title>Tinder Swipe - Jóvenes Alocados</title>
     
-    <!-- SEO B�sico -->
-    <meta name="description" content="Explora perfiles de los jóvenes y alocados con un sistema tipo Tinder. Desliza, selecciona y conecta con personajes cercanos.">
-    <meta name="keywords" content="Tinder, jóvenes, alocados, citas, madroñera, fiestas, agosto, ligar, amor, fiesta">
+    <!-- SEO Básico -->
+    <meta name="description" content="Explora perfiles de jóvenes alocados con un sistema tipo Tinder. Desliza, selecciona y conecta con personas cercanas.">
+    <meta name="keywords" content="Tinder, jóvenes, alocados, citas, diversión, swipe, conectar, perfiles, amor, fiesta">
     <meta name="author" content="MMoza">
 
     <!-- Open Graph para redes sociales -->
-    <meta property="og:title" content="Tinder - Jóvenes 🍸 Alocados">
-    <meta property="og:description" content="Desliza y encuentra a los jóvenes 🍸 álocados más alocados cerca de ti. Una experiencia divertida tipo Tinder.">
+    <meta property="og:title" content="Tinder Swipe - Jóvenes Alocados">
+    <meta property="og:description" content="Desliza y encuentra a los jóvenes más alocados cerca de ti. Una experiencia divertida tipo Tinder.">
     <meta property="og:image" content="https://mmoza.github.io/data/projects/alocadosTinder/assets/image/tinder-logo.webp">
     <meta property="og:url" content="https://mmoza.github.io/alocadosTinder.html">
     <meta property="og:type" content="website">
@@ -22,6 +22,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <!-- Versión gratuita CDN de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
     <main>
@@ -34,32 +38,33 @@
             </header>
 
             <!-- Modal Like/Dislike -->
-            <div id="myModal" class="modal" style="display:none;">
-                <div class="modal-header">
-                    <span id="modalTitle">título</span>
-                    <span id="closeModal" class="close">&times;</span>
+            <div id="myModal" class="modal">
+                <div class="modal-box">
+                    <div class="modal-header">
+                        <span id="modalTitle"></span>
+                        <span id="closeModal" class="close">&times;</span>
+                    </div>
+                    <div class="modal-content">
+                        <p id="modalMessage">
+                            <strong class="name"></strong>:
+                            <span class="message"></span> 
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="buttonModal cancelButton"><i class="fa-solid fa-xmark"></i></button>
+                        <button class="buttonModal aceptButton"><i class="fa-solid fa-check"></i></button>
+                    </div>
                 </div>
-                <div class="modal-content">
-                    <p id="modalMessage">modal de test</p>
-                </div>
-                <div class="modal-footer">
-                    footer
-                </div>
-            </div>
+            </div>            
 
             <div class="cards">
 
-                <!-- Mensaje fin -->
-                <span>
-                    No hay más Alocados cerca de ti... <br />
-                    Vuelve a intentarlo más tarde
-                </span>
             </div>
 
             <footer>
                 <button class="is-undo" aria-label="undo"></button>
                 <button class="is-remove is-big" aria-label="close"></button>
-                <button class="is-start" aria-label="star"></button>
+                <button class="is-start instagram" aria-label="star"></button>
                 <button class="is-fav is-big" aria-label="fav"></button>
                 <button class="is-zap" aria-label="zap"></button>
             </footer>
