@@ -120,51 +120,89 @@ function startDrag (e) {
 
 async function loadCards() {
     const cardsContainer = document.querySelector(".cards");
+    const header = document.querySelector("header");
+
+    showLoading(cardsContainer, header);
 
     try {
-        const res = await fetch("../../data/projects/alocadosTinder/alocadsoData.json");
-        const profiles = await res.json();
-        const shuffled = profiles.sort(() => 0.5 - Math.random()).slice(0, MAX_IMAGES);
+        const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
+        const shuffled = shuffleAndSliceProfiles(profiles, MAX_IMAGES);
         currentProfiles = shuffled;
 
-        const cardsHTML = shuffled.map((profile, index) => {
-            return `
-              <article data-index="${index}">
-                <img src="../../data/projects/alocadosTinder/${profile.image}" alt="${profile.name}, ${profile.age} años">
-                <h2>${profile.name} <span>${profile.age}</span></h2>
-                <h3>${profile.description}</h3>
-                <div class="choice nope">NOPE</div>
-                <div class="choice like">LIKE</div>
-              </article>
-            `;
-        }).join("");
+        await delay(500);
+        header.classList.add("visible");
 
-        const endMessage = `
-            <span class="end-message">
-                No hay más Alocados cerca de ti... <br />
-                Vuelve a intentarlo más tarde
-            </span>
-            <span class="footer-creedits">
-                Desarrollado por 
-                <a href="https://mmoza.github.io/" target="_blank" rel="noopener">
-                    <strong>Miguel Ángel Moza Barquilla</strong>
-                </a>
-                a partir del proyecto 
-                <a href="https://www.javascript100.dev/01-tinder-swipe" target="_blank" rel="noopener">
-                    <strong>01-tinder-swipe</strong>
-                </a> de 
-                <a href="https://midu.dev/" target="_blank" rel="noopener">
-                    <strong>@midudev</strong>
-                </a>
-            </span>
-        `;
-
-        cardsContainer.innerHTML = cardsHTML + endMessage;;
+        await delay(500);
+        renderCards(cardsContainer, shuffled);
+        animateCards(cardsContainer);
 
     } catch (err) {
         cardsContainer.innerHTML = "<p>Error cargando los perfiles.</p>";
         console.error(err);
     }
+}
+
+function showLoading(container, header) {
+    container.innerHTML = `<div class="loading-spinner"></div>`;
+    header.classList.remove("visible");
+}
+
+async function fetchProfiles(url) {
+    const res = await fetch(url);
+    return res.json();
+}
+
+function shuffleAndSliceProfiles(profiles, max) {
+    return profiles.sort(() => 0.5 - Math.random()).slice(0, max);
+}
+
+function renderCards(container, profiles) {
+    const cardsHTML = profiles.map((profile, index) => {
+        return `
+            <article data-index="${index}">
+                <img src="../../data/projects/alocadosTinder/${profile.image}" alt="${profile.name}, ${profile.age} años">
+                <h2>${profile.name} <span>${profile.age}</span></h2>
+                <h3>${profile.description}</h3>
+                <div class="choice nope">NOPE</div>
+                <div class="choice like">LIKE</div>
+            </article>
+        `;
+    }).join("");
+
+    const endMessage = `
+        <span class="end-message">
+            No hay más Alocados cerca de ti... <br />
+            Vuelve a intentarlo más tarde
+        </span>
+        <span class="footer-creedits">
+            Desarrollado por 
+            <a href="https://mmoza.github.io/" target="_blank" rel="noopener">
+                <strong>Miguel Ángel Moza Barquilla</strong>
+            </a>
+            a partir del proyecto 
+            <a href="https://www.javascript100.dev/01-tinder-swipe" target="_blank" rel="noopener">
+                <strong>01-tinder-swipe</strong>
+            </a> de 
+            <a href="https://midu.dev/" target="_blank" rel="noopener">
+                <strong>@midudev</strong>
+            </a>
+        </span>
+    `;
+
+    container.innerHTML = cardsHTML + endMessage;
+}
+
+function animateCards(container) {
+    const articles = container.querySelectorAll("article");
+    articles.forEach((article, index) => {
+        setTimeout(() => {
+            article.classList.add("visible");
+        }, 100 * index);
+    });
+}
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function handleInstagramClick() {
@@ -298,6 +336,7 @@ function checkEmptyCards() {
 
     if (cards.length === 1) {  // <-- Cuando se ejecuta la función aún no ha deseparecido del todo la card
         showCreditMessage()
+        //removeButtonActions()
     }
 }
 
