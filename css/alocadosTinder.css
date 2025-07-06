@@ -310,7 +310,7 @@ footer {
 
 .modal.visible .modal-box {
     transform: translateY(0);
-    opacity: 1;
+    opacity: 0.8;
 }
 
 .buttonModal {
