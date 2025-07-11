@@ -483,4 +483,10 @@ button.reload {
 button.reload.visible {
     opacity: 1;
     pointer-events: auto;
-  }
+}
+
+.timmer-countdown {
+    margin-top: 15px;
+    font-size: 24px;
+    color: #2a2a2a;
+}
