@@ -3,6 +3,7 @@ const MAX_IMAGES = 10;
 const DEFAULT_LIKE_MESSAGE = '¿Que tal si follamos?';
 const DEFAULT_UNLIKE_MESSAGE = 'Yo tampoco te toco ni con un palo'
 const MODAL_TYPES = ['likeModal', 'dislikeModal'];
+const RELOAD_TIME = 10 * 60 * 1000;
 
 let isAnimating = false
 let pullDeltaX = 0
@@ -378,7 +379,6 @@ document.querySelector('.is-undo')?.addEventListener('click', handleUndoClick);
 document.querySelector('.is-remove.is-big')?.addEventListener('click', handleDislikeClick);
 document.querySelector('.is-fav.is-big')?.addEventListener('click', handleLikeClick);
 closeModal?.addEventListener('click', closeModalFn);
-reloadButton?.addEventListener('click', handleUndoClick)
 window.addEventListener('click', handleWindowClick);
 
 cancelButton?.addEventListener('click', () => {
@@ -411,24 +411,21 @@ function saveDecision(name, action) {
 function cleanOldDecisions() {
     const decisions = JSON.parse(localStorage.getItem('alocados-decisions')) || [];
     const now = Date.now();
-    const THIRTY_MINUTES = 30 * 60 * 1000;
 
-    const filtered = decisions.filter(d => now - d.timestamp < THIRTY_MINUTES);
+    const filtered = decisions.filter(d => now - d.timestamp < RELOAD_TIME);
     localStorage.setItem('alocados-decisions', JSON.stringify(filtered));
 }
 
 function getSecondsUntilNextProfile(decisions) {
     const now = Date.now();
-    const THIRTY_MINUTES = 30 * 60 * 1000;
 
-    // Ordenamos decisiones por timestamp ascendente (más antiguo primero)
     const sorted = decisions
-        .filter(d => now - d.timestamp < THIRTY_MINUTES) // solo los aún válidos
+        .filter(d => now - d.timestamp < RELOAD_TIME)
         .sort((a, b) => a.timestamp - b.timestamp);
 
     if (sorted.length === 0) return null;
 
-    const expiresAt = sorted[0].timestamp + THIRTY_MINUTES;
+    const expiresAt = sorted[0].timestamp + RELOAD_TIME;
     const secondsRemaining = Math.ceil((expiresAt - now) / 1000);
     return secondsRemaining > 0 ? secondsRemaining : 0;
 }
@@ -436,11 +433,10 @@ function getSecondsUntilNextProfile(decisions) {
 function showCountdown(container, seconds) {
     let remaining = seconds;
 
-    // Creamos el HTML con un span que se actualizará con el contador
     container.innerHTML = `
         <span class="end-message">
             No hay más Alocados cerca de ti... <br />
-            Vuelve a intentarlo dentro de <strong id="countdown-timer"></strong>
+            Vuelve a intentarlo dentro de <strong class="timmer-countdown" id="countdown-timer"></strong>
         </span>
         <span class="footer-creedits">
             Desarrollado por 
@@ -481,7 +477,7 @@ function showCountdown(container, seconds) {
         remaining--;
         if (remaining <= 0) {
             clearInterval(interval);
-            loadCards();
+            handleUndoClick();
         } else {
             updateTimer();
         }
