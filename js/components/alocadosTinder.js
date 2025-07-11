@@ -389,7 +389,6 @@ aceptButton?.addEventListener('click', () => {
     const isLike = modal.classList.contains('likeModal');
 
     closeModalFn()
-    showMessage()
     
     setTimeout(() => {
         removeCurrentCard(isLike);
