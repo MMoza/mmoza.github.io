@@ -3,6 +3,7 @@ const MAX_IMAGES = 10;
 const DEFAULT_LIKE_MESSAGE = '¿Que tal si follamos?';
 const DEFAULT_UNLIKE_MESSAGE = 'Yo tampoco te toco ni con un palo'
 const MODAL_TYPES = ['likeModal', 'dislikeModal'];
+const RELOAD_TIME = 10 * 60 * 1000;
 
 let isAnimating = false
 let pullDeltaX = 0
@@ -70,27 +71,27 @@ function startDrag (e) {
     }
     
     function onEnd(e) {
-        // Remove the envent listeners
         document.removeEventListener('mousemove', onMove)
         document.removeEventListener('mouseup', onEnd)
 
         document.removeEventListener('touchmove', onMove)
         document.removeEventListener('touchend', onEnd)
 
-        // Saber si el usuario ha tomado una decisi�n
         const decisionMade = Math.abs(pullDeltaX) >= DECISION_THRESHOLD
 
         if (decisionMade) {
             const goRight = pullDeltaX >= 0
-
-            // recalculate currentIndex
-            currentProfileIndex = currentProfileIndex - 1
     
-            // add class according to the decision
             actualCard.classList.add(goRight ? 'go-right' : 'go-left')
             actualCard.addEventListener('transitionend', () => {
                 actualCard.remove()
             }, { once: true })
+
+            const profile = currentProfiles[currentProfileIndex];
+            saveDecision(profile.name, goRight ? 'like' : 'dislike');
+
+            currentProfileIndex = currentProfileIndex - 1
+
         } else {
             actualCard.classList.add('reset')
             actualCard.classList.remove('go-right', 'go-left')
@@ -122,12 +123,35 @@ async function loadCards() {
     const cardsContainer = document.querySelector(".cards");
     const header = document.querySelector("header");
 
+    cleanOldDecisions();
+    const decisions = JSON.parse(localStorage.getItem('alocados-decisions')) || [];
+
     showLoading(cardsContainer, header);
 
     try {
         const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
-        const shuffled = shuffleAndSliceProfiles(profiles, MAX_IMAGES);
+
+        const decisionNames = new Set(decisions.map(d => d.name));
+        const filteredProfiles = profiles.filter(profile => !decisionNames.has(profile.name));
+
+        const shuffled = shuffleAndSliceProfiles(filteredProfiles, MAX_IMAGES);
+
+        if (shuffled.length === 0) {
+            const seconds = getSecondsUntilNextProfile(decisions);
+
+            if (seconds !== null) {
+                header.classList.add("visible");
+
+                showCountdown(cardsContainer, seconds);
+            } else {
+                cardsContainer.innerHTML = "<p>No hay perfiles disponibles en este momento.</p>";
+            }
+
+            return;
+        }
+
         currentProfiles = shuffled;
+        currentProfileIndex = shuffled.length - 1;
 
         await delay(500);
         header.classList.add("visible");
@@ -172,8 +196,9 @@ function renderCards(container, profiles) {
     const endMessage = `
         <span class="end-message">
             No hay más Alocados cerca de ti... <br />
-            Vuelve a intentarlo más tarde
+            Amplie el rango de búsqueda para ver más
         </span>
+        <button class="reload" aria-label="Recargar">Ver más</button>
         <span class="footer-creedits">
             Desarrollado por 
             <a href="https://mmoza.github.io/" target="_blank" rel="noopener">
@@ -309,12 +334,13 @@ function removeCurrentCard(isLike = true) {
     }, 400); // igual a tu duración de transición
 }
 
-function showMessage() {
-
-}
-
 function showCreditMessage() {
     const footer = document.querySelector('.footer-creedits')
+    const button = document.querySelector('button.reload')
+    const reloadButton = button;
+
+    reloadButton?.addEventListener('click', handleUndoClick)
+
     if (!footer) return
 
     footer.classList.add('visible')
@@ -325,6 +351,10 @@ function showCreditMessage() {
 
     setTimeout(() => {
         footer.classList.add('finish')
+
+        if (button) {
+            button.classList.add('visible')
+        }
     }, 5500)
 }
 
@@ -365,3 +395,91 @@ aceptButton?.addEventListener('click', () => {
         removeCurrentCard(isLike);
     }, 300);
 })
+
+function saveDecision(name, action) {
+    const decisions = JSON.parse(localStorage.getItem('alocados-decisions') || '[]');
+
+    decisions.push({
+        name,
+        action,
+        timestamp: Date.now()
+    });
+
+    localStorage.setItem('alocados-decisions', JSON.stringify(decisions));
+}
+
+function cleanOldDecisions() {
+    const decisions = JSON.parse(localStorage.getItem('alocados-decisions')) || [];
+    const now = Date.now();
+
+    const filtered = decisions.filter(d => now - d.timestamp < RELOAD_TIME);
+    localStorage.setItem('alocados-decisions', JSON.stringify(filtered));
+}
+
+function getSecondsUntilNextProfile(decisions) {
+    const now = Date.now();
+
+    const sorted = decisions
+        .filter(d => now - d.timestamp < RELOAD_TIME)
+        .sort((a, b) => a.timestamp - b.timestamp);
+
+    if (sorted.length === 0) return null;
+
+    const expiresAt = sorted[0].timestamp + RELOAD_TIME;
+    const secondsRemaining = Math.ceil((expiresAt - now) / 1000);
+    return secondsRemaining > 0 ? secondsRemaining : 0;
+}
+
+function showCountdown(container, seconds) {
+    let remaining = seconds;
+
+    container.innerHTML = `
+        <span class="end-message">
+            No hay más Alocados cerca de ti... <br />
+            Vuelve a intentarlo dentro de <strong class="timmer-countdown" id="countdown-timer"></strong>
+        </span>
+        <span class="footer-creedits">
+            Desarrollado por 
+            <a href="https://mmoza.github.io/" target="_blank" rel="noopener">
+                <strong>Miguel Ángel Moza Barquilla</strong>
+            </a>
+            a partir del proyecto 
+            <a href="https://www.javascript100.dev/01-tinder-swipe" target="_blank" rel="noopener">
+                <strong>01-tinder-swipe</strong>
+            </a> de 
+            <a href="https://midu.dev/" target="_blank" rel="noopener">
+                <strong>@midudev</strong>
+            </a>
+        </span>
+    `;
+
+    const timerSpan = document.getElementById("countdown-timer");
+
+    const formatTime = (totalSeconds) => {
+        const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
+        const seconds = String(totalSeconds % 60).padStart(2, "0");
+        return `${minutes}:${seconds}`;
+    };
+
+    const updateTimer = () => {
+        timerSpan.textContent = formatTime(remaining);
+
+        if (remaining <= 10) {
+            timerSpan.classList.add("low-time");
+        } else {
+            timerSpan.classList.remove("low-time");
+        }
+    };
+
+    updateTimer();
+
+    const interval = setInterval(() => {
+        remaining--;
+        if (remaining <= 0) {
+            clearInterval(interval);
+            handleUndoClick();
+        } else {
+            updateTimer();
+        }
+    }, 1000);
+}
