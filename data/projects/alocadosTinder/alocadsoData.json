@@ -57,14 +57,6 @@
         "instagram": "https://instagram.com/javihys33"
     },
     {
-        "name": "Krusty",
-        "age": 33,
-        "description": "En realidad soy Kresta",
-        "like_message": "Kresta también quiere jugar contigo",
-        "unlike_message": "Dale una oportunidad a Kresta",
-        "image": "assets/photos/milon.webp"
-    },
-    {
         "name": "Manuel",
         "age": 35,
         "description": "Tengo una gasolinera, ¿Quieres gasolina?.",
@@ -135,5 +127,205 @@
         "description": "Nucelar, la palabra es nucelar",
         "image": "assets/photos/cano.webp",
         "instagram": "https://instagram.com/cano"
+    },
+    {
+        "name": "Daniel",
+        "age": 34,
+        "description":"Me gusta apretar tuercas",
+        "like_message": "¿Quieres que te aprete las tuercas?",
+        "unlike_message": "En realidad pierdo aceite...",
+        "image": "assets/photos/daniel.webp",
+        "instagram": "https://instagram.com/daniel"
+    },
+    {
+        "name": "Borja",
+        "age": 34,
+        "description":"Salgo de caza con mi primo",
+        "image": "assets/photos/borja.webp",
+        "instagram": "https://instagram.com/borja"
+    },
+    {
+        "name": "Kiyo",
+        "age": 34,
+        "description":"Sevillano",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/kiyo"
+    },
+    {
+        "name": "Agrario",
+        "age": 34,
+        "description":"Me gusta varear olivos",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Valija",
+        "age": 34,
+        "description":"Soy de la Rebola",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Riki",
+        "age": 34,
+        "description":"Un chaval con cabeza",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Richi",
+        "age": 34,
+        "description":"Al mejor cazador, se le va la liebre",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Carreta",
+        "age": 33,
+        "description":"Hijo de Rita",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Choza",
+        "age": 31,
+        "description":"Joven prodigio",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Pepirre",
+        "age": 33,
+        "like_message": "¿Nos hechamos un cigarrino después de follar?",
+        "description":"Me gustan las cervecinas",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Billy",
+        "age": 33,
+        "description":"The punisher",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Navarrino",
+        "age": 35,
+        "description":"Muy cabrón y chiquinino",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Steven",
+        "age": 35,
+        "description":"Soy de fuenla",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Alfon",
+        "age": 35,
+        "description":"",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Juanma",
+        "age": 35,
+        "description":"Toco el umpa umpa",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Criss",
+        "age": 35,
+        "description":"El de en medio de los chichos",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Ruten",
+        "age": 35,
+        "description":"",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Jose Carlos",
+        "age": 35,
+        "description":"",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Lagarty",
+        "age": 35,
+        "like_message": "Puedo ponerte a 4 patas, pero tu a mi no",
+        "description":"",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Tali",
+        "age": 35,
+        "description":"",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Kike",
+        "age": 35,
+        "description":"Me gustan fresquitos",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Chencho",
+        "age": 35,
+        "description":"Alocado como mi cuñado",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Boby",
+        "age": 42,
+        "description":"No muy joven, pero muy alocado",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Agustin",
+        "age": 35,
+        "description":"",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Germán",
+        "age": 35,
+        "description":"",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Joni",
+        "age": 35,
+        "description":"",
+        "image": "assets/photos/2.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Rato",
+        "age": 32,
+        "description":"Pikoleto",
+        "image": "assets/photos/rato.webp",
+        "instagram": "https://instagram.com/agrario"
+    },
+    {
+        "name": "Milon",
+        "age": 33,
+        "description":"Ciclista fantasma",
+        "image": "assets/photos/milon.webp",
+        "instagram": "https://instagram.com/agrario"
     }
 ]
