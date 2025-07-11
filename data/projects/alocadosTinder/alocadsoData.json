@@ -231,14 +231,14 @@
     },
     {
         "name": "Juanma",
-        "age": 35,
+        "age": 33,
         "description":"Toco el umpa umpa",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/juanma.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
         "name": "Criss",
-        "age": 35,
+        "age": 33,
         "description":"El de en medio de los chichos",
         "image": "assets/photos/2.webp",
         "instagram": "https://instagram.com/agrario"
