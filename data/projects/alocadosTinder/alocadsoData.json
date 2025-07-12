@@ -148,28 +148,28 @@
         "name": "Kiyo",
         "age": 34,
         "description":"Sevillano",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/kiyo.webp",
         "instagram": "https://instagram.com/kiyo"
     },
     {
         "name": "Agrario",
         "age": 34,
         "description":"Me gusta varear olivos",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/agrario.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
         "name": "Valija",
         "age": 34,
         "description":"Soy de la Rebola",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/valija.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
         "name": "Riki",
         "age": 34,
         "description":"Un chaval con cabeza",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/riki.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
@@ -198,28 +198,28 @@
         "age": 33,
         "like_message": "¿Nos hechamos un cigarrino después de follar?",
         "description":"Me gustan las cervecinas",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/pepirre.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
         "name": "Billy",
         "age": 33,
         "description":"The punisher",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/billy.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
         "name": "Navarrino",
         "age": 35,
         "description":"Muy cabrón y chiquinino",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/navarrino.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
         "name": "Steven",
         "age": 35,
         "description":"Soy de fuenla",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/esteban.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
@@ -276,7 +276,7 @@
         "name": "Kike",
         "age": 35,
         "description":"Me gustan fresquitos",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/kike.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
