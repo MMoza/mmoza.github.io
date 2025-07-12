@@ -480,6 +480,11 @@ button.reload {
     transition: opacity 0.5s ease;
 }
 
+button.reload.visible::hover {
+    scale: 1.05 !important;
+    background-color: #f73c3c !important;
+}
+
 button.reload.visible {
     opacity: 1;
     pointer-events: auto;
@@ -490,3 +495,40 @@ button.reload.visible {
     font-size: 24px;
     color: #2a2a2a;
 }
+
+.modal-content blockquote {
+    margin: 1em 0;
+    background: #f8f9fa;
+    padding: 1em;
+    border-left: 4px solid #d63384;
+    font-style: italic;
+}
+
+#page-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 999999;
+    pointer-events: all;
+}
+
+.hot-card {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.4);
+    animation: pulseGlow 1.5s infinite ease-in-out;
+    border-radius: 12px; /* opcional, si quieres bordes redondeados */
+}
+
+@keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.8), 0 0 50px rgba(255, 0, 0, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+  }
