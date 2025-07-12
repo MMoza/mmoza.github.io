@@ -289,11 +289,47 @@ function openModal(typeModal, name, message) {
         const $message = modal.querySelector('#modalMessage .message')
 
         $title.innerHTML = getModalTitle(typeModal);
-        $name.innerHTML = name;
+        $name.innerHTML = name + ':';
         $message.innerHTML = message;
     } else {
         console.warn(`Modal type "${typeModal}" no es válido.`);
     }
+}
+
+async function openModalSendMessage(name, likes) {
+    modal.style.display = 'grid';
+    modal.classList.add('visible');
+
+    const $title = modal.querySelector('#modalTitle');
+    const $message = modal.querySelector('#modalMessage .message')
+    const $name  = modal.querySelector('#modalMessage .name')
+    
+    const messages = await fetchProfiles("../../data/projects/alocadosTinder/messages.json");
+
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    const randomMessage = messages[randomIndex].message.replace(/\$\{name\}/g, name);
+
+    $title.innerHTML = `¿Te gusta <strong>${name}</strong>?`;
+    $name.innerHTML = '';
+    $message.innerHTML = `
+        <p>Ya le has dado <strong>${likes} likes</strong> a <strong id="user-name">${name}</strong>.</p>
+        <p>¿Quieres enviarle el siguiente mensaje?</p><br>
+    
+        <blockquote>
+            ${randomMessage}
+        </blockquote>
+
+        <p id="countdown">El mensaje se enviará en <strong>5</strong> segundos...</p>
+    `;
+
+    initCountDownSendMessage(() => {
+        const blocker = document.getElementById('page-blocker');
+
+        setTimeout(() => {
+            blocker.style.display = 'none';
+            closeModalFn()
+        }, 1500)
+    })
 }
 
 function getModalTitle(typeModal) {
@@ -327,11 +363,10 @@ function removeCurrentCard(isLike = true) {
 
     currentProfileIndex = currentProfileIndex - 1;
 
-    // Resetear variables globales
     setTimeout(() => {
         isAnimating = false;
         pullDeltaX = 0;
-    }, 400); // igual a tu duración de transición
+    }, 400);
 }
 
 function showCreditMessage() {
@@ -365,8 +400,15 @@ function checkEmptyCards() {
     let cards = container.querySelectorAll('article')
 
     if (cards.length === 1) {  // <-- Cuando se ejecuta la función aún no ha deseparecido del todo la card
-        showCreditMessage()
-        //removeButtonActions()
+        const button = document.querySelector('button.reload')
+
+        button?.addEventListener('click', handleUndoClick)
+
+        setTimeout(() => {    
+            if (button) {
+                button.classList.add('visible')
+            }
+        }, 1500)
     }
 }
 
@@ -396,6 +438,7 @@ aceptButton?.addEventListener('click', () => {
 })
 
 function saveDecision(name, action) {
+    // Guardar historial de decisiones
     const decisions = JSON.parse(localStorage.getItem('alocados-decisions') || '[]');
 
     decisions.push({
@@ -405,6 +448,36 @@ function saveDecision(name, action) {
     });
 
     localStorage.setItem('alocados-decisions', JSON.stringify(decisions));
+
+    const summary = JSON.parse(localStorage.getItem('alocados-summary') || '[]');
+    const entry = summary.find(item => item.name === name);
+
+    if (entry) {
+        if (action === 'like') {
+            entry.likes += 1;
+    
+            if (entry.likes % 5 === 0) {
+                showMessageLike(name, entry.likes);
+            }
+        } else if (action === 'dislike') {
+            entry.dislikes += 1;
+        }
+    } else {
+        const newEntry = {
+            name,
+            likes: action === 'like' ? 1 : 0,
+            dislikes: action === 'dislike' ? 1 : 0
+        };
+    
+        // Si es el primer like y es múltiplo de 5
+        if (newEntry.likes > 0 && newEntry.likes % 5 === 0) {
+            showMessageLike(name, newEntry.likes);
+        }
+    
+        summary.push(newEntry);
+    }
+
+    localStorage.setItem('alocados-summary', JSON.stringify(summary));
 }
 
 function cleanOldDecisions() {
@@ -481,4 +554,45 @@ function showCountdown(container, seconds) {
             updateTimer();
         }
     }, 1000);
+}
+
+function showMessageLike(name, likes) {
+
+    openModalSendMessage(name, likes)
+}
+
+function initCountDownSendMessage(callback) {
+    const blocker = document.getElementById('page-blocker');
+    const countdownEl = document.getElementById('countdown');
+    let seconds = 5;
+    blocker.style.display = 'block';
+
+    const intervalo = setInterval(() => {
+        seconds--;
+        countdownEl.innerHTML = `El mensaje se enviará en <strong>${seconds}</strong> segundos...`;
+
+        if (seconds <= 0) {
+            clearInterval(intervalo);
+            countdownEl.innerHTML = `<strong>Mensaje enviado ✅</strong>`;
+
+            // Desactivar el bloqueo
+            blocker.style.display = 'none';
+
+            callback();
+        }
+    }, 1000);
+}
+
+function handleInterace(tinderGame = true) {
+    if(tinderGame) {
+        handleUndoClick
+    }
+
+    if(!tinderGame) {
+        showStats()
+    }
+}
+
+function showStats() {
+    console.log('viendo stats')
 }
