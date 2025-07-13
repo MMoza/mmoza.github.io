@@ -531,4 +531,137 @@ button.reload.visible {
     100% {
       box-shadow: 0 0 10px rgba(255, 0, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.2);
     }
-  }
+}
+
+.stats-interface {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.back-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f8d7da; /* rojo pálido */
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+    position: fixed;
+    top: 105px;
+    opacity: 0.8;
+}
+
+.back-button::before {
+    font-size: 20px;
+    color: #721c24;
+}
+
+.back-button:hover {
+    background-color: #f1b0b7;
+}
+
+.stats-card {
+    background: #f5f5f5;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    flex-shrink: 0;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: flex;
+    gap: 10px;
+
+    &.messages {
+        background-color: #38D9A9;
+    }
+    
+    &.top-likes {
+        background-color: #339AF0;
+    }
+    
+    &.top-dislike {
+        background-color: #FF6B6B;
+    }
+    
+    &.find-an-alocado {
+        background-color: #FFA94D;
+    }
+    
+    &.your-crush {
+        background-color: #9775FA;
+    }
+    
+}
+
+.stats-card:hover {
+    filter: brightness(1.2);
+    transition: filter 0.3s ease;
+}
+
+.stats-card.top-likes:hover {
+    background-color: rgb(160, 160, 255);
+    transition: background-color 0.3s ease;
+}
+
+.stats-card.top-dislike:hover {
+    background-color: rgb(255, 130, 130);
+    transition: background-color 0.3s ease;
+}
+
+footer.stats-footer {
+    all: unset;
+
+    margin-top: auto;
+    text-align: center;
+    padding: 1rem;
+    background: #222;
+    color: #fff;
+    border-radius: 18px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 100;
+    position: fixed;
+    top: 511px;
+    width: 62%;
+
+    & p:hover {
+        all: unset;
+    }
+}
+
+.stats-content {
+    position: absolute;
+    top: 80px;
+    bottom: 110px;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-sizing: border-box;
+}
+
+.stats-content .stats-card:first-child {
+    margin-top: 30px;
+}
+
+.stats-footer a {
+    all: unset; 
+    cursor: pointer;
+    font-weight: bold;
+}
