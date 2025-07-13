@@ -4,6 +4,8 @@ const DEFAULT_LIKE_MESSAGE = '¿Que tal si follamos?';
 const DEFAULT_UNLIKE_MESSAGE = 'Yo tampoco te toco ni con un palo'
 const MODAL_TYPES = ['likeModal', 'dislikeModal'];
 const RELOAD_TIME = 10 * 60 * 1000;
+const URL2 = "https://script.google.com/macros/s/AKfycbxRJrKUk97lWLLRKSAlm6OSGZVkAYH_AlKUnzYTZMM_ndfNQ0XVNyl-evZ8S5RLp01f/exec"
+
 
 let isAnimating = false
 let pullDeltaX = 0
@@ -16,6 +18,7 @@ const modal = document.getElementById('myModal');
 const closeModal = document.getElementById('closeModal');
 const cancelButton = document.querySelector('.cancelButton')
 const aceptButton = document.querySelector('.aceptButton')
+const statsButton = document.querySelector('.is-zap')
 
 function startDrag (e) {
     if (isAnimating) return
@@ -422,6 +425,7 @@ document.querySelector('.is-remove.is-big')?.addEventListener('click', handleDis
 document.querySelector('.is-fav.is-big')?.addEventListener('click', handleLikeClick);
 closeModal?.addEventListener('click', closeModalFn);
 window.addEventListener('click', handleWindowClick);
+statsButton?.addEventListener('click', handleInterface)
 
 cancelButton?.addEventListener('click', () => {
     closeModalFn()
@@ -478,6 +482,8 @@ function saveDecision(name, action) {
     }
 
     localStorage.setItem('alocados-summary', JSON.stringify(summary));
+
+    saveData(name, action);
 }
 
 function cleanOldDecisions() {
@@ -583,7 +589,7 @@ function initCountDownSendMessage(callback) {
     }, 1000);
 }
 
-function handleInterace(tinderGame = true) {
+function handleInterface(evnt, tinderGame = false) {
     if(tinderGame) {
         handleUndoClick
     }
@@ -594,5 +600,103 @@ function handleInterace(tinderGame = true) {
 }
 
 function showStats() {
-    console.log('viendo stats')
+    const cards = document.querySelector('.cards');
+    const buttons = document.querySelector('.action-buttons');
+
+    if (cards) cards.remove();
+    if (buttons) buttons.remove();
+
+    showStatsInterface()
+
+    /* showTopLikes()
+    showTopDislike()
+    showYourCrush()
+    showfindAnAloado()
+    showFooterApp() */
+}
+
+function saveData(name, action) {
+    fetch(URL2, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({ name: name, action: action }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then(res => res.json())
+        .then(console.log);
+}
+
+function getData(name, action) {
+    const params = new URLSearchParams({ name, action });
+
+    fetch(`${URL2}?${params.toString()}`)
+        .then(res => res.json())
+        .then(data => console.log(data.count))
+        .catch(console.error);
+}
+
+function getTopNames(action) {
+    const params = new URLSearchParams({ top: 'true', action });
+
+    fetch(`${URL2}?${params.toString()}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log("Top 5:", data.top);
+        })
+        .catch(console.error);
+}
+
+function showStatsInterface() {
+    const section = document.querySelector('section');
+    if (!section) return;
+
+    const statsDiv = document.createElement('div');
+    statsDiv.className = 'stats-interface';
+
+    statsDiv.innerHTML = `
+        <header class="visible">
+            <img src="../data/projects/alocadosTinder/assets/image/tinder-logo.webp" alt="Tinder Logo">
+            <span><span class="first-letter">J</span>ÓVENES</span>
+            <span> 🍸 </span>
+            <span><span class="first-letter">A</span>LOCADOS</span>
+        </header>
+
+        <button class="back-button" aria-label="Atrás"><i class="fa-solid fa-arrow-left"></i></button>
+        
+        <div class="stats-content">
+            <div class="stats-card messages">
+                <i class="fa-solid fa-message"></i> Mensajes
+            </div>
+            <div class="stats-card top-likes">
+                <i class="fas fa-heart"></i> Los más buscado
+            </div>
+            <div class="stats-card top-dislike">
+                <i class="fas fa-thumbs-down"></i> Los menos agraciados
+            </div>
+            <div class="stats-card find-an-alocado">
+                <i class="fas fa-search"></i> Encuentra un Alocado
+            </div>
+            <div class="stats-card your-crush">
+                <i class="fa-solid fa-user-secret"></i> Descubre tu Crush
+            </div>
+        </div>
+
+        <footer class="stats-footer">
+        <p>
+            Web desarrollada por <a href="https://github.com/midudev" target="_blank">@mmoza</a> a partir del proyecto <a href="https://github.com/midudev" target="_blank">01-tinder-swipe</a> de <a href="https://github.com/midudev" target="_blank">@midudev</a>.<br>
+        </p>
+        <p>
+            Jóvenes 🍸 Álocados - Madroñera 2025
+        </p>
+        </footer>
+    `;
+
+    section.innerHTML = '';
+    section.appendChild(statsDiv);
+
+    const backButton = document.querySelector('.back-button');
+
+    backButton?.addEventListener('click', handleUndoClick)
 }
