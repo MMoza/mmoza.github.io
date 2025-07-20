@@ -333,6 +333,25 @@ async function openModalSendMessage(name, likes) {
             closeModalFn()
         }, 1500)
     })
+
+    saveMessage(name, randomMessage, true)
+}
+
+function saveMessage(name, message, send = true) {
+    const messagesRaw = localStorage.getItem('alocados-messages');
+    let messagesData = messagesRaw ? JSON.parse(messagesRaw) : {};
+
+    if (!messagesData[name]) {
+        messagesData[name] = [];
+    }
+
+    messagesData[name].push({
+        text: message,
+        sent: send,
+        timestamp: new Date().toISOString()
+    });
+
+    localStorage.setItem('alocados-messages', JSON.stringify(messagesData));
 }
 
 function getModalTitle(typeModal) {
