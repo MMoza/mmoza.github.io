@@ -174,6 +174,14 @@ function showLoading(container, header) {
     header.classList.remove("visible");
 }
 
+function removeLoading(container, header) {
+    const spinner = container.querySelector('.loading-spinner');
+    if (spinner) {
+        spinner.remove();
+    }
+    header.classList.add("visible");
+}
+
 async function fetchProfiles(url) {
     const res = await fetch(url);
     return res.json();
@@ -656,15 +664,18 @@ function getData(name, action) {
         .catch(console.error);
 }
 
-function getTopNames(action) {
+async function getTopNames(action) {
     const params = new URLSearchParams({ top: 'true', action });
 
-    fetch(`${URL2}?${params.toString()}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log("Top 5:", data.top);
-        })
-        .catch(console.error);
+    try {
+        const res = await fetch(`${URL2}?${params.toString()}`);
+        const data = await res.json();
+        console.log("Top 5:", data.top);
+        return data.top;
+    } catch (error) {
+        console.error(error);
+        return []; 
+    }
 }
 
 function showStatsInterface() {
@@ -685,19 +696,19 @@ function showStatsInterface() {
         <button class="back-button" aria-label="Atrás"><i class="fa-solid fa-arrow-left"></i></button>
         
         <div class="stats-content">
-            <div class="stats-card messages">
+            <div class="stats-card messages" data-action="messages">
                 <i class="fa-solid fa-message"></i> Mensajes
             </div>
-            <div class="stats-card top-likes">
+            <div class="stats-card top-likes" data-action="top-likes">
                 <i class="fas fa-heart"></i> Los más buscado
             </div>
-            <div class="stats-card top-dislike">
+            <div class="stats-card top-dislike" data-action="top-dislike">
                 <i class="fas fa-thumbs-down"></i> Los menos agraciados
             </div>
-            <div class="stats-card find-an-alocado">
+            <div class="stats-card find-an-alocado" data-action="find-alocado">
                 <i class="fas fa-search"></i> Encuentra un Alocado
             </div>
-            <div class="stats-card your-crush">
+            <div class="stats-card your-crush" data-action="your-crush">
                 <i class="fa-solid fa-user-secret"></i> Descubre tu Crush
             </div>
         </div>
@@ -715,7 +726,289 @@ function showStatsInterface() {
     section.innerHTML = '';
     section.appendChild(statsDiv);
 
-    const backButton = document.querySelector('.back-button');
+    setBackButtonHandler(handleUndoClick); 
 
-    backButton?.addEventListener('click', handleUndoClick)
+    const cards = statsDiv.querySelectorAll('.stats-card');
+    cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            const action = e.currentTarget.dataset.action;
+            handleStatsCardClick(action);
+            setBackButtonHandler(showStatsInterface);
+        });
+    });
+}
+
+function handleStatsCardClick(action) {
+    switch (action) {
+        case 'messages':
+            showMessagesInterface();
+            break;
+        case 'top-likes':
+            showTopLikesInterface();
+            break;
+        case 'top-dislike':
+            showTopDislikeInterface();
+            break;
+        case 'find-alocado':
+            showFindAlocadoInterface();
+            break;
+        case 'your-crush':
+            showYourCrushInterface();
+            break;
+        default:
+            console.warn('Acción no reconocida:', action);
+    }
+}
+
+async function showMessagesInterface() {
+    const statsInterface = document.querySelector('.stats-interface');
+    if (!statsInterface) return;
+
+    const messagesRaw = localStorage.getItem('alocados-messages');
+    const messagesData = messagesRaw ? JSON.parse(messagesRaw) : {};
+
+    const statsContent = statsInterface.querySelector('.stats-content');
+    statsContent.innerHTML = ''; // dejamos el header y el footer intactos
+
+    if (Object.keys(messagesData).length === 0) {
+        const emptyMsg = document.createElement('p');
+        emptyMsg.textContent = 'Aún no has recibido ningún mensaje.';
+        emptyMsg.className = 'empty-messages';
+        statsContent.appendChild(emptyMsg);
+        return;
+    }
+
+    // Cargar perfiles
+    const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
+
+    // Construir cards de conversación
+    Object.entries(messagesData).forEach(([name, messages]) => {
+        const lastMessage = messages[messages.length - 1];
+        const profile = profiles.find(p => p.name === name);
+
+        // Crear la card
+        const card = document.createElement('div');
+        card.className = 'conversation-card';
+
+        card.innerHTML = `
+            <img src="../../data/projects/alocadosTinder/${profile?.image || 'assets/photos/default.webp'}" alt="${name}">
+            <div class="conversation-info">
+                <strong>${name}</strong>
+                <p>${lastMessage.text}</p>
+                <span class="message-time">${formatTime(lastMessage.timestamp)}</span>
+            </div>
+        `;
+
+        statsContent.appendChild(card);
+    });
+}
+
+function formatTime(isoString) {
+    const date = new Date(isoString);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+function setBackButtonHandler(callback) {
+    const backButton = document.querySelector('.back-button');
+    if (!backButton) return;
+
+    const newBackButton = backButton.cloneNode(true);
+    backButton.parentNode.replaceChild(newBackButton, backButton);
+
+    newBackButton.addEventListener('click', callback);
+}
+
+async function showTopLikesInterface() {
+    const statsInterface = document.querySelector('.stats-interface');
+    if (!statsInterface) return;
+
+    const statsContent = statsInterface.querySelector('.stats-content');
+    const header = document.querySelector('header');
+    statsContent.innerHTML = '';
+
+    showLoading(statsContent, header);
+
+    const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
+
+    const STORAGE_KEY = 'alocados-like-rank';
+    const STORAGE_TIME_KEY = 'alocados-like-rank-timestamp';
+    const TEN_MINUTES = 10 * 60 * 1000;
+
+    let rank = null;
+    const lastFetch = localStorage.getItem(STORAGE_TIME_KEY);
+    const now = Date.now();
+
+    if (lastFetch && (now - lastFetch < TEN_MINUTES)) {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            try {
+                rank = JSON.parse(stored);
+            } catch {
+                rank = null;
+            }
+        }
+    }
+
+    if (!rank) {
+        rank = await getTopNames('like');
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(rank));
+        localStorage.setItem(STORAGE_TIME_KEY, now.toString());
+    }
+
+    if (!rank || rank.length === 0) {
+        statsContent.innerHTML = '<p class="empty-messages">No hay likes registrados todavía.</p>';
+        removeLoading(statsContent, header);
+        return;
+    }
+
+    removeLoading(statsContent, header);
+
+    rank.forEach(({ name, count }, index) => {
+        const profile = profiles.find(p => p.name === name);
+
+        const card = document.createElement('div');
+        card.className = 'ranking-card';
+
+        card.innerHTML = `
+            <div class="ranking-position">#${index + 1}</div>
+            <img src="../../data/projects/alocadosTinder/${profile?.image || 'assets/photos/default.webp'}" alt="${name}">
+            <div class="ranking-info">
+                <strong>${name}</strong>
+                <p>${count} ❤️</p>
+            </div>
+        `;
+
+        statsContent.appendChild(card);
+    });
+
+    setBackButtonHandler(showStatsInterface);
+}
+
+async function showTopDislikeInterface() {
+    const statsInterface = document.querySelector('.stats-interface');
+    if (!statsInterface) return;
+
+    const statsContent = statsInterface.querySelector('.stats-content');
+    const header = document.querySelector('header');
+    statsContent.innerHTML = '';
+
+    showLoading(statsContent, header);
+
+    const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
+
+    const STORAGE_KEY = 'alocados-dislike-rank';
+    const STORAGE_TIME_KEY = 'alocados-dislike-rank-timestamp';
+    const TEN_MINUTES = 10 * 60 * 1000;
+
+    let rank = null;
+    const lastFetch = localStorage.getItem(STORAGE_TIME_KEY);
+    const now = Date.now();
+
+    if (lastFetch && (now - lastFetch < TEN_MINUTES)) {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            try {
+                rank = JSON.parse(stored);
+            } catch {
+                rank = null;
+            }
+        }
+    }
+
+    if (!rank) {
+        rank = await getTopNames('dislike');
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(rank));
+        localStorage.setItem(STORAGE_TIME_KEY, now.toString());
+    }
+
+    if (!rank || rank.length === 0) {
+        statsContent.innerHTML = '<p class="empty-messages">No hay dislikes registrados todavía.</p>';
+        removeLoading(statsContent, header);
+        return;
+    }
+
+    removeLoading(statsContent, header);
+
+    rank.forEach(({ name, count }, index) => {
+        const profile = profiles.find(p => p.name === name);
+
+        const card = document.createElement('div');
+        card.className = 'ranking-card';
+
+        card.innerHTML = `
+            <div class="ranking-position">#${index + 1}</div>
+            <img src="../../data/projects/alocadosTinder/${profile?.image || 'assets/photos/default.webp'}" alt="${name}">
+            <div class="ranking-info">
+                <strong>${name}</strong>
+                <p>${count} 👎</p>
+            </div>
+        `;
+
+        statsContent.appendChild(card);
+    });
+
+    setBackButtonHandler(showStatsInterface);
+}
+
+async function showFindAlocadoInterface() {
+    const statsInterface = document.querySelector('.stats-interface');
+    if (!statsInterface) return;
+
+    const statsContent = statsInterface.querySelector('.stats-content');
+    const header = document.querySelector('header');
+    statsContent.innerHTML = '';
+
+    showLoading(statsContent, header);
+
+    const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
+
+    removeLoading(statsContent, header);
+
+    // Crear input de búsqueda
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.placeholder = 'Buscar por nombre...';
+    searchInput.className = 'alocado-search-input';
+
+    // Crear contenedor de resultados
+    const resultsContainer = document.createElement('div');
+    resultsContainer.className = 'alocado-results';
+
+    statsContent.appendChild(searchInput);
+    statsContent.appendChild(resultsContainer);
+
+    function renderResults(query = '') {
+        resultsContainer.innerHTML = '';
+        const filtered = profiles.filter(p =>
+            p.name.toLowerCase().includes(query.toLowerCase())
+        );
+
+        if (filtered.length === 0) {
+            resultsContainer.innerHTML = '<p class="empty-messages">No se encontró ningún alocado.</p>';
+            return;
+        }
+
+        filtered.forEach(profile => {
+            const card = document.createElement('div');
+            card.className = 'profile-card';
+
+            card.innerHTML = `
+                <img class="profile-image" src="../../data/projects/alocadosTinder/${profile?.image || 'assets/photos/default.webp'}" alt="${profile.name}">
+                <div class="profile-info">
+                    <strong class="profile-name">${profile.name}${profile.age ? `, ${profile.age}` : ''}</strong>
+                    ${profile.description ? `<p class="profile-description">${profile.description}</p>` : ''}
+                </div>
+            `;
+
+            resultsContainer.appendChild(card);
+        });
+    }
+
+    searchInput.addEventListener('input', (e) => {
+        renderResults(e.target.value);
+    });
+
+    renderResults();
+
+    setBackButtonHandler(showStatsInterface);
 }
