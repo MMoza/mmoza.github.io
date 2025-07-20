@@ -963,14 +963,14 @@ async function showFindAlocadoInterface() {
     const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
 
     const summaryRaw = localStorage.getItem('alocados-summary');
-    let topAlocado = null;
+    let topAlocados = [];
 
     if (summaryRaw) {
         try {
-            const summary = JSON.parse(summaryRaw); // ahora es un array
+            const summary = JSON.parse(summaryRaw);
             if (Array.isArray(summary)) {
                 summary.sort((a, b) => (b.likes ?? 0) - (a.likes ?? 0));
-                topAlocado = summary[0]?.name;
+                topAlocados = summary.slice(0, 3).map(p => p.name);
             }
         } catch (e) {
             console.error('Error parsing alocados-summary', e);
@@ -994,7 +994,7 @@ async function showFindAlocadoInterface() {
             const card = document.createElement('div');
             card.className = 'profile-card';
         
-            if (profile.name === topAlocado) {
+            if (topAlocados.includes(profile.name)) {
                 card.classList.add('hot-card');
             }
         
@@ -1003,7 +1003,7 @@ async function showFindAlocadoInterface() {
                 <div class="profile-info">
                     <strong class="profile-name">
                         ${profile.name}${profile.age ? `, ${profile.age}` : ''} 
-                        ${profile.name === topAlocado ? ' 🔥' : ''}
+                        ${topAlocados.includes(profile.name) ? ' 🔥' : ''}
                     </strong>
                     ${profile.description ? `<p class="profile-description">${profile.description}</p>` : ''}
                 </div>
@@ -1013,13 +1013,11 @@ async function showFindAlocadoInterface() {
         });
     }
 
-    // Crear input de búsqueda
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
     searchInput.placeholder = 'Buscar por nombre...';
     searchInput.className = 'alocado-search-input';
 
-    // Crear contenedor de resultados
     const resultsContainer = document.createElement('div');
     resultsContainer.className = 'alocado-results';
 
