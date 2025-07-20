@@ -796,6 +796,7 @@ footer.stats-footer {
     padding: 10px;
     font-size: 16px;
     margin-bottom: 1rem;
+    margin-top:25px;
     border-radius: 8px;
     border: 1px solid #ccc;
 }
