@@ -962,7 +962,56 @@ async function showFindAlocadoInterface() {
 
     const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
 
+    const summaryRaw = localStorage.getItem('alocados-summary');
+    let topAlocado = null;
+
+    if (summaryRaw) {
+        try {
+            const summary = JSON.parse(summaryRaw); // ahora es un array
+            if (Array.isArray(summary)) {
+                summary.sort((a, b) => (b.likes ?? 0) - (a.likes ?? 0));
+                topAlocado = summary[0]?.name;
+            }
+        } catch (e) {
+            console.error('Error parsing alocados-summary', e);
+        }
+    }
+
     removeLoading(statsContent, header);
+
+    function renderResults(query = '') {
+        resultsContainer.innerHTML = '';
+        const filtered = profiles.filter(p =>
+            p.name.toLowerCase().includes(query.toLowerCase())
+        );
+    
+        if (filtered.length === 0) {
+            resultsContainer.innerHTML = '<p class="empty-messages">No se encontró ningún alocado.</p>';
+            return;
+        }
+    
+        filtered.forEach(profile => {
+            const card = document.createElement('div');
+            card.className = 'profile-card';
+        
+            if (profile.name === topAlocado) {
+                card.classList.add('hot-card');
+            }
+        
+            card.innerHTML = `
+                <img class="profile-image" src="../../data/projects/alocadosTinder/${profile?.image || 'assets/photos/default.webp'}" alt="${profile.name}">
+                <div class="profile-info">
+                    <strong class="profile-name">
+                        ${profile.name}${profile.age ? `, ${profile.age}` : ''} 
+                        ${profile.name === topAlocado ? ' 🔥' : ''}
+                    </strong>
+                    ${profile.description ? `<p class="profile-description">${profile.description}</p>` : ''}
+                </div>
+            `;
+        
+            resultsContainer.appendChild(card);
+        });
+    }
 
     // Crear input de búsqueda
     const searchInput = document.createElement('input');
@@ -976,33 +1025,6 @@ async function showFindAlocadoInterface() {
 
     statsContent.appendChild(searchInput);
     statsContent.appendChild(resultsContainer);
-
-    function renderResults(query = '') {
-        resultsContainer.innerHTML = '';
-        const filtered = profiles.filter(p =>
-            p.name.toLowerCase().includes(query.toLowerCase())
-        );
-
-        if (filtered.length === 0) {
-            resultsContainer.innerHTML = '<p class="empty-messages">No se encontró ningún alocado.</p>';
-            return;
-        }
-
-        filtered.forEach(profile => {
-            const card = document.createElement('div');
-            card.className = 'profile-card';
-
-            card.innerHTML = `
-                <img class="profile-image" src="../../data/projects/alocadosTinder/${profile?.image || 'assets/photos/default.webp'}" alt="${profile.name}">
-                <div class="profile-info">
-                    <strong class="profile-name">${profile.name}${profile.age ? `, ${profile.age}` : ''}</strong>
-                    ${profile.description ? `<p class="profile-description">${profile.description}</p>` : ''}
-                </div>
-            `;
-
-            resultsContainer.appendChild(card);
-        });
-    }
 
     searchInput.addEventListener('input', (e) => {
         renderResults(e.target.value);
