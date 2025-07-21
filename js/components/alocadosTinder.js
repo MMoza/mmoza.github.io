@@ -729,7 +729,8 @@ function showStatsInterface() {
     section.innerHTML = '';
     section.appendChild(statsDiv);
 
-    setBackButtonHandler(handleUndoClick); 
+    setBackButtonHandler(handleUndoClick);
+    responsePendingMessages();
 
     const cards = statsDiv.querySelectorAll('.stats-card');
     cards.forEach(card => {
@@ -767,6 +768,10 @@ function handleStatsCardClick(action) {
 }
 
 async function showMessagesInterface() {
+    setBackButtonHandler(() => {
+        showStatsInterface();
+    });
+
     const statsInterface = document.querySelector('.stats-interface');
     if (!statsInterface) return;
 
@@ -808,10 +813,77 @@ async function showMessagesInterface() {
             </div>
         `;
 
+        card.addEventListener('click', () => {
+            showConversation(profile, messages);
+        });
+
         statsContent.appendChild(card);
     });
 }
 
+function showConversation(profile, messages) {
+    const statsContent = document.querySelector('.stats-content');
+    statsContent.innerHTML = '';
+
+    // --- Header con foto, nombre, descripción y conexión ---
+    const header = document.createElement('div');
+    header.className = 'chat-header';
+
+    const img = document.createElement('img');
+    img.src = `../../data/projects/alocadosTinder/${profile?.image || 'assets/photos/default.webp'}`;
+    img.alt = profile.name;
+
+    const info = document.createElement('div');
+    info.className = 'chat-profile-info';
+
+    const nameEl = document.createElement('strong');
+    nameEl.textContent = profile.name;
+
+
+    const lastSeen = document.createElement('span');
+    lastSeen.className = 'last-seen';
+    lastSeen.textContent = getRandomLastSeen();
+
+    info.appendChild(nameEl);
+    info.appendChild(lastSeen);
+
+    header.appendChild(img);
+    header.appendChild(info);
+    statsContent.appendChild(header);
+
+    // --- Lista de mensajes ---
+    const messagesList = document.createElement('div');
+    messagesList.className = 'messages-list';
+
+    messages.forEach(msg => {
+        const msgEl = document.createElement('div');
+        msgEl.className = msg.sent ? 'msg sent' : 'msg received';
+        msgEl.innerHTML = `
+            <p>${msg.text}</p>
+            <span class="timestamp">${formatTime(msg.timestamp)}</span>
+        `;
+        messagesList.appendChild(msgEl);
+    });
+
+    statsContent.appendChild(messagesList);
+
+    // --- Botón atrás ---
+    setBackButtonHandler(() => {
+        showMessagesInterface();
+    });
+}
+
+function getRandomLastSeen() {
+    const now = new Date();
+    const randomOffsetMinutes = Math.floor(Math.random() * 1440); // hasta 24h
+    const lastSeenDate = new Date(now.getTime() - randomOffsetMinutes * 60 * 1000);
+
+    if (randomOffsetMinutes < 10) return 'Conectado';
+
+    const hours = lastSeenDate.getHours().toString().padStart(2, '0');
+    const minutes = lastSeenDate.getMinutes().toString().padStart(2, '0');
+    return `Últ. vez hoy a las ${hours}:${minutes}`;
+}
 
 function formatTime(timestamp) {
     const date = new Date(timestamp);
@@ -1059,4 +1131,8 @@ async function showFindAlocadoInterface() {
     renderResults();
 
     setBackButtonHandler(showStatsInterface);
+}
+
+function responsePendingMessages() {
+
 }
