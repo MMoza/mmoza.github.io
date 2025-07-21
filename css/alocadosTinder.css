@@ -586,6 +586,10 @@ button.reload.visible {
     &.messages {
         background-color: #38D9A9;
     }
+
+    &.notifications {
+        background-color: #FFD43B;
+    }
     
     &.top-likes {
         background-color: #339AF0;

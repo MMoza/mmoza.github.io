@@ -699,6 +699,9 @@ function showStatsInterface() {
             <div class="stats-card messages" data-action="messages">
                 <i class="fa-solid fa-message"></i> Mensajes
             </div>
+            <div class="stats-card notifications" data-action="notifications">
+                <i class="fa-solid fa-bell"></i> Notificaciones
+            </div>
             <div class="stats-card top-likes" data-action="top-likes">
                 <i class="fas fa-heart"></i> Los más buscado
             </div>
@@ -742,6 +745,9 @@ function handleStatsCardClick(action) {
     switch (action) {
         case 'messages':
             showMessagesInterface();
+            break;
+        case 'notifications':
+            showNotificationsInterface();
             break;
         case 'top-likes':
             showTopLikesInterface();
