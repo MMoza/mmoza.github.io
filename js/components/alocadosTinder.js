@@ -784,11 +784,15 @@ async function showMessagesInterface() {
         return;
     }
 
-    // Cargar perfiles
     const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
 
-    // Construir cards de conversación
-    Object.entries(messagesData).forEach(([name, messages]) => {
+    const sortedEntries = Object.entries(messagesData).sort(([, a], [, b]) => {
+        const t1 = a[a.length - 1]?.timestamp || 0;
+        const t2 = b[b.length - 1]?.timestamp || 0;
+        return t2 - t1;
+    });
+
+    sortedEntries.forEach(([name, messages]) => {
         const lastMessage = messages[messages.length - 1];
         const profile = profiles.find(p => p.name === name);
 
@@ -809,9 +813,27 @@ async function showMessagesInterface() {
     });
 }
 
-function formatTime(isoString) {
-    const date = new Date(isoString);
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+function formatTime(timestamp) {
+    const date = new Date(timestamp);
+    const now = new Date();
+
+    const isSameDay = date.toDateString() === now.toDateString();
+
+    const yesterday = new Date();
+    yesterday.setDate(now.getDate() - 1);
+    const isYesterday = date.toDateString() === yesterday.toDateString();
+
+    if (isSameDay) {
+        return date.toLocaleTimeString('es-ES', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        });
+    } else if (isYesterday) {
+        return 'Ayer';
+    } else {
+        return date.toLocaleDateString('es-ES');
+    }
 }
 
 function setBackButtonHandler(callback) {
