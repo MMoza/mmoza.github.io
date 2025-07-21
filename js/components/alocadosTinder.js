@@ -774,7 +774,7 @@ async function showMessagesInterface() {
     const messagesData = messagesRaw ? JSON.parse(messagesRaw) : {};
 
     const statsContent = statsInterface.querySelector('.stats-content');
-    statsContent.innerHTML = ''; // dejamos el header y el footer intactos
+    statsContent.innerHTML = '';
 
     if (Object.keys(messagesData).length === 0) {
         const emptyMsg = document.createElement('p');
@@ -786,17 +786,16 @@ async function showMessagesInterface() {
 
     const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
 
-    const sortedEntries = Object.entries(messagesData).sort(([, a], [, b]) => {
-        const t1 = a[a.length - 1]?.timestamp || 0;
-        const t2 = b[b.length - 1]?.timestamp || 0;
-        return t2 - t1;
+    const sortedEntries = Object.entries(messagesData).sort((a, b) => {
+        const lastA = new Date(a[1][a[1].length - 1].timestamp);
+        const lastB = new Date(b[1][b[1].length - 1].timestamp);
+        return lastB - lastA; // orden descendente
     });
 
     sortedEntries.forEach(([name, messages]) => {
         const lastMessage = messages[messages.length - 1];
         const profile = profiles.find(p => p.name === name);
 
-        // Crear la card
         const card = document.createElement('div');
         card.className = 'conversation-card';
 
@@ -812,6 +811,7 @@ async function showMessagesInterface() {
         statsContent.appendChild(card);
     });
 }
+
 
 function formatTime(timestamp) {
     const date = new Date(timestamp);
