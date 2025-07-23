@@ -586,6 +586,10 @@ button.reload.visible {
     &.messages {
         background-color: #38D9A9;
     }
+
+    &.notifications {
+        background-color: #FFD43B;
+    }
     
     &.top-likes {
         background-color: #339AF0;
@@ -654,6 +658,11 @@ footer.stats-footer {
     flex-direction: column;
     gap: 0.5rem;
     box-sizing: border-box;
+
+    & h2 {
+        margin-top: 25px;
+        text-align: right;
+    }
 }
 
 .stats-content .stats-card:first-child {
@@ -703,6 +712,10 @@ footer.stats-footer {
     padding: 1rem;
     text-align: center;
     font-style: italic;
+
+    position: relative;
+    top: 185px;
+    color: gray;
 }
 
 .conversation-card {
@@ -796,6 +809,7 @@ footer.stats-footer {
     padding: 10px;
     font-size: 16px;
     margin-bottom: 1rem;
+    margin-top:25px;
     border-radius: 8px;
     border: 1px solid #ccc;
 }
@@ -841,4 +855,99 @@ footer.stats-footer {
     font-size: 14px;
     color: #555;
     margin: 0;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.msg {
+    max-width: 80%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    position: relative;
+}
+
+.msg.sent {
+    align-self: flex-end;
+    background: #DCF8C6;
+}
+
+.msg.received {
+    align-self: flex-start;
+    background: #F1F0F0;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: #888;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+.chat-interface {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.chat-header img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.chat-footer {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.chat-footer button {
+    background: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+.chat-profile-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.last-seen {
+    font-size: 12px;
+    color: gray;
 }

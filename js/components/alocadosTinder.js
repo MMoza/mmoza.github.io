@@ -699,6 +699,9 @@ function showStatsInterface() {
             <div class="stats-card messages" data-action="messages">
                 <i class="fa-solid fa-message"></i> Mensajes
             </div>
+            <div class="stats-card notifications" data-action="notifications">
+                <i class="fa-solid fa-bell"></i> Notificaciones
+            </div>
             <div class="stats-card top-likes" data-action="top-likes">
                 <i class="fas fa-heart"></i> Los más buscado
             </div>
@@ -726,7 +729,8 @@ function showStatsInterface() {
     section.innerHTML = '';
     section.appendChild(statsDiv);
 
-    setBackButtonHandler(handleUndoClick); 
+    setBackButtonHandler(handleUndoClick);
+    responsePendingMessages();
 
     const cards = statsDiv.querySelectorAll('.stats-card');
     cards.forEach(card => {
@@ -742,6 +746,9 @@ function handleStatsCardClick(action) {
     switch (action) {
         case 'messages':
             showMessagesInterface();
+            break;
+        case 'notifications':
+            showNotificationsInterface();
             break;
         case 'top-likes':
             showTopLikesInterface();
@@ -761,6 +768,10 @@ function handleStatsCardClick(action) {
 }
 
 async function showMessagesInterface() {
+    setBackButtonHandler(() => {
+        showStatsInterface();
+    });
+
     const statsInterface = document.querySelector('.stats-interface');
     if (!statsInterface) return;
 
@@ -768,7 +779,7 @@ async function showMessagesInterface() {
     const messagesData = messagesRaw ? JSON.parse(messagesRaw) : {};
 
     const statsContent = statsInterface.querySelector('.stats-content');
-    statsContent.innerHTML = ''; // dejamos el header y el footer intactos
+    statsContent.innerHTML = '';
 
     if (Object.keys(messagesData).length === 0) {
         const emptyMsg = document.createElement('p');
@@ -778,15 +789,18 @@ async function showMessagesInterface() {
         return;
     }
 
-    // Cargar perfiles
     const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
 
-    // Construir cards de conversación
-    Object.entries(messagesData).forEach(([name, messages]) => {
+    const sortedEntries = Object.entries(messagesData).sort((a, b) => {
+        const lastA = new Date(a[1][a[1].length - 1].timestamp);
+        const lastB = new Date(b[1][b[1].length - 1].timestamp);
+        return lastB - lastA; // orden descendente
+    });
+
+    sortedEntries.forEach(([name, messages]) => {
         const lastMessage = messages[messages.length - 1];
         const profile = profiles.find(p => p.name === name);
 
-        // Crear la card
         const card = document.createElement('div');
         card.className = 'conversation-card';
 
@@ -799,13 +813,99 @@ async function showMessagesInterface() {
             </div>
         `;
 
+        card.addEventListener('click', () => {
+            showConversation(profile, messages);
+        });
+
         statsContent.appendChild(card);
     });
 }
 
-function formatTime(isoString) {
-    const date = new Date(isoString);
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+function showConversation(profile, messages) {
+    const statsContent = document.querySelector('.stats-content');
+    statsContent.innerHTML = '';
+
+    // --- Header con foto, nombre, descripción y conexión ---
+    const header = document.createElement('div');
+    header.className = 'chat-header';
+
+    const img = document.createElement('img');
+    img.src = `../../data/projects/alocadosTinder/${profile?.image || 'assets/photos/default.webp'}`;
+    img.alt = profile.name;
+
+    const info = document.createElement('div');
+    info.className = 'chat-profile-info';
+
+    const nameEl = document.createElement('strong');
+    nameEl.textContent = profile.name;
+
+
+    const lastSeen = document.createElement('span');
+    lastSeen.className = 'last-seen';
+    lastSeen.textContent = getRandomLastSeen();
+
+    info.appendChild(nameEl);
+    info.appendChild(lastSeen);
+
+    header.appendChild(img);
+    header.appendChild(info);
+    statsContent.appendChild(header);
+
+    // --- Lista de mensajes ---
+    const messagesList = document.createElement('div');
+    messagesList.className = 'messages-list';
+
+    messages.forEach(msg => {
+        const msgEl = document.createElement('div');
+        msgEl.className = msg.sent ? 'msg sent' : 'msg received';
+        msgEl.innerHTML = `
+            <p>${msg.text}</p>
+            <span class="timestamp">${formatTime(msg.timestamp)}</span>
+        `;
+        messagesList.appendChild(msgEl);
+    });
+
+    statsContent.appendChild(messagesList);
+
+    // --- Botón atrás ---
+    setBackButtonHandler(() => {
+        showMessagesInterface();
+    });
+}
+
+function getRandomLastSeen() {
+    const now = new Date();
+    const randomOffsetMinutes = Math.floor(Math.random() * 1440); // hasta 24h
+    const lastSeenDate = new Date(now.getTime() - randomOffsetMinutes * 60 * 1000);
+
+    if (randomOffsetMinutes < 10) return 'Conectado';
+
+    const hours = lastSeenDate.getHours().toString().padStart(2, '0');
+    const minutes = lastSeenDate.getMinutes().toString().padStart(2, '0');
+    return `Últ. vez hoy a las ${hours}:${minutes}`;
+}
+
+function formatTime(timestamp) {
+    const date = new Date(timestamp);
+    const now = new Date();
+
+    const isSameDay = date.toDateString() === now.toDateString();
+
+    const yesterday = new Date();
+    yesterday.setDate(now.getDate() - 1);
+    const isYesterday = date.toDateString() === yesterday.toDateString();
+
+    if (isSameDay) {
+        return date.toLocaleTimeString('es-ES', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        });
+    } else if (isYesterday) {
+        return 'Ayer';
+    } else {
+        return date.toLocaleDateString('es-ES');
+    }
 }
 
 function setBackButtonHandler(callback) {
@@ -963,14 +1063,14 @@ async function showFindAlocadoInterface() {
     const profiles = await fetchProfiles("../../data/projects/alocadosTinder/alocadsoData.json");
 
     const summaryRaw = localStorage.getItem('alocados-summary');
-    let topAlocado = null;
+    let topAlocados = [];
 
     if (summaryRaw) {
         try {
-            const summary = JSON.parse(summaryRaw); // ahora es un array
+            const summary = JSON.parse(summaryRaw);
             if (Array.isArray(summary)) {
                 summary.sort((a, b) => (b.likes ?? 0) - (a.likes ?? 0));
-                topAlocado = summary[0]?.name;
+                topAlocados = summary.slice(0, 3).map(p => p.name);
             }
         } catch (e) {
             console.error('Error parsing alocados-summary', e);
@@ -994,7 +1094,7 @@ async function showFindAlocadoInterface() {
             const card = document.createElement('div');
             card.className = 'profile-card';
         
-            if (profile.name === topAlocado) {
+            if (topAlocados.includes(profile.name)) {
                 card.classList.add('hot-card');
             }
         
@@ -1003,7 +1103,7 @@ async function showFindAlocadoInterface() {
                 <div class="profile-info">
                     <strong class="profile-name">
                         ${profile.name}${profile.age ? `, ${profile.age}` : ''} 
-                        ${profile.name === topAlocado ? ' 🔥' : ''}
+                        ${topAlocados.includes(profile.name) ? ' 🔥' : ''}
                     </strong>
                     ${profile.description ? `<p class="profile-description">${profile.description}</p>` : ''}
                 </div>
@@ -1013,13 +1113,11 @@ async function showFindAlocadoInterface() {
         });
     }
 
-    // Crear input de búsqueda
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
     searchInput.placeholder = 'Buscar por nombre...';
     searchInput.className = 'alocado-search-input';
 
-    // Crear contenedor de resultados
     const resultsContainer = document.createElement('div');
     resultsContainer.className = 'alocado-results';
 
@@ -1033,4 +1131,8 @@ async function showFindAlocadoInterface() {
     renderResults();
 
     setBackButtonHandler(showStatsInterface);
+}
+
+function responsePendingMessages() {
+
 }
