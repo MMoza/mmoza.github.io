@@ -251,18 +251,17 @@
     },
     {
         "name": "Jose Carlos",
-        "age": 35,
+        "age": 33,
         "description":"",
         "image": "assets/photos/2.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
         "name": "Lagarty",
-        "age": 35,
+        "age": 33,
         "like_message": "Puedo ponerte a 4 patas, pero tu a mi no",
-        "description":"",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "description":"Pateando el mundo",
+        "image": "assets/photos/lagarty.webp"
     },
     {
         "name": "Tali",
