@@ -259,7 +259,6 @@
     {
         "name": "Lagarty",
         "age": 33,
-        "like_message": "Puedo ponerte a 4 patas, pero tu a mi no",
         "description":"Pateando el mundo",
         "image": "assets/photos/lagarty.webp"
     },
