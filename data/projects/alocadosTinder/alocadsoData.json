@@ -176,15 +176,14 @@
         "name": "Richi",
         "age": 34,
         "description":"Al mejor cazador, se le va la liebre",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/richi.webp"
     },
     {
         "name": "Carreta",
         "age": 33,
         "description":"Hijo de Rita",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/carreta.webp",
+        "instagram": "https://instagram.com/carreta_cc"
     },
     {
         "name": "Choza",
