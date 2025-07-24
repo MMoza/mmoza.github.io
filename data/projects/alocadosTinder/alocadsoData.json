@@ -253,7 +253,7 @@
         "name": "Jose Carlos",
         "age": 33,
         "description":"",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/jc.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
@@ -272,8 +272,7 @@
         "name": "Kike",
         "age": 35,
         "description":"Me gustan fresquitos",
-        "image": "assets/photos/kike.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/kike.webp"
     },
     {
         "name": "Chencho",
@@ -286,7 +285,7 @@
         "name": "Boby",
         "age": 42,
         "description":"No muy joven, pero muy alocado",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/boby.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
