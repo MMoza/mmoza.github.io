@@ -239,7 +239,7 @@
         "name": "Criss",
         "age": 33,
         "description":"El de en medio de los chichos",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/Criss.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
@@ -265,9 +265,8 @@
     {
         "name": "Tali",
         "age": 35,
-        "description":"",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "description":"Me gusta quitar pelos",
+        "image": "assets/photos/tali.webp"
     },
     {
         "name": "Kike",
