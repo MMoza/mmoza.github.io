@@ -224,8 +224,8 @@
     {
         "name": "Alfon",
         "age": 35,
-        "description":"",
-        "image": "assets/photos/2.webp",
+        "description":"Me gusta tocar instrumentos...",
+        "image": "assets/photos/alfon.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
@@ -239,7 +239,7 @@
         "name": "Criss",
         "age": 33,
         "description":"El de en medio de los chichos",
-        "image": "assets/photos/2.webp",
+        "image": "assets/photos/Criss.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
@@ -251,25 +251,22 @@
     },
     {
         "name": "Jose Carlos",
-        "age": 35,
+        "age": 33,
         "description":"",
         "image": "assets/photos/2.webp",
         "instagram": "https://instagram.com/agrario"
     },
     {
         "name": "Lagarty",
-        "age": 35,
-        "like_message": "Puedo ponerte a 4 patas, pero tu a mi no",
-        "description":"",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "age": 33,
+        "description":"Pateando el mundo",
+        "image": "assets/photos/lagarty.webp"
     },
     {
         "name": "Tali",
         "age": 35,
-        "description":"",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "description":"Me gusta quitar pelos",
+        "image": "assets/photos/tali.webp"
     },
     {
         "name": "Kike",
