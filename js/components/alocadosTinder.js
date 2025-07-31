@@ -4,7 +4,7 @@ const DEFAULT_LIKE_MESSAGE = '¿Que tal si follamos?';
 const DEFAULT_UNLIKE_MESSAGE = 'Yo tampoco te toco ni con un palo'
 const MODAL_TYPES = ['likeModal', 'dislikeModal'];
 const RELOAD_TIME = 10 * 60 * 1000;
-const URL2 = "https://script.google.com/macros/s/AKfycbxRJrKUk97lWLLRKSAlm6OSGZVkAYH_AlKUnzYTZMM_ndfNQ0XVNyl-evZ8S5RLp01f/exec"
+const URL2 = "https://script.google.com/macros/s/AKfycbwb-A3ecXu6smkBqS3Ln4w0X00CRwNf6jFZ-cPl-ZrlozzCLAi-wwg9jPHZ2pcnRZ-W/exec"
 
 
 let isAnimating = false
@@ -678,6 +678,34 @@ async function getTopNames(action) {
     }
 }
 
+async function getAllNames(action, since) {
+    const safeSince = (since == null) ? 0 : since; // si es null o undefined, usa 0
+    const params = new URLSearchParams({ action, since: safeSince.toString() });
+
+    try {
+        const res = await fetch(`${URL2}?${params.toString()}`);
+        const data = await res.json();
+        return data.names || []; // Array de { name, count }
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+}
+
+function mergeRankings(oldList, newList) {
+    const map = new Map();
+
+    for (const { name, count } of oldList) {
+        map.set(name, (map.get(name) || 0) + count);
+    }
+
+    for (const { name, count } of newList) {
+        map.set(name, (map.get(name) || 0) + count);
+    }
+
+    return Array.from(map.entries()).map(([name, count]) => ({ name, count }));
+}
+
 function showStatsInterface() {
     const section = document.querySelector('section');
     if (!section) return;
@@ -934,38 +962,45 @@ async function showTopLikesInterface() {
     const STORAGE_TIME_KEY = 'alocados-like-rank-timestamp';
     const TEN_MINUTES = 10 * 60 * 1000;
 
-    let rank = null;
-    const lastFetch = localStorage.getItem(STORAGE_TIME_KEY);
+    let fullRank = [];
+    const lastFetch = parseInt(localStorage.getItem(STORAGE_TIME_KEY), 10) || 0;
     const now = Date.now();
 
-    if (lastFetch && (now - lastFetch < TEN_MINUTES)) {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-            try {
-                rank = JSON.parse(stored);
-            } catch {
-                rank = null;
-            }
+    // Cargar datos almacenados
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+        try {
+            fullRank = JSON.parse(stored);
+        } catch {
+            fullRank = [];
         }
     }
 
-    if (!rank) {
-        rank = await getTopNames('like');
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(rank));
+    // Solo pedir nuevos datos si han pasado 10 minutos
+    if (now - lastFetch > TEN_MINUTES) {
+        const newData = await getAllNames('like', lastFetch || null);
+        fullRank = mergeRankings(fullRank, newData);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(fullRank));
         localStorage.setItem(STORAGE_TIME_KEY, now.toString());
     }
 
-    if (!rank || rank.length === 0) {
+    // Si no hay datos, mostrar mensaje
+    if (!fullRank.length) {
         statsContent.innerHTML = '<p class="empty-messages">No hay likes registrados todavía.</p>';
         removeLoading(statsContent, header);
         return;
     }
 
+    // Obtener el top 5 ordenado
+    const top5 = [...fullRank]
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 5);
+
     removeLoading(statsContent, header);
 
-    rank.forEach(({ name, count }, index) => {
+    // Renderizar tarjetas
+    top5.forEach(({ name, count }, index) => {
         const profile = profiles.find(p => p.name === name);
-
         const card = document.createElement('div');
         card.className = 'ranking-card';
 
@@ -1000,38 +1035,45 @@ async function showTopDislikeInterface() {
     const STORAGE_TIME_KEY = 'alocados-dislike-rank-timestamp';
     const TEN_MINUTES = 10 * 60 * 1000;
 
-    let rank = null;
-    const lastFetch = localStorage.getItem(STORAGE_TIME_KEY);
+    let fullRank = [];
+    const lastFetch = parseInt(localStorage.getItem(STORAGE_TIME_KEY), 10) || 0;
     const now = Date.now();
 
-    if (lastFetch && (now - lastFetch < TEN_MINUTES)) {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-            try {
-                rank = JSON.parse(stored);
-            } catch {
-                rank = null;
-            }
+    // Cargar datos almacenados
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+        try {
+            fullRank = JSON.parse(stored);
+        } catch {
+            fullRank = [];
         }
     }
 
-    if (!rank) {
-        rank = await getTopNames('dislike');
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(rank));
+    // Solo pedir nuevos datos si han pasado 10 minutos
+    if (now - lastFetch > TEN_MINUTES) {
+        const newData = await getAllNames('dislike', lastFetch || null);
+        fullRank = mergeRankings(fullRank, newData);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(fullRank));
         localStorage.setItem(STORAGE_TIME_KEY, now.toString());
     }
 
-    if (!rank || rank.length === 0) {
+    // Si no hay datos, mostrar mensaje
+    if (!fullRank.length) {
         statsContent.innerHTML = '<p class="empty-messages">No hay dislikes registrados todavía.</p>';
         removeLoading(statsContent, header);
         return;
     }
 
+    // Obtener el top 5 ordenado
+    const top5 = [...fullRank]
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 5);
+
     removeLoading(statsContent, header);
 
-    rank.forEach(({ name, count }, index) => {
+    // Renderizar tarjetas
+    top5.forEach(({ name, count }, index) => {
         const profile = profiles.find(p => p.name === name);
-
         const card = document.createElement('div');
         card.className = 'ranking-card';
 
