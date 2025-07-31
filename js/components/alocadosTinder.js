@@ -746,7 +746,7 @@ function showStatsInterface() {
 
         <footer class="stats-footer">
         <p>
-            Web desarrollada por <a href="https://github.com/midudev" target="_blank">@mmoza</a> a partir del proyecto <a href="https://github.com/midudev" target="_blank">01-tinder-swipe</a> de <a href="https://github.com/midudev" target="_blank">@midudev</a>.<br>
+            Web desarrollada por <a href="https://www.linkedin.com/in/miguel-angel-moza-barquilla-040b63256/" target="_blank">@mmoza</a> a partir del proyecto <a href="https://www.javascript100.dev/01-tinder-swipe" target="_blank">01-tinder-swipe</a> de <a href="https://github.com/midudev" target="_blank">@midudev</a>.<br>
         </p>
         <p>
             Jóvenes 🍸 Álocados - Madroñera 2025
