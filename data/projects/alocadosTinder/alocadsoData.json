@@ -25,7 +25,7 @@
         "description": "Tengo un Golf Cazador",
         "long_description": "",
         "like_message": "¿Te gustan morenitos?",
-        "unlike_message": "El negro de la cocnchi está descepcionado",
+        "unlike_message": "El negro de la Conchi está descepcionado",
         "image": "assets/photos/perito.webp",
         "instagram": "https://instagram.com/victormns"
     },
@@ -44,14 +44,16 @@
         "age": 32,
         "description": "Crazy Runner 🏃‍♂️🍺",
         "like_message": "¿Quieres correr conmigo?",
+        "unlike_message": "Ya estoy centrao",
         "image": "assets/photos/miguel-angel.webp",
         "instagram": "https://instagram.com/miguelgb0408"
     },
     {
         "name": "Jari",
         "age": 32,
-        "description": "",
+        "description": "Me gustan los gazpachitos",
         "like_message": "Yo ya.",
+        "unlike_message": "Y yastaaaa",
         "long_description": "",
         "image": "assets/photos/jari.webp",
         "instagram": "https://instagram.com/javihys33"
@@ -59,9 +61,9 @@
     {
         "name": "Manuel",
         "age": 35,
-        "description": "Tengo una gasolinera, ¿Quieres gasolina?.",
+        "description": "¿Quieres gasolina?",
         "like_message": "Te voy a llenar el deposito",
-        "unlike_message": "Tu también eres bien fea",
+        "unlike_message": "Agualina",
         "image": "assets/photos/manuel.webp",
         "instagram": "https://instagram.com/m4nety"
     },
@@ -75,6 +77,8 @@
         "name": "Iñaki",
         "age": 33,
         "description": "Terrateniente y ganadero",
+        "like_message": "¿Quieres que te de una vuelta en mi camión?",
+        "unlike_message": "No me junto con la plebe",
         "image": "assets/photos/inaki.webp",
         "instagram": "https://instagram.com/elena"
     },
@@ -89,6 +93,7 @@
         "name": "Miguelito",
         "age": "¿?",
         "description": "Soy amigo de Goyo",
+        "like_message": "¿Damos una vuelta por Madriñera?",
         "unlike_message": "Me da igual, tengo una novia de Sta. Cruz",
         "image": "assets/photos/miguelito.webp",
         "instagram": "https://www.xvideos.com"
@@ -104,6 +109,8 @@
         "name": "Dieguito",
         "age": 31,
         "description": "Me crié en Herguijuela",
+        "like_message": "¿Subimos al cancho la zorra?",
+        "unlike_message": "Tú no eres de la capital",
         "image": "assets/photos/diego.webp",
         "instagram": "https://instagram.com/carlos"
     },
@@ -111,6 +118,8 @@
         "name": "Carletes",
         "age": 31,
         "description": "🌈👭🏳️‍🌈👨‍❤️‍👨",
+        "like_message": "¿Te hago la mirada del cocodrilo?",
+        "unlike_message": "No puedo, estoy de ruta con la moto",
         "image": "assets/photos/carletes.webp",
         "instagram": "https://instagram.com/carlinosrol"
     },
@@ -125,6 +134,8 @@
         "name": "Cano",
         "age": 34,
         "description": "Nucelar, la palabra es nucelar",
+        "like_message": "¿Soy especialista en pinchar, te hago una sesión?",
+        "unlike_message": "01:23:45",
         "image": "assets/photos/cano.webp",
         "instagram": "https://instagram.com/cano"
     },
@@ -141,13 +152,17 @@
         "name": "Borja",
         "age": 34,
         "description":"Salgo de caza con mi primo",
+        "like_message": "¿Echamos unos hoyos?",
+        "unlike_message": "No te meto ni la mirilla",
         "image": "assets/photos/borja.webp",
         "instagram": "https://instagram.com/borja"
     },
     {
         "name": "Kiyo",
         "age": 34,
-        "description":"Sevillano",
+        "description":"Me gusta la Cruzcampo, no tengo escrúpulos",
+        "like_message": "¿Damos una vuelta por Triana?",
+        "unlike_message": "Tranquila, ya solo trabajo al otro lado del charco",
         "image": "assets/photos/kiyo.webp",
         "instagram": "https://instagram.com/kiyo"
     },
@@ -155,22 +170,25 @@
         "name": "Agrario",
         "age": 34,
         "description":"Me gusta varear olivos",
-        "image": "assets/photos/agrario.webp",
-        "instagram": "https://instagram.com/agrario"
+        "like_message": "¿Damos una vuelta en mi Derbi?",
+        "unlike_message": "Ya no arranca",
+        "image": "assets/photos/agrario.webp"
     },
     {
         "name": "Valija",
         "age": 34,
         "description":"Soy de la Rebola",
-        "image": "assets/photos/valija.webp",
-        "instagram": "https://instagram.com/agrario"
+        "like_message": "¿Echamos unos fornites?",
+        "unlike_message": "Prefiero jugar solo en mi canal de Twich",
+        "image": "assets/photos/valija.webp"
     },
     {
         "name": "Riki",
         "age": 34,
         "description":"Un chaval con cabeza",
-        "image": "assets/photos/riki.webp",
-        "instagram": "https://instagram.com/agrario"
+        "like_message": "Me cortas el pelo?",
+        "unlike_message": "boooo la rusa, ande webos vas?",
+        "image": "assets/photos/riki.webp"
     },
     {
         "name": "Richi",
@@ -182,6 +200,7 @@
         "name": "Carreta",
         "age": 33,
         "description":"Hijo de Rita",
+        "unlike_message": "Ya solo CDB",
         "image": "assets/photos/carreta.webp",
         "instagram": "https://instagram.com/carreta_cc"
     },
@@ -189,72 +208,69 @@
         "name": "Choza",
         "age": 31,
         "description":"Joven prodigio",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "like_message": "¿Damos una vuelta?",
+        "unlike_message": "La motino es pa hacer deporte",
+        "image": "assets/photos/choza.webp"
     },
     {
         "name": "Pepirre",
         "age": 33,
-        "like_message": "¿Nos hechamos un cigarrino después de follar?",
         "description":"Me gustan las cervecinas",
-        "image": "assets/photos/pepirre.webp",
-        "instagram": "https://instagram.com/agrario"
+        "like_message": "¿Nos hechamos un cigarrino después de follar?",
+        "unlike_message": "Prefiero jugar una Office",
+        "image": "assets/photos/pepirre.webp"
     },
     {
         "name": "Billy",
         "age": 33,
         "description":"The punisher",
-        "image": "assets/photos/billy.webp",
-        "instagram": "https://instagram.com/agrario"
+        "like_message": "Como tengo la hormigonera",
+        "unlike_message": "Quieto Billyyy",
+        "image": "assets/photos/billy.webp"
     },
     {
         "name": "Navarrino",
         "age": 35,
         "description":"Muy cabrón y chiquinino",
-        "image": "assets/photos/navarrino.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/navarrino.webp"
     },
     {
         "name": "Steven",
         "age": 35,
         "description":"Soy de fuenla",
-        "image": "assets/photos/esteban.webp",
-        "instagram": "https://instagram.com/agrario"
+        "like_message": "¿Un taconeo?",
+        "unlike_message": "Ya no estoy pa esos trotes",
+        "image": "assets/photos/esteban.webp"
     },
     {
         "name": "Alfon",
         "age": 35,
         "description":"Me gusta tocar instrumentos...",
-        "image": "assets/photos/alfon.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/alfon.webp"
     },
     {
         "name": "Juanma",
         "age": 33,
         "description":"Toco el umpa umpa",
-        "image": "assets/photos/juanma.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/juanma.webp"
     },
     {
         "name": "Criss",
         "age": 33,
         "description":"El de en medio de los chichos",
-        "image": "assets/photos/Criss.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/Criss.webp"
     },
     {
         "name": "Ruten",
         "age": 35,
-        "description":"",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "description":"Pesco tencas",
+        "image": "assets/photos/ruten.webp"
     },
     {
         "name": "Jose Carlos",
         "age": 33,
         "description":"Me gusta tatuar partes intimas",
-        "image": "assets/photos/jc.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/jc.webp"
     },
     {
         "name": "Lagarty",
@@ -266,61 +282,61 @@
         "name": "Tali",
         "age": 35,
         "description":"Me gusta quitar pelos",
+        "like_message": "¿Taliban chico?",
         "image": "assets/photos/tali.webp"
     },
     {
         "name": "Kike",
         "age": 35,
         "description":"Me gustan fresquitos",
+        "like_message": "¿Quieres que te enseñe el TT?",
+        "unlike_message": "Niebla",
         "image": "assets/photos/kike.webp"
     },
     {
         "name": "Chencho",
         "age": 35,
         "description":"Alocado como mi cuñado",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/chencho.webp"
     },
     {
         "name": "Boby",
         "age": 42,
         "description":"No muy joven, pero muy alocado",
-        "image": "assets/photos/boby.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/boby.webp"
     },
     {
         "name": "Agustin",
         "age": 35,
-        "description":"",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "description":"El señor galleta",
+        "like_message": "¿Echamos un baile?",
+        "unlike_message": "Vomito rayo",
+        "image": "assets/photos/agus.webp"
     },
     {
         "name": "Germán",
         "age": 35,
         "description":"",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/german.webp"
     },
     {
         "name": "Joni",
-        "age": 35,
-        "description":"",
-        "image": "assets/photos/2.webp",
-        "instagram": "https://instagram.com/agrario"
+        "age": 32,
+        "description":"Conor McGregor",
+        "image": "assets/photos/joni.webp"
     },
     {
         "name": "Rato",
         "age": 32,
         "description":"Pikoleto",
-        "image": "assets/photos/rato.webp",
-        "instagram": "https://instagram.com/agrario"
+        "image": "assets/photos/rato.webp"
     },
     {
         "name": "Milon",
         "age": 33,
         "description":"Ciclista fantasma",
-        "image": "assets/photos/milon.webp",
-        "instagram": "https://instagram.com/agrario"
+        "like_message": "¿Te hago un truco de magia?",
+        "unlike_message": "Estoy viendo a Pogaçar",
+        "image": "assets/photos/milon.webp"
     }
 ]
