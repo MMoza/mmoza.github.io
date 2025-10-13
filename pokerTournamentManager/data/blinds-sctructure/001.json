@@ -1,0 +1,33 @@
+{
+    "id": 1,
+    "name": "DeepStack Ante BB - Normal",
+    "description": "Estructura de ciegas diseñada para torneos DeepStack (20.000 chips o más). En esta estructura el ante lo podrá la BB en cada mano.",
+    "structure": [
+        {
+            "level": 1,
+            "big_blind": 100,
+            "samll_blind": 50,
+            "ante": 100,
+            "time": 20
+        },
+        {
+            "level": 2,
+            "big_blind": 150,
+            "samll_blind": 75,
+            "ante": 150,
+            "time": 20
+        },
+        {
+            "level": 3,
+            "big_blind": 200,
+            "samll_blind": 100,
+            "ante": 200,
+            "time": 20
+        },
+        {
+            "break": true,
+            "time": 5
+        }
+
+    ]
+}
