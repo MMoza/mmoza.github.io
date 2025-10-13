@@ -1,0 +1,394 @@
+{
+    "id": 2,
+    "name": "Regular",
+    "description": "Torneo freezeout estándar con stack de 10.000 puntos y entrada de 10?.",
+    "mainEntry": {
+        "costCents": 1000,
+        "stack": 10000,
+        "prizePoolContributionCents": 1000,
+        "rakeCents": 0,
+        "bountyContributionCents": 0 
+    },
+    "minPlayers": 6,
+    "maxPlayers": 90,
+    "tableSize": 9,
+    "finalTableSize": 9,
+    "lateBuyInLimitLevel:": 6,
+    "blindLevels": [
+        {
+            "level": 1,
+            "small_blind": 25,
+            "big_blind": 50,
+            "ante": 50,
+            "durationMinutes": 20
+        },
+        {
+            "level": 2,
+            "small_blind": 50,
+            "big_blind": 100,
+            "ante": 100,
+            "durationMinutes": 20
+        },
+        {
+            "level": 3,
+            "small_blind": 75,
+            "big_blind": 150,
+            "ante": 150,
+            "durationMinutes": 20
+        },
+        {
+            "level": 4,
+            "small_blind": 100,
+            "big_blind": 200,
+            "ante": 200,
+            "durationMinutes": 20
+        },
+        {
+            "level": 5,
+            "small_blind": 150,
+            "big_blind": 300,
+            "ante": 300,
+            "durationMinutes": 20
+        },
+        {
+            "level": 6,
+            "small_blind": 200,
+            "big_blind": 400,
+            "ante": 400,
+            "durationMinutes": 20
+        },
+        {
+            "break": true,
+            "durationMinutes": 10
+        },
+        {
+            "level": 7,
+            "small_blind": 300,
+            "big_blind": 600,
+            "ante": 600,
+            "durationMinutes": 20
+        },
+        {
+            "level": 8,
+            "small_blind": 400,
+            "big_blind": 800,
+            "ante": 800,
+            "durationMinutes": 20
+        },
+        {
+            "level": 9,
+            "small_blind": 500,
+            "big_blind": 1000,
+            "ante": 1000,
+            "durationMinutes": 20
+        }
+    ],
+    "pricePoolStructure": [
+        {
+            "name": "Estructura Estándar 90 Players",
+            "ranges": [
+                {
+                    "minPlayers": 2,
+                    "maxPlayers": 11,
+                    "positions": [
+                        {
+                            "position": 1,
+                            "percentage": 70
+                        },
+                        {
+                            "position": 2,
+                            "percentage": 30
+                        }
+                    ]
+                },
+                {
+                    "minPlayers": 12,
+                    "maxPlayers": 17,
+                    "positions": [
+                        {
+                            "position": 1,
+                            "percentage": 50
+                        },
+                        {
+                            "position": 2,
+                            "percentage": 30
+                        },
+                        {
+                            "position": 3,
+                            "percentage": 20
+                        }
+                    ]
+                },
+                {
+                    "minPlayers": 18,
+                    "maxPlayers": 26,
+                    "positions": [
+                        {
+                            "position": 1,
+                            "percentage": 35
+                        },
+                        {
+                            "position": 2,
+                            "percentage": 25
+                        },
+                        {
+                            "position": 3,
+                            "percentage": 18
+                        },
+                        {
+                            "position": 4,
+                            "percentage": 12
+                        },
+                        {
+                            "position": 5,
+                            "percentage": 10
+                        }
+                    ]
+                },
+                {
+                    "minPlayers": 27,
+                    "maxPlayers": 36,
+                    "positions": [
+                        {
+                            "position": 1,
+                            "percentage": 30
+                        },
+                        {
+                            "position": 2,
+                            "percentage": 20
+                        },
+                        {
+                            "position": 3,
+                            "percentage": 15
+                        },
+                        {
+                            "position": 4,
+                            "percentage": 10
+                        },
+                        {
+                            "position": 5,
+                            "percentage": 8
+                        },
+                        {
+                            "position": 6,
+                            "percentage": 7
+                        },
+                        {
+                            "position": 7,
+                            "percentage": 5
+                        },
+                        {
+                            "position": 8,
+                            "percentage": 5
+                        }
+                    ]
+                },
+                {
+                    "minPlayers": 37,
+                    "maxPlayers": 45,
+                    "positions": [
+                        {
+                            "position": 1,
+                            "percentage": 25
+                        },
+                        {
+                            "position": 2,
+                            "percentage": 18
+                        },
+                        {
+                            "position": 3,
+                            "percentage": 14
+                        },
+                        {
+                            "position": 4,
+                            "percentage": 10
+                        },
+                        {
+                            "position": 5,
+                            "percentage": 8
+                        },
+                        {
+                            "position": 6,
+                            "percentage": 6
+                        },
+                        {
+                            "position": 7,
+                            "percentage": 5
+                        },
+                        {
+                            "position": 8,
+                            "percentage": 5
+                        },
+                        {
+                            "position": 9,
+                            "percentage": 4
+                        },
+                        {
+                            "position": 10,
+                            "percentage": 3
+                        },
+                        {
+                            "position": 11,
+                            "percentage": 2
+                        }
+                    ]
+                },
+                {
+                    "minPlayers": 46,
+                    "maxPlayers": 60,
+                    "positions": [
+                        {
+                            "position": 1,
+                            "percentage": 22
+                        },
+                        {
+                            "position": 2,
+                            "percentage": 16
+                        },
+                        {
+                            "position": 3,
+                            "percentage": 12
+                        },
+                        {
+                            "position": 4,
+                            "percentage": 10
+                        },
+                        {
+                            "position": 5,
+                            "percentage": 8
+                        },
+                        {
+                            "position": 6,
+                            "percentage": 6
+                        },
+                        {
+                            "position": 7,
+                            "percentage": 5
+                        },
+                        {
+                            "position": 8,
+                            "percentage": 5
+                        },
+                        {
+                            "position": 9,
+                            "percentage": 4
+                        },
+                        {
+                            "position": 10,
+                            "percentage": 4
+                        },
+                        {
+                            "position": 11,
+                            "percentage": 3
+                        },
+                        {
+                            "position": 12,
+                            "percentage": 3
+                        },
+                        {
+                            "position": 13,
+                            "percentage": 1
+                        },
+                        {
+                            "position": 14,
+                            "percentage": 1
+                        }
+                    ]
+                },
+                {
+                    "minPlayers": 61,
+                    "maxPlayers": 90,
+                    "positions": [
+                        {
+                            "position": 1,
+                            "percentage": 21
+                        },
+                        {
+                            "position": 2,
+                            "percentage": 14
+                        },
+                        {
+                            "position": 3,
+                            "percentage": 10
+                        },
+                        {
+                            "position": 4,
+                            "percentage": 8
+                        },
+                        {
+                            "position": 5,
+                            "percentage": 7
+                        },
+                        {
+                            "position": 6,
+                            "percentage": 6
+                        },
+                        {
+                            "position": 7,
+                            "percentage": 5
+                        },
+                        {
+                            "position": 8,
+                            "percentage": 5
+                        },
+                        {
+                            "position": 9,
+                            "percentage": 4
+                        },
+                        {
+                            "position": 10,
+                            "percentage": 4
+                        },
+                        {
+                            "position": 11,
+                            "percentage": 3
+                        },
+                        {
+                            "position": 12,
+                            "percentage": 3
+                        },
+                        {
+                            "position": 13,
+                            "percentage": 2
+                        },
+                        {
+                            "position": 14,
+                            "percentage": 2
+                        },
+                        {
+                            "position": 15,
+                            "percentage": 2
+                        },
+                        {
+                            "position": 16,
+                            "percentage": 2
+                        },
+                        {
+                            "position": 17,
+                            "percentage": 1
+                        },
+                        {
+                            "position": 18,
+                            "percentage": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "earlyBirdStack": 1000,
+    "reEntry": {
+        "maxEntries": 1,
+        "levelLimit": 6,
+        "entryDetails": {
+            "costCents": 1000,
+            "stack": 10000,
+            "prizePoolContributionCents": 900,
+            "rakeCents": 100,
+            "bountyContributionCents": 0
+        }
+    },
+    "bounty": null,
+    "reBuyIn": null,
+    "addOn": null
+}

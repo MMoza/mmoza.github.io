@@ -206,11 +206,3 @@ document.addEventListener('click', function (event) {
         dropdown.style.display = 'none';
     }
 });
-
-document.getElementById('language-switch').addEventListener('change', function () {
-    alert(this.checked ? 'Language switched to English' : 'Language switched to Español');
-});
-
-document.getElementById('theme-switch').addEventListener('change', function () {
-    alert(this.checked ? 'Dark Mode enabled' : 'Light Mode enabled');
-});
