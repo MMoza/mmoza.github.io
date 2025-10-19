@@ -106,6 +106,45 @@
         {
             "break": true,
             "durationMinutes": 10
+        },
+        {
+            "level": 13,
+            "small_blind": 2000,
+            "big_blind": 4000,
+            "ante": 4000,
+            "durationMinutes": 20
+        },
+        {
+            "level": 14,
+            "small_blind": 2500,
+            "big_blind": 5000,
+            "ante": 5000,
+            "durationMinutes": 20
+        },
+        {
+            "level": 15,
+            "small_blind": 3000,
+            "big_blind": 6000,
+            "ante": 6000,
+            "durationMinutes": 20
+        },
+        {
+            "level": 16,
+            "small_blind": 4000,
+            "big_blind": 8000,
+            "ante": 8000,
+            "durationMinutes": 20
+        },
+        {
+            "level": 17,
+            "small_blind": 5000,
+            "big_blind": 10000,
+            "ante": 10000,
+            "durationMinutes": 20
+        },
+        {
+            "break": true,
+            "durationMinutes": 10
         }
     ],
     "pricePoolStructure": [
