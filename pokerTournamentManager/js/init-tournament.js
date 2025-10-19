@@ -365,7 +365,9 @@ function generateBlindsTableHTML(blindLevels) {
         if (levelData.type === 'break') {
             html += `
                 <tr class="break-row" data-index="${index}">
-                    <td colspan="4">DESCANSO</td> <td>
+                    <td colspan="1"</td>
+                    <td colspan="3">DESCANSO</td> 
+                    <td>
                         <input type="number" name="blindLevels[${index}].durationMinutes" value="${levelData.durationMinutes}" min="1">
                     </td>
                     <td>

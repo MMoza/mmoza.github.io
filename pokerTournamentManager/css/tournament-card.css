@@ -74,7 +74,8 @@
 }
 
 .select-button {
-    background-color: #28a745; /* Color de éxito/acción */
+    background-color: #28a745;
+    /* Color de éxito/acción */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -141,44 +142,53 @@
 
 .blind-structure-table {
     width: 100%;
-    border-collapse: collapse; /* Mantenemos esto para que no haya espacio entre celdas */
+    border-collapse: collapse;
+    /* Mantenemos esto para que no haya espacio entre celdas */
     margin-top: 10px;
     font-size: 0.9em;
-    color: #f5f5f5; /* Color de texto claro para fondo oscuro */
+    color: #f5f5f5;
+    /* Color de texto claro para fondo oscuro */
 }
 
 /* Eliminamos todos los bordes */
 .blind-structure-table th,
 .blind-structure-table td {
-    padding: 10px 8px; /* Aumentamos el padding para compensar la falta de bordes */
+    padding: 10px 8px;
+    /* Aumentamos el padding para compensar la falta de bordes */
     text-align: center;
-    border: none; /* ¡Eliminamos el borde! */
+    border: none;
+    /* ¡Eliminamos el borde! */
 }
 
 /* Encabezado */
 .blind-structure-table th {
-    background-color: #2c3e50; /* Color oscuro sólido para el encabezado */
+    background-color: #2c3e50;
+    /* Color oscuro sólido para el encabezado */
     font-weight: bold;
     color: #ffffff;
     /* Añadimos un pequeño borde inferior para separar el encabezado del cuerpo */
-    border-bottom: 2px solid #34495e; 
+    border-bottom: 2px solid #34495e;
 }
 
 /* Filas Alternas (Dark/Light Contrast) */
 .blind-structure-table tr:nth-child(even) {
-    background-color: #34495e; /* Color oscuro 1 (Más oscuro) */
+    background-color: #34495e;
+    /* Color oscuro 1 (Más oscuro) */
 }
 
 .blind-structure-table tr:nth-child(odd) {
-    background-color: #445b73; /* Color oscuro 2 (Ligeramente menos oscuro) */
+    background-color: #445b73;
+    /* Color oscuro 2 (Ligeramente menos oscuro) */
 }
 
 /* Fila de descanso (BREAK) */
 .blind-structure-table .break-row {
-    background-color: #f39c12; /* Naranja fuerte para contraste */
+    background-color: #f39c12;
+    /* Naranja fuerte para contraste */
     font-style: italic;
     font-weight: 700;
-    color: #2c3e50; /* Texto oscuro para el fondo naranja */
+    color: #2c3e50;
+    /* Texto oscuro para el fondo naranja */
 }
 
 .blind-structure-table .break-row td:first-child {
@@ -193,70 +203,162 @@
     padding: 4px;
     text-align: center;
     /* Adaptamos el input para el tema oscuro */
-    background-color: #2c3e50; 
-    color: #ffffff; 
-    border: 1px solid #5d758f; /* Borde sutil */
+    background-color: #2c3e50;
+    color: #ffffff;
+    border: 1px solid #5d758f;
+    /* Borde sutil */
     border-radius: 3px;
     transition: border-color 0.2s;
 }
 
 .blind-structure-table input[type="number"]:focus {
-    border-color: #ff9900; /* Color de enfoque brillante */
+    border-color: #ff9900;
+    /* Color de enfoque brillante */
     outline: none;
     box-shadow: 0 0 5px rgba(255, 153, 0, 0.5);
 }
 
 /* Centra el texto "DESCANSO" dentro de su celda */
 .blind-structure-table .break-row td:first-child {
-    text-align: center; /* Aplica el centrado */
-    padding-left: 0; /* Asegura que no haya padding extra que lo desvíe */
+    text-align: center;
+    /* Aplica el centrado */
+    padding-left: 0;
+    /* Asegura que no haya padding extra que lo desvíe */
 }
 
-/* ========================================= */
-/* MEDIA QUERY PARA MÓVIL (max-width: 600px) */
 /* ========================================= */
 @media screen and (max-width: 600px) {
 
-    .blind-structure-table {
-        font-size: 0.8em;   /* Reducimos ligeramente la fuente */
+    .blind-structure-table thead {
+        display: none;
     }
 
-    .blind-structure-table th,
+    .blind-structure-table tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .blind-structure-table .break-row {
+        background-color: #f39c12;
+        font-style: italic;
+        font-weight: 700;
+        color: #2c3e50;
+        text-align: center;
+    }
+
     .blind-structure-table td {
-        padding: 6px 4px;  /* Reducimos padding para no ocupar tanto espacio */
+        display: flex;
+        justify-content: space-between;
+        padding: 2px 4px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .blind-structure-table td:last-child {
+        border-bottom: none;
+    }
+
+    /* Solo agregar etiquetas a celdas que NO sean break */
+    .blind-structure-table tr:not(.break-row) td:nth-child(1)::before {
+        content: "Nivel";
+    }
+
+    .blind-structure-table tr:not(.break-row) td:nth-child(2)::before {
+        content: "SB";
+    }
+
+    .blind-structure-table tr:not(.break-row) td:nth-child(3)::before {
+        content: "BB";
+    }
+
+    .blind-structure-table tr:not(.break-row) td:nth-child(4)::before {
+        content: "Ante";
+    }
+
+    .blind-structure-table tr:not(.break-row) td:nth-child(5)::before {
+        content: "Duración (min)";
+    }
+
+    .blind-structure-table tr:not(.break-row) td:nth-child(6)::before {
+        content: "";
+    }
+
+    .blind-structure-table tr:not(.break-row) td::before {
+        font-weight: bold;
+        margin-right: 10px;
+        color: #f5f5f5;
+        flex-shrink: 0;
     }
 
     .blind-structure-table input[type="number"] {
-        width: 70%;       /* Input más pequeño */
-        max-width: 50px;  /* Limite máximo menor en móviles */
-        padding: 3px;
+        width: 50%;
+        max-width: 100px;
     }
 
-    .blind-structure-table tr:nth-child(even),
-    .blind-structure-table tr:nth-child(odd) {
-        font-size: 0.8em;  /* Fuente más pequeña si es necesario */
+    @media screen and (max-width: 600px) {
+
+        /* Fila de descanso como bloque flex */
+        .blind-structure-table .break-row {
+            display: flex;
+            justify-content: space-between;
+            /* Espacio entre duración y botón */
+            align-items: center;
+            /* Centrar verticalmente */
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f39c12 !important;
+            font-style: italic;
+            font-weight: 700;
+            color: #2c3e50;
+            text-align: left;
+        }
+
+        /* Celda de texto "DESCANSO" */
+        .blind-structure-table .break-row td:first-child {
+            flex: 1;
+            /* Ocupa el espacio restante */
+            text-align: left;
+            padding-left: 0;
+        }
+
+        /* Celda de duración */
+        .blind-structure-table .break-row td:nth-child(2) {
+            flex-shrink: 0;
+            margin-right: 10px;
+        }
+
+        /* Celda del botón borrar */
+        .blind-structure-table .break-row td:last-child {
+            flex-shrink: 0;
+        }
+
+        /* Input dentro del break ajustado */
+        .blind-structure-table .break-row input[type="number"] {
+            width: 60px;
+            /* Tamaño fijo cómodo para móviles */
+        }
+
+        .blind-structure-table .break-row td {
+            border-bottom: none;
+        }
     }
 
-    .blind-structure-table .break-row td:first-child {
-        font-size: 0.85em;   /* Ajuste de texto "DESCANSO" */
-        padding-left: 0;
-    }
-
-    /* Opcional: hacer scroll horizontal si la tabla es muy ancha */
-    .section-content {
-        overflow-x: auto;
-    }
 }
+
 
 
 .dragging {
     opacity: 0.5;
 }
+
 .blind-structure-table tr {
     transition: background 0.2s;
 }
+
 .blind-structure-table tr:hover {
-    background: #f3f3f3;
+    background: var(--primary-color)
 }
 
 .blind-buttons {
