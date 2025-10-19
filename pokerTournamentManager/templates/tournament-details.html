@@ -1,0 +1,205 @@
+<form id="tournament-config-form" class="tournament-details-view">
+    <button type="button" class="back-button">← Volver a la lista</button>
+    
+    <div class="details-header">
+        <label class="name-label" for="name">Nombre del torneo: </label>
+        <input type="text" name="name" id="name" class="card-name-input" value="{{NAME}}" required>
+    </div>
+
+    <div class="details-section expanded" data-section="basic">
+        <h3 class="section-toggle">
+            Datos básicos 
+            <span class="icon">▼</span>
+        </h3>
+        <div class="section-content">
+            <ul>
+                <li>
+                    <label for="entryCost">Entrada (€):</label>
+                    <input type="number" id="entryCost" name="mainEntry.costCents" value="{{ENTRY_COST}}" step="0.01" required>
+                </li>
+                <li>
+                    <label for="rake">Rake (€):</label>
+                    <input type="number" id="rake" name="mainEntry.rakeCents" value="{{RAKE}}" step="0.01" required>
+                </li>
+                <li>
+                    <label for="stack">Stack Inicial:</label>
+                    <input type="number" id="stack" name="mainEntry.stack" value="{{STACK}}" required>
+                </li>
+                <li>
+                    <label for="earlyBird">Extra puntualidad:</label>
+                    <input type="number" id="earlyBird" name="earlyBirdStack" value="{{EARLY_BIRD}}" required>
+                </li>
+                <li>
+                    <label for="tableSize">Tamaño de Mesa:</label>
+                    <input type="number" id="tableSize" name="tableSize" value="{{TABLE_SIZE}}" min="2" max="10" required>
+                </li>
+                <li>
+                    <label for="finalTableSize">Tamaño de Mesa Final:</label>
+                    <input type="number" id="finalTableSize" name="finalTableSize" value="{{FINAL_TABLE_SIZE}}" min="2" max="10" required>
+                </li>
+                <li>
+                    <label for="lateEntry">Registro tardío (fin del nivel)</label>
+                    <input type="number" id="lateEntry" name="lateEntry" value="{{FINAL_TABLE_SIZE}}" min="0" max="10" required>
+                </li>
+                <input type="hidden" name="templateIdOriginal" value="{{ID}}">
+            </ul>
+        </div>
+    </div>
+
+    <div class="details-section" data-section="blinds">
+        <h3 class="section-toggle">
+            Estructura de Ciegas
+            <span class="icon">►</span>
+        </h3>
+        <div class="section-content hidden-content">
+            <table class="blind-structure-table">
+                <thead>
+                    <tr>
+                        <th>Nivel</th>
+                        <th>SB</th>
+                        <th>BB</th>
+                        <th>Ante</th>
+                        <th>Duración (min)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="blinds-table-body">
+                    {{BLIND_LEVELS}}
+                </tbody>
+            </table>
+
+            <div class="blind-buttons">
+                <button type="button" class="add-level-button">
+                    <i class="fas fa-plus"></i> Añadir nivel
+                </button>
+                <button type="button" class="add-break-button">
+                    <i class="fas fa-coffee"></i> Añadir descanso
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="details-section" data-section="prizes">
+        <h3 class="section-toggle">
+            Estructura de Premios
+            <span class="icon">►</span>
+        </h3>
+        <div class="section-content hidden-content">
+            <ul>
+                </ul>
+        </div>
+    </div>
+
+    <div class="details-section" data-section="bounties">
+        <h3 class="section-toggle">
+            Bounties (Recompensas)
+            <span class="icon">►</span>
+        </h3>
+        <div class="section-content hidden-content">
+            <div>
+                <input type="checkbox" id="enableBounty" name="bounty.enabled" value="true" {{BOUNTY_CHECKED}}>
+                <label for="enableBounty">Activar Bounties</label>
+            </div>
+            
+            <hr style="margin: 15px 0;">
+
+            <label for="bountyType">Tipo de Bounty:</label>
+            <select id="bountyType" name="bounty.type">
+                <option value="REGULAR" {{BOUNTY_REGULAR_SELECTED}}>Fijo (Cl�sico)</option>
+                <option value="PROGRESSIVE" {{BOUNTY_PROGRESSIVE_SELECTED}}>Progresivo (PKO)</option>
+                <option value="MYSTERY" {{BOUNTY_MYSTERY_SELECTED}}>Misterioso (Mystery)</option>
+            </select>
+            
+            <div id="bounty-config-fields">
+                {{BOUNTY_CONFIG_FIELDS}}
+            </div>
+        </div>
+    </div>
+
+    <div class="details-section" data-section="rebuys-reentries">
+        <h3 class="section-toggle">
+            Recompras/Reentradas
+            <span class="icon">►</span>
+        </h3>
+        <div class="section-content hidden-content">
+            <div>
+                <input type="radio" id="typeNone" name="secondaryEntryType" value="NONE" {{NONE_CHECKED}}>
+                <label for="typeNone">Ninguna</label>
+            </div>
+            <div>
+                <input type="radio" id="typeReentry" name="secondaryEntryType" value="REENTRY" {{REENTRY_CHECKED}}>
+                <label for="typeReentry">Re-entrada</label>
+            </div>
+            <div>
+                <input type="radio" id="typeRebuy" name="secondaryEntryType" value="REBUY" {{REBUY_CHECKED}}>
+                <label for="typeRebuy">Recompra (Re-buy In)</label>
+            </div>
+
+            <div id="reentry-fields" style="margin-top: 15px;">
+                <h4>Configuración de Re-entrada</h4>
+                <ul>
+                    <li>
+                        <label for="reentryMax">Máx. Entradas:</label>
+                        <input type="number" id="reentryMax" name="reEntry.maxEntries" value="{{REENTRY_MAX}}" min="1">
+                    </li>
+                    <li>
+                        <label for="reentryLimit">Límite de Nivel:</label>
+                        <input type="number" id="reentryLimit" name="reEntry.levelLimit" value="{{REENTRY_LIMIT}}" min="1">
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="rebuy-fields" style="margin-top: 15px;">
+                <h4>Configuración de Recompra</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="rebuyUnlimited" name="reBuyIn.isUnlimited" value="true" {{REBUY_UNLIMITED_CHECKED}}>
+                        <label for="rebuyUnlimited">Ilimitadas</label>
+                    </li>
+                    <li>
+                        <label for="rebuyMax">M�x. Recompras (si no es ilimitado):</label>
+                        <input type="number" id="rebuyMax" name="reBuyIn.maxReBuys" value="{{REBUY_MAX}}">
+                    </li>
+                    <li>
+                        <label for="rebuyLimit">L�mite de Nivel:</label>
+                        <input type="number" id="rebuyLimit" name="reBuyIn.levelLimit" value="{{REBUY_LIMIT}}" min="1">
+                    </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="details-section" data-section="addon">
+        <h3 class="section-toggle">
+            Add-On
+            <span class="icon">►</span>
+        </h3>
+        <div class="section-content hidden-content">
+            <div>
+                <input type="checkbox" id="enableAddOn" name="addOn.enabled" value="true" {{ADDON_CHECKED}}>
+                <label for="enableAddOn">Activar Add-On</label>
+            </div>
+            <div id="addon-fields" style="margin-top: 15px;">
+                <ul>
+                    <li>
+                        <label for="addOnLevel">Nivel de Disponibilidad:</label>
+                        <input type="number" id="addOnLevel" name="addOn.level" value="{{ADDON_LEVEL}}" min="1">
+                    </li>
+                    <li>
+                        <label for="addOnStack">Stack del Add-On:</label>
+                        <input type="number" id="addOnStack" name="addOn.entryDetails.stack" value="{{ADDON_STACK}}">
+                    </li>
+                    <li>
+                        <label for="addOnCost">Costo del Add-On (?):</label>
+                        <input type="number" id="addOnCost" name="addOn.entryDetails.costCents" value="{{ADDON_COST}}" step="0.01">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-actions">
+        <button type="submit" class="schedule-game-button" data-action="schedule">Programar</button>
+        <button type="submit" class="start-game-button" data-action="start">Iniciar Partida</button>
+    </div>
+</form>

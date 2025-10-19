@@ -1,0 +1,247 @@
+/* ======================================= */
+/* ESTILOS BASE DEL FORMULARIO Y CONTENEDOR */
+/* ======================================= */
+
+.tournament-details-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre secciones */
+    padding: 10px;
+}
+
+.back-button {
+    align-self: flex-start; /* Alinea el botón a la izquierda */
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.back-button:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* ======================================= */
+/* ENCABEZADO Y TÍTULOS */
+/* ======================================= */
+
+.details-header {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.card-name-input {
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s;
+    padding: 5px 0;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.card-name-input:focus {
+    border-bottom: 2px solid #ff9900;
+    outline: none;
+}
+
+.card-description-input {
+    width: 100%;
+    min-height: 60px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 5px;
+    resize: vertical;
+}
+
+/* ======================================= */
+/* SECCIONES Y LISTAS DE INPUTS */
+/* ======================================= */
+
+.details-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    border-left: 4px solid #ff9900;
+    padding-left: 8px;
+}
+
+.details-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.details-section li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #666;
+}
+
+.details-section li:last-child {
+    border-bottom: none;
+}
+
+.details-section label, .name-label {
+    font-weight: 500;
+    color: #555;
+    flex-grow: 1;
+}
+
+.name-label {
+    margin-bottom: 5px;
+}
+
+/* Estilo para todos los inputs numéricos y de texto dentro de las listas */
+.details-section input[type="number"],
+.details-section input[type="text"] {
+    width: 100px; /* Ancho fijo para campos numéricos */
+    text-align: right;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.details-section input[type="number"]:focus,
+.details-section input[type="text"]:focus {
+    border-color: #ff9900;
+    box-shadow: 0 0 5px rgba(255, 153, 0, 0.3);
+    outline: none;
+}
+
+/* Estilo para el display de BBs */
+#stack-in-bb-display {
+    font-weight: bold;
+    color: #666;
+    margin-left: 5px;
+}
+
+/* ======================================= */
+/* BOTONES DE ACCIÓN (FOOTER) */
+/* ======================================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-top: 15px;
+    background-color: transparent !important;
+}
+
+.start-game-button, .schedule-game-button {
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.start-game-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.start-game-button:hover {
+    background-color: #218838;
+}
+
+.schedule-game-button {
+    background-color: #007bff; /* Azul */
+    color: white;
+}
+
+.schedule-game-button:hover {
+    background-color: #0056b3;
+}
+
+/* ======================================= */
+/* ESTILOS DE SECCIÓN PLEGABLE (Acordeón) */
+/* ======================================= */
+
+.section-toggle {
+    cursor: pointer;
+    margin-bottom: 0; /* Quitamos el margin por defecto del h3 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #ff9900;
+    padding-left: 10px;
+    font-size: 1.3em;
+    padding: 5px 0 5px 10px;
+    transition: background-color 0.2s;
+}
+
+.section-toggle:hover {
+    background-color: #fafafa;
+}
+
+.details-section h3.section-toggle {
+    /* Sobreescribe el estilo de h3 para el toggle */
+    margin-bottom: 15px;
+}
+
+.section-toggle .icon {
+    font-size: 0.8em;
+    font-weight: bold;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+    padding-right: 5px;
+}
+
+/* Estado de Contenido Oculto */
+.section-content {
+    /* Añadimos una transición para una animación suave */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.section-content.hidden-content {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Rotar icono cuando está expandido */
+.details-section.expanded .section-toggle .icon {
+    transform: rotate(180deg);
+}
+
+.details-section.expanded .section-content {
+    opacity: 1;
+}
+
+.blind-structure-table .delete-level-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1; 
+    color: #e74c3c;
+    opacity: 0.8;
+    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+    padding: 0px;
+    font-size: 16px !important;
+    transform: scale(0.8);
+}
+
+.blind-structure-table .delete-level-button:hover {
+    color: #c0392b;
+    opacity: 1;
+    transform: scale(1.1);
+}
