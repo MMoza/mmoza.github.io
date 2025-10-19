@@ -18,6 +18,13 @@ let modalTemplateContent = null;
  */
 async function loadModalTemplate() {
     try {
+        const loadingOverlay = document.createElement('div');
+        loadingOverlay.className = 'modal-loading-overlay';
+        loadingOverlay.innerHTML = `
+            <div class="spinner"></div>
+            <p>Cargando interfaz...</p>
+        `;
+
         const response = await fetch('templates/modal-template.html');
         if (!response.ok) {
             throw new Error('Error al cargar la plantilla modal: templates/modal-template.html');
@@ -44,6 +51,13 @@ async function loadModalTemplate() {
     } catch (error) {
         console.error('Fallo en la carga inicial del modal:', error);
         alert('Fallo crítico al cargar la interfaz. Por favor, recargue.');
+    } finally {
+        // Ocultar el overlay de carga cuando termine todo
+        const loader = document.querySelector('.modal-loading-overlay');
+        if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(() => loader.remove(), 300);
+        }
     }
 }
 
