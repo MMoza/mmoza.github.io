@@ -212,6 +212,43 @@
     padding-left: 0; /* Asegura que no haya padding extra que lo desvíe */
 }
 
+/* ========================================= */
+/* MEDIA QUERY PARA MÓVIL (max-width: 600px) */
+/* ========================================= */
+@media screen and (max-width: 600px) {
+
+    .blind-structure-table {
+        font-size: 0.8em;   /* Reducimos ligeramente la fuente */
+    }
+
+    .blind-structure-table th,
+    .blind-structure-table td {
+        padding: 6px 4px;  /* Reducimos padding para no ocupar tanto espacio */
+    }
+
+    .blind-structure-table input[type="number"] {
+        width: 70%;       /* Input más pequeño */
+        max-width: 50px;  /* Limite máximo menor en móviles */
+        padding: 3px;
+    }
+
+    .blind-structure-table tr:nth-child(even),
+    .blind-structure-table tr:nth-child(odd) {
+        font-size: 0.8em;  /* Fuente más pequeña si es necesario */
+    }
+
+    .blind-structure-table .break-row td:first-child {
+        font-size: 0.85em;   /* Ajuste de texto "DESCANSO" */
+        padding-left: 0;
+    }
+
+    /* Opcional: hacer scroll horizontal si la tabla es muy ancha */
+    .section-content {
+        overflow-x: auto;
+    }
+}
+
+
 .dragging {
     opacity: 0.5;
 }
