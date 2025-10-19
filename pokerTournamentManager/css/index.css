@@ -242,3 +242,40 @@ button:hover .fa-gear {
     background-color: #48bb78; /* Un verde más claro al hacer hover */
     transform: translateY(-1px);
 }
+
+/* Overlay de carga */
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #333;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+/* Spinner simple */
+.loading-overlay .spinner {
+    border: 4px solid #ddd;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Ocultar al terminar */
+.loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
