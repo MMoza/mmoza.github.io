@@ -9,7 +9,7 @@ export function generateBlindsTableHTML(blindLevels) {
                         <input type="number" name="blindLevels[${index}].durationMinutes" 
                                value="${level.durationMinutes}" min="1">
                     </td>
-                    <td><button class="delete-level-button" data-index="${index}">??</button></td>
+                    <td><button class="delete-level-button" data-index="${index}"><i class="fas fa-trash"></i></button></td>
                 </tr>`;
         }
 
@@ -20,7 +20,7 @@ export function generateBlindsTableHTML(blindLevels) {
                 <td><input type="number" name="blindLevels[${index}].big_blind" value="${level.bigBlind}"></td>
                 <td><input type="number" name="blindLevels[${index}].ante" value="${level.ante}"></td>
                 <td><input type="number" name="blindLevels[${index}].durationMinutes" value="${level.durationMinutes}"></td>
-                <td><button class="delete-level-button" data-index="${index}">??</button></td>
+                <td><button class="delete-level-button" data-index="${index}"><i class="fas fa-trash"></i></button></td>
             </tr>`;
     }).join('');
 }

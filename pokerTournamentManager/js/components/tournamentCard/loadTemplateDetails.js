@@ -21,7 +21,7 @@ export async function loadTemplateDetails(templateId) {
             const icon = toggle.querySelector('.icon');
             const expanded = section.classList.contains('expanded');
             content.classList.toggle('hidden-content', !expanded);
-            if (icon) icon.textContent = expanded ? '?' : '?';
+           if (icon) icon.textContent = expanded ? '▼' : '►'; 
         });
     });
 
