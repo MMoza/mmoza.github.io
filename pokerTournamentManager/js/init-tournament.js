@@ -1,6 +1,7 @@
 import { TournamentTemplateService } from './services/TournamentTemplateService.js';
 import { fetchTemplate } from './utils/templateLoader.js';
 import { renderTemplates } from './components/tournamentCard/index.js';
+import { showLoadingSpinner, hideLoadingSpinner } from './components/loadingSpinner/index.js';
 
 console.log('init-tournament');
 
@@ -30,6 +31,7 @@ async function initApp() {
 
 // Inicialización
 try {
+    showLoadingSpinner('#modal-overlay');
     initApp()
         .then(async (templates) => {
             window.appTemplates = templates;
@@ -45,6 +47,7 @@ try {
             };
 
             renderTemplates(templates, cardTemplate, tagTemplates);
+            hideLoadingSpinner('#modal-overlay');
             console.log("Plantillas cargadas y renderizadas correctamente.");
         })
         .catch((err) => console.error("Error en inicialización:", err));
