@@ -1,0 +1,59 @@
+<div class="loading-spinner-component" role="status" aria-live="polite">
+  <style>
+    .loading-spinner-component {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    .loading-spinner-component .spinner-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #38a169 10deg,
+        #e6e6e6 120deg,
+        #38a169 360deg
+      );
+      animation: spin 1s linear infinite, changeGap 1.5s ease-in-out infinite;
+      mask: radial-gradient(transparent 60%, black 61%);
+      -webkit-mask: radial-gradient(transparent 60%, black 61%);
+      /* ?? sombra negra suave */
+      filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.6));
+    }
+
+    .loading-spinner-component .loading-text {
+      margin: 8px 0 0 0;
+      font-size: 16px;
+      color: white;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.7); /* ?? sombra visible pero elegante */
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes changeGap {
+      0% {
+        background: conic-gradient(#38a169 20deg, #e6e6e6 140deg, #38a169 360deg);
+      }
+      50% {
+        background: conic-gradient(#38a169 60deg, #e6e6e6 100deg, #38a169 360deg);
+      }
+      100% {
+        background: conic-gradient(#38a169 20deg, #e6e6e6 140deg, #38a169 360deg);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+  </style>
+
+  <div class="spinner-circle" aria-hidden="true"></div>
+  <p class="loading-text">Cargando...</p>
+</div>

@@ -245,3 +245,10 @@
     opacity: 1;
     transform: scale(1.1);
 }
+
+.card-name-input{
+    background: #515151;
+    color: #d9d9d9;
+    font-weight: 100;
+    padding: 4px 8px;
+}
