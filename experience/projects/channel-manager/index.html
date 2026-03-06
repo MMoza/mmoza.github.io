@@ -1,0 +1,106 @@
+<!DOCTYPE html><script type="module">const e=localStorage.getItem("theme");(e==="dark"||!e&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.documentElement.classList.add("dark");</script> <html lang="en" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="description" content="Backend developer focused on architectural decisions, system integrations and SaaS platforms in the tourism sector."><meta property="og:title" content="Miguel �ngel Moza Barquilla ? Backend Developer"><meta property="og:description" content="Backend developer focused on architecture, integrations and evolving complex domain systems."><meta property="og:type" content="website"><meta property="og:url" content="https://mmoza.github.io"><meta property="og:image" content="/og-image.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Miguel Ángel Moza Barquilla | Backend Developer"><meta name="twitter:description" content="Backend developer focused on architecture, integrations and SaaS systems."><meta name="twitter:image" content="/og-image.png"><link rel="canonical" href="https://mmoza.github.io"><title>Miguel Ángel Moza Barquilla</title><link rel="stylesheet" href="/_astro/contact.BCCkks4S.css"></head> <body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen flex flex-col"> <!-- Code editor style background --><div class="pointer-events-none absolute inset-0 flex items-center justify-center" data-astro-cid-lxphqdbq> <div class="bg-gray-100/40 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 rounded-xl p-6 font-mono text-xs md:text-sm leading-relaxed opacity-[0.18] dark:opacity-[0.12] blur-[0.3px] select-none shadow-sm" data-astro-cid-lxphqdbq> <pre class="code-scroll code-editor" data-astro-cid-lxphqdbq>
+
+<span class="text-purple-600" data-astro-cid-lxphqdbq>class</span> <span class="text-blue-600" data-astro-cid-lxphqdbq>ReservationService</span> &#123;
+
+  <span class="text-green-600" data-astro-cid-lxphqdbq>public function</span> <span class="text-blue-600" data-astro-cid-lxphqdbq>calculateTotal</span>()
+  &#123;
+      <span class="text-purple-600" data-astro-cid-lxphqdbq>return</span> $this->pricingService
+          ->applySeasonModifier()
+          ->applyDiscountRules()
+          ->applyChannelCommission()
+          ->applyTaxes()
+          ->buildInvoice();<span class="cursor" data-astro-cid-lxphqdbq></span>
+  &#125;
+
+&#125;
+
+<span class="text-gray-500" data-astro-cid-lxphqdbq>// Domain rules evolve</span>
+<span class="text-gray-500" data-astro-cid-lxphqdbq>// architecture decisions matter</span>
+<span class="text-gray-500" data-astro-cid-lxphqdbq>// complexity grows over time</span>
+
+</pre> </div> </div>  <header id="site-header" class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-gray-950/70 border-b border-gray-200 dark:border-gray-800 transition-shadow duration-300"> <!-- Accent gradient --> <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent"></div> <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between"> <!-- Brand --> <a href="/" class="font-semibold text-lg whitespace-nowrap transition-colors duration-200 hover:text-blue-600"> <span class="hidden sm:inline">Miguel Ángel Moza Barquilla</span> <span class="sm:hidden">Miguel Ángel</span> </a> <!-- Desktop Navigation --> <nav class="hidden md:flex items-center gap-6 text-sm"> <a href="/projects" class="relative pb-1 transition-colors duration-200 hover:text-blue-600 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:bg-blue-600 after:origin-left after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 text-gray-700 dark:text-gray-300">Projects</a> <a href="/experience" class="relative pb-1 transition-colors duration-200 hover:text-blue-600 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:bg-blue-600 after:origin-left after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 text-blue-600 font-medium after:scale-x-100">Experience</a> <a href="/contact" class="relative pb-1 transition-colors duration-200 hover:text-blue-600 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:bg-blue-600 after:origin-left after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 text-gray-700 dark:text-gray-300">Contact</a> <!-- Settings / Toggles --> <div class="flex items-center gap-2 ml-2"> <button id="theme-toggle" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 dark:bg-gray-700 transition-colors duration-300"> <!-- Toggle knob --> <span class="inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform duration-300 translate-x-1 dark:translate-x-6"></span> <!-- Sun icon --> <svg class="absolute left-1 w-4 h-3 text-yellow-500 pointer-events-none transition-opacity duration-300 dark:opacity-40" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 18a6 6 0 100-12 6 6 0 000 12zm0 2a8 8 0 110-16 8 8 0 010 16z"></path> </svg> <!-- Moon icon --> <svg class="absolute right-1 w-4 h-3 text-blue-300 pointer-events-none transition-opacity duration-300 opacity-40 dark:opacity-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"> <path d="M21 12.79A9 9 0 1111.21 3c.1 0 .19 0 .29.01A7 7 0 0021 12.79z"></path> </svg> </button> <script>
+  const button = document.getElementById("theme-toggle");
+
+  function setTheme(theme) {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }
+
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme) {
+    setTheme(savedTheme);
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    setTheme("dark");
+  }
+
+  button?.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "light" : "dark");
+  });
+</script> </div> </nav> <!-- Mobile Menu Button --> <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"> <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> <!-- Mobile Navigation --> <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-800"> <nav class="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-4 text-sm"> <a href="/projects" class="relative pb-1 transition-colors duration-200 hover:text-blue-600 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:bg-blue-600 after:origin-left after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 text-gray-700 dark:text-gray-300">Projects</a> <a href="/experience" class="relative pb-1 transition-colors duration-200 hover:text-blue-600 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:bg-blue-600 after:origin-left after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 text-blue-600 font-medium after:scale-x-100">Experience</a> <a href="/contact" class="relative pb-1 transition-colors duration-200 hover:text-blue-600 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:bg-blue-600 after:origin-left after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 text-gray-700 dark:text-gray-300">Contact</a> <div class="pt-2"> <button id="theme-toggle" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 dark:bg-gray-700 transition-colors duration-300"> <!-- Toggle knob --> <span class="inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform duration-300 translate-x-1 dark:translate-x-6"></span> <!-- Sun icon --> <svg class="absolute left-1 w-4 h-3 text-yellow-500 pointer-events-none transition-opacity duration-300 dark:opacity-40" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 18a6 6 0 100-12 6 6 0 000 12zm0 2a8 8 0 110-16 8 8 0 010 16z"></path> </svg> <!-- Moon icon --> <svg class="absolute right-1 w-4 h-3 text-blue-300 pointer-events-none transition-opacity duration-300 opacity-40 dark:opacity-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"> <path d="M21 12.79A9 9 0 1111.21 3c.1 0 .19 0 .29.01A7 7 0 0021 12.79z"></path> </svg> </button> <script>
+  const button = document.getElementById("theme-toggle");
+
+  function setTheme(theme) {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }
+
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme) {
+    setTheme(savedTheme);
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    setTheme("dark");
+  }
+
+  button?.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "light" : "dark");
+  });
+</script> </div> </nav> </div> <script type="module">const t=document.getElementById("menu-toggle"),d=document.getElementById("mobile-menu"),e=document.getElementById("site-header");t?.addEventListener("click",()=>{d?.classList.toggle("hidden")});const n=()=>{window.scrollY>10?e?.classList.add("shadow-md"):e?.classList.remove("shadow-md")};window.addEventListener("scroll",n);</script> </header> <main class="flex-1 max-w-5xl mx-auto px-6 py-16 w-full">  <article class="max-w-3xl mx-auto"> <a href="/experience/backend-developer" class="group inline-flex items-center gap-2 inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors mb-8"> <!-- Arrow --> <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"></path> </svg> Back to FullStack Developer in MisterPlan </a> <header class="mb-14"> <h1 class="text-3xl md:text-4xl font-bold mb-4">
+Activity Channel Manager
+</h1> <p class="text-gray-600 dark:text-gray-400">
+Refactoring and evolution of the activity distribution system,
+connecting tourism activity providers with major international
+distribution platforms.
+</p> </header> <!-- METRICS --> <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10"> <div class="metric-card border border-gray-200 dark:border-gray-800
+  rounded-lg p-5
+  bg-white/95 dark:bg-gray-900/90
+  backdrop-blur-sm
+  text-center
+  transition-all duration-200
+  hover:shadow-md hover:-translate-y-[1px]"> <p class="metric-value text-2xl font-semibold text-blue-600" data-value="5"> 5 </p> <p class="text-sm text-gray-600 dark:text-gray-400 mt-1"> distribution platforms integrated </p> </div> <script type="module">const h=document.querySelectorAll(".metric-value"),l=new IntersectionObserver(t=>{t.forEach(s=>{if(!s.isIntersecting)return;const e=s.target,o=e.dataset.value,n=parseInt(o.replace(/[^0-9]/g,"")),c=o.startsWith("+")?"+":"";let r=0;const u=1200,a=20,i=u/a,v=n/i,f=setInterval(()=>{r+=v,r>=n?(e.textContent=c+n,clearInterval(f)):e.textContent=c+Math.floor(r)},a);l.unobserve(e)})},{threshold:.6});h.forEach(t=>l.observe(t));</script> <div class="metric-card border border-gray-200 dark:border-gray-800
+  rounded-lg p-5
+  bg-white/95 dark:bg-gray-900/90
+  backdrop-blur-sm
+  text-center
+  transition-all duration-200
+  hover:shadow-md hover:-translate-y-[1px]"> <p class="metric-value text-2xl font-semibold text-blue-600" data-value="Millions"> Millions </p> <p class="text-sm text-gray-600 dark:text-gray-400 mt-1"> reservations processed </p> </div>  <div class="metric-card border border-gray-200 dark:border-gray-800
+  rounded-lg p-5
+  bg-white/95 dark:bg-gray-900/90
+  backdrop-blur-sm
+  text-center
+  transition-all duration-200
+  hover:shadow-md hover:-translate-y-[1px]"> <p class="metric-value text-2xl font-semibold text-blue-600" data-value="Full"> Full </p> <p class="text-sm text-gray-600 dark:text-gray-400 mt-1"> system refactor </p> </div>  </div> <!-- DESCRIPTION --> <section class="mb-12"> <p class="text-gray-600 dark:text-gray-400 mb-4">
+The channel manager allows activity providers to distribute their
+products across multiple tourism marketplaces while maintaining
+centralized control over availability, pricing and booking
+synchronization.
+</p> <p class="text-gray-600 dark:text-gray-400">
+The system was progressively refactored to improve maintainability
+and scalability, applying clean architecture principles and
+decoupling external integrations from the core business logic.
+</p> </section> <!-- INTEGRATIONS --> <section class="mb-12"> <h2 class="text-xl font-semibold mb-4">
+Distribution platforms
+</h2> <ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"> <li>Civitatis</li> <li>GetYourGuide</li> <li>Viator</li> <li>Tiqets (OCTO protocol)</li> <li>Axess</li> </ul> </section> <!-- ARCHITECTURE --> <section> <h2 class="text-xl font-semibold mb-4">
+Technical highlights
+</h2> <ul class="space-y-2 text-gray-600 dark:text-gray-400 list-disc pl-6"> <li>Large scale API integrations with tourism distribution platforms</li> <li>Refactoring applying Clean Code and Hexagonal Architecture</li> <li>Improved maintainability of external integrations</li> <li>Scalable architecture for adding new distribution channels</li> </ul> </section> </article>  </main> <footer class="relative border-t border-gray-200 dark:border-gray-800 mt-20"> <!-- Accent line --> <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent"></div> <!-- Subtle glow --> <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-blue-500/[0.05] to-transparent"></div> <div class="relative max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-sm"> <!-- Copyright --> <p class="text-gray-600 dark:text-gray-400">
+© 2026 Miguel Ángel Moza Barquilla
+</p> <!-- Links --> <div class="flex items-center gap-8"> <!-- GitHub --> <a href="https://github.com/MMoza" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors duration-200"> <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-200 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.21 11.38c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.23 1.84 1.23 1.07 1.84 2.8 1.31 3.48 1 .11-.77.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.4 11.4 0 016 0C17.3 3.6 18.3 3.92 18.3 3.92c.65 1.66.24 2.88.12 3.18.76.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"></path> </svg>
+GitHub
+</a> <!-- LinkedIn --> <a href="https://www.linkedin.com/in/miguel-angel-moza-barquilla-040b63256/" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors duration-200"> <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-200 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"> <path d="M20.45 20.45h-3.55v-5.6c0-1.34-.03-3.06-1.86-3.06-1.86 0-2.15 1.45-2.15 2.96v5.7H9.33V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.21 0 22.23 0z"></path> </svg>
+LinkedIn
+</a> <!-- Email --> <a href="mailto:miguelangelmozabarquilla@gmail.com" class="group flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors duration-200"> <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"> <path d="M22 6l-10 7L2 6"></path> <rect x="2" y="4" width="20" height="16" rx="2"></rect> </svg>
+Email
+</a> </div> </div> </footer> </body></html>
