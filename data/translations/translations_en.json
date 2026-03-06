@@ -1,9 +1,0 @@
-{
-    "home": {
-        "welcomeMessage": "Hello, I'm <span class='name-accent'>Miguel Ángel Moza Barquilla</span>!",
-        "jobTitle": "Full Stack Web Developer",
-        "cv": "Check out my CV",
-        "linkedin": "Visit my LinkedIn profile",
-        "contact": "Get in touch with me"
-    }
-}
